@@ -8,10 +8,10 @@ const Splash = () => {
   return (
     <div className='splash'>
         <div className='splash-nav'>
-          <div className='splash-logo'>
+          <a href="/#/" className='splash-logo'>
             <p>Spookify</p>
             <img src='/assets/white-icon'></img>
-          </div>
+          </a>
 
           <div className='splash-nav-links'>
             <Link to="/signup"> Sign Up </Link>

@@ -29,6 +29,10 @@ class SessionForm extends React.Component {
     this.props.receiveErrors([]);
   }
 
+  componentDidMount() {
+    document.title = this.props.formType;
+  }
+
   demoUser() {
     this.props.loginDemo();
   }
