@@ -33,7 +33,7 @@ class Splash extends React.Component {
 
           <div className="splash-bottom">
             <p>Spookify</p>
-            <img className="bottom-logo" src='/assets/white-icon'></img>
+            <img className="bottom-logo" src={window.images.white_icon}></img>
             <div className="bottom-lists">
               <div>
                 <h3>About the developer</h3>

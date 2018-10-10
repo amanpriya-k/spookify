@@ -15,7 +15,7 @@ class SideNav extends React.Component {
     }
     return (
       <div>
-        <h2> {this.props.currentUser.username} </h2>
+        <h2> welcome, {this.props.currentUser.username} </h2>
         <button onClick={() => this.props.logout()}>Log Out</button>
       </div>
     )
