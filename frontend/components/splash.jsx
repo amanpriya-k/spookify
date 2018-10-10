@@ -32,14 +32,13 @@ class Splash extends React.Component {
           </div>
 
           <div className="splash-bottom">
-            <p>Spookify</p>
+            <p className="bottom-words">Spookify</p>
             <img className="bottom-logo" src={window.images.white_icon}></img>
             <div className="bottom-lists">
               <div>
                 <h3>About the developer</h3>
-                <h4><a href="/#/">GitHub </a> </h4>
-                <h4><a href="/#/">LinkedIn </a> </h4>
-                <h4><a href="/#/">Resume </a> </h4>
+                <h4><a href="https://github.com/amanpriya-k">GitHub </a> </h4>
+                <h4><a href="https://www.linkedin.com/in/amanpriyakulkarni/">LinkedIn </a> </h4>
               </div>
               <div>
                 <h3>Useful Links</h3>
@@ -49,6 +48,7 @@ class Splash extends React.Component {
               </div>
             </div>
 
+            <p>developed by Riya Kulkarni!</p>
             <img src={window.images.spook}></img>
           </div>
       </div>

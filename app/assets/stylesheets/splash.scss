@@ -117,7 +117,7 @@
   width: 25px;
 }
 
-.splash-bottom p {
+.bottom-words {
   position: absolute;
   top: 15px;
   left: 74px;
@@ -162,4 +162,12 @@
   position: absolute;
   bottom: 0px;
   right: 39px;
+}
+
+.splash-bottom p:last-of-type {
+  font-family: "Circular";
+  font-size: 12px;
+  position: absolute;
+  bottom: 0px;
+  right: 120px;
 }
