@@ -1,6 +1,6 @@
 
 .splash {
-  background-image: url('splash-bg.jpg');
+  background-image: image-url('splash-bg.jpg');
   position: absolute;
   top: 0;
   bottom: 0;
@@ -106,20 +106,52 @@
   width: 100%;
   position: absolute;
   top: 700px;
+  color: white;
 }
 
 .splash-bottom img {
   position: absolute;
-  top: 16px;
-  left: 15px;
+  top: 31px;
+  left: 40px;
   height: 25px;
   width: 25px;
 }
 
 .splash-bottom p {
   position: absolute;
-  top: 0;
-  left: 49px;
+  top: 15px;
+  left: 74px;
   font-size: 18px;
   color: white;
+}
+
+.bottom-lists {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 200px;
+}
+
+.bottom-lists a {
+  color: white;
+  text-decoration: none;
+}
+
+.bottom-lists a:hover {
+  color: orange;
+}
+
+.bottom-lists div {
+  padding-top: 20px;
+  padding-right: 30px;
+}
+
+.bottom-lists h3 {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: grey;
+}
+
+.bottom-lists h4 {
+  font-size: 15px;
 }
