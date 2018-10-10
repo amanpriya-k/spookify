@@ -28,6 +28,6 @@ export const loginDemo = () => (
   $.ajax({
     url: 'api/session',
     method: 'POST',
-    data: { user: { username: 'guestuser', password: '123456' } }
+    data: { user: { username: 'ghostuser', password: '123456' } }
   })
 );
