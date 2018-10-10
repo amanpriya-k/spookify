@@ -16,7 +16,7 @@ class Splash extends React.Component {
           <div className='splash-nav'>
             <a href="/#/" className='splash-logo'>
               <p>Spookify</p>
-              <img src='/assets/white-icon'></img>
+              <img src={window.images.white_icon}></img>
             </a>
 
             <div className='splash-nav-links'>
@@ -33,7 +33,7 @@ class Splash extends React.Component {
 
           <div className="splash-bottom">
             <p>Spookify</p>
-            <img src='/assets/white-icon'></img>
+            <img className="bottom-logo" src='/assets/white-icon'></img>
             <div className="bottom-lists">
               <div>
                 <h3>About the developer</h3>
@@ -48,6 +48,8 @@ class Splash extends React.Component {
                 <h4><a href="/#/"> Home </a> </h4>
               </div>
             </div>
+
+            <img src={window.images.spook}></img>
           </div>
       </div>
     )

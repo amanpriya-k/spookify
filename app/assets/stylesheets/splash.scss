@@ -109,7 +109,7 @@
   color: white;
 }
 
-.splash-bottom img {
+.bottom-logo {
   position: absolute;
   top: 31px;
   left: 40px;
@@ -154,4 +154,12 @@
 
 .bottom-lists h4 {
   font-size: 15px;
+}
+
+.splash-bottom img:last-of-type {
+  width: 90px;
+  height: 80px;
+  position: absolute;
+  bottom: 0px;
+  right: 39px;
 }

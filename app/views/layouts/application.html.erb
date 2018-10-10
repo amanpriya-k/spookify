@@ -4,7 +4,7 @@
     <title>Spookify</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="icon" href="/assets/black-icon">
+    <link rel="icon" href= <%= asset_path("black-icon.png") %> >
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>

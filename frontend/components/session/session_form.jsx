@@ -59,7 +59,7 @@ class SessionForm extends React.Component {
 
         <a href="/#/" className="session-header">
           <div className="session-header-logo">
-            <img src={window.images.black}></img>
+            <img src={window.images.black_icon}></img>
             <p>Spookify</p>
           </div>
         </a>
