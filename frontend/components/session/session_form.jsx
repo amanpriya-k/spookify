@@ -53,12 +53,13 @@ class SessionForm extends React.Component {
     return (
       <div className="session-page">
 
-        <div className="session-header">
+        <a href="/#/" className="session-header">
           <div className="session-header-logo">
             <img src='/assets/black-icon'></img>
             <p>Spookify</p>
           </div>
-        </div>
+        </a>
+
 
         <div className="demo">
           <button onClick={this.demoUser}>DEMO USER</button>
