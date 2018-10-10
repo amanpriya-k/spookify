@@ -1,12 +1,16 @@
 
 .splash {
-  background-image: image-url('splash-bg.jpg');
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  // background-image: image-url('splash-bg.jpg');
+  background: image-url('splash-bg.jpg') no-repeat fixed center;
+  // position: absolute;
+  // top: 0;
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
+  // height: 100vh;
   background-size: cover;
+  // height: 400px;
+  background-attachment: fixed;
 }
 
 .splash-nav {
@@ -26,7 +30,7 @@
 .splash-logo p {
   position: absolute;
   font-size: 25px;
-  top: 0px;
+  top: 25px;
   left: 88px;
   color: white;
 }
@@ -52,6 +56,10 @@
 
 .splash-nav-links a:last-of-type {
   border-left: 1px solid white;
+}
+
+.splash-img {
+  height: 700px;
 }
 
 .splash-img h1 {
@@ -119,7 +127,7 @@
 
 .bottom-words {
   position: absolute;
-  top: 15px;
+  top: 32px;
   left: 74px;
   font-size: 18px;
   color: white;

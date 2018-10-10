@@ -13,6 +13,7 @@ class Splash extends React.Component {
   render() {
     return (
       <div className='splash'>
+
           <div className='splash-nav'>
             <a href="/#/" className='splash-logo'>
               <p>Spookify</p>
@@ -32,6 +33,7 @@ class Splash extends React.Component {
           </div>
 
           <div className="splash-bottom">
+
             <p className="bottom-words">Spookify</p>
             <img className="bottom-logo" src={window.images.white_icon}></img>
             <div className="bottom-lists">
@@ -50,6 +52,7 @@ class Splash extends React.Component {
 
             <p>developed by Riya Kulkarni!</p>
             <img src={window.images.spook}></img>
+
           </div>
       </div>
     )

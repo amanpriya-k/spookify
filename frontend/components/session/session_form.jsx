@@ -57,18 +57,20 @@ class SessionForm extends React.Component {
     return (
       <div className="session-page">
 
-        <a href="/#/" className="session-header">
-          <div className="session-header-logo">
-            <img src={window.images.black_icon}></img>
-            <p>Spookify</p>
-          </div>
-        </a>
-
+        <div className="session-header">
+          <a href="/#/" className="session-header-link">
+            <div className="session-header-logo">
+              <img src={window.images.black_icon}></img>
+              <p>Spookify</p>
+            </div>
+          </a>
+        </div>
+        <br></br>
 
         <div className="demo">
           <button onClick={this.demoUser}>DEMO USER</button>
         </div>
-
+        <br></br>
         <p className="or">or</p>
 
         <h3> { formType === 'Sign Up' ? 'Sign up for a new account' : 'Log in with your username' } </h3>
@@ -89,6 +91,7 @@ class SessionForm extends React.Component {
                  placeholder="Password"/>
 
           <input type="submit" value={formType === 'Login' ? 'LOG IN' : 'SIGN UP'} />
+          <br></br>
           {bottomButton}
         </form>
       </div>

@@ -16,7 +16,7 @@ class SideNav extends React.Component {
     return (
       <div>
         <h2> welcome, {this.props.currentUser.username} </h2>
-        <button onClick={() => this.props.logout()}>Log Out</button>
+        <button onClick={() => this.props.logout()}>Log Out (clickable even though its ugly i promise)</button>
       </div>
     )
   }
