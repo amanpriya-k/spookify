@@ -7,46 +7,84 @@ class SessionForm extends React.Component {
     super(props);
     this.state = { username: '', email: '', password: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.redirectOnSuccess = this.redirectOnSuccess.bind(this);
+    this.demoUser = this.demoUser.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    // debugger
-    this.props.processForm(this.state).then(() => { this.props.history.push('/browse') });
+    this.props.processForm(this.state)
+    // .then((res) => { return this.redirectOnSuccess() });
   }
 
   handleChange(type) {
     return (e) => ( this.setState({ [type]: e.currentTarget.value }) );
   }
 
+  redirectOnSuccess() {
+    this.props.history.push('/browse');
+  }
+
+  componentWillUnmount() {
+    this.props.receiveErrors([]);
+  }
+
+  demoUser() {
+    this.props.loginDemo();
+  }
+
   render() {
-    // debugger
-    let { errors, formType, processForm } = this.props;
+    let { errors, formType, processForm, loginDemo } = this.props;
 
-    const emailInput =  formType === 'Sign Up' ? (<div> <label>Email</label> <input type="text" onChange={this.handleChange('email')} value={this.state.email} />  </div>) : null
+    const emailInput =  formType === 'Sign Up' ? (<div> <input type="text" onChange={this.handleChange('email')} value={this.state.email} placeholder="Email"/>  </div>) : null
 
-    const errorsList = errors.length > 0 ? (<ul> {errors.map((error, idx) => (<li key={idx}>{error}</li>) )} </ul>) : null
-    // console.log(errors)
+    const errorsList = errors.length > 0 ? (<ul className="session-errors"> {errors.map((error, idx) => (<li key={idx}>{error}</li>) )} </ul>) : null
+
+    const bottomButton = formType === 'Sign Up' ? (
+      <div className="bottom-form">
+        <p>Already have an account? <a href='/#/login'>Log In</a></p>
+      </div>
+    ) : (
+      <div className="bottom-form">
+        <p>Don't have an account? <a href='/#/signup'>Sign up</a></p>
+      </div>
+    )
+
     return (
-      <div>
-        <h3> {formType} </h3>
+      <div className="session-page">
+
+        <div className="session-header">
+          <div className="session-header-logo">
+            <img src='/assets/black-icon'></img>
+            <p>Spookify</p>
+          </div>
+        </div>
+
+        <div className="demo">
+          <button onClick={this.demoUser}>DEMO USER</button>
+        </div>
+
+        <p className="or">or</p>
+
+        <h3> { formType === 'Sign Up' ? 'Sign up for a new account' : 'Log in with your username' } </h3>
         {errorsList}
 
         <form onSubmit={this.handleSubmit}>
-          <label>Username</label>
           <input type="text"
                  onChange={this.handleChange('username')}
-                 value={this.state.username} />
+                 value={this.state.username}
+                 placeholder="Username"/>
 
 
           {emailInput}
 
-          <label>Password</label>
-          <input type="text"
+          <input type="password"
                  onChange={this.handleChange('password')}
-                 value={this.state.password} />
+                 value={this.state.password}
+                 placeholder="Password"/>
 
-          <input type="submit" value={formType} />
+          <input type="submit" value={formType === 'Login' ? 'LOG IN' : 'SIGN UP'} />
+          {bottomButton}
         </form>
       </div>
     );

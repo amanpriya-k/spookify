@@ -5,18 +5,30 @@ import SignupFormContainer from './session/signup_form_container'
 import SideNav from './side_nav';
 
 const Splash = () => {
-  // debugger
   return (
-    <div>
-      <h1>This is the splash page woohoo welcome~~~</h1>
-        <Link to="/signup"> Sign Up </Link>
-        <Link to="/login"> Login </Link>
+    <div className='splash'>
+        <div className='splash-nav'>
+          <div className='splash-logo'>
+            <p>Spookify</p>
+            <img src='/assets/white-icon'></img>
+          </div>
 
-        <Route path="/signup" component={SignupFormContainer} ></Route>
+          <div className='splash-nav-links'>
+            <Link to="/signup"> Sign Up </Link>
+            <Link to="/login"> Login </Link>
+          </div>
+        </div>
 
+        <div className='splash-img'>
+          <h1>Music for everyone.</h1>
+          <h3>Millions of songs. No credit card needed.</h3>
+          <Link className='splash-btn' to="/signup"> GET SPOOKIFY FREE </Link>
+        </div>
 
-        <Route path="/login" component={LoginFormContainer} ></Route>
-
+        <div className="splash-bottom">
+          <p>Spookify</p>
+          <img src='/assets/white-icon'></img>
+        </div>
     </div>
   )
 }

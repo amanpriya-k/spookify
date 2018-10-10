@@ -1,0 +1,124 @@
+
+.splash {
+  background-image: url('splash-bg.jpg');
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-size: cover;
+}
+
+.splash-nav {
+  font-family: "Circular Bold";
+  background: rgba(0, 0, 0, 0.5);
+  height: 80px;
+}
+
+.splash-logo img {
+  position: absolute;
+  top: 24px;
+  left: 45px;
+  height: 35px;
+  width: 35px;
+}
+
+.splash-logo p {
+  position: absolute;
+  font-size: 25px;
+  top: 0px;
+  left: 88px;
+  color: white;
+}
+
+.splash-nav-links {
+  position: absolute;
+  right: 30px;
+  top: 28px;
+}
+
+.splash-nav-links a {
+  color: white;
+  font-size: 17px;
+  text-decoration: none;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.splash-nav-links a:hover {
+  color: orange;
+}
+
+.splash-nav-links a:last-of-type {
+  border-left: 1px solid white;
+}
+
+.splash-img h1 {
+  font-family: "Circular Bold";
+  font-size: 80px;
+  text-align: center;
+  color: white;
+  position: absolute;
+  top: 30%;
+  right: 20%;
+}
+
+.splash-img h3 {
+  font-family: "Circular";
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  position: absolute;
+  top: 50%;
+  right: 35%;
+}
+
+.splash-img a {
+  font-family: "Circular Bold";
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 2px;
+  color: white;
+  position: absolute;
+  top: 62%;
+  right: 40%;
+  text-decoration: none;
+  background-color: #1DB954;
+  border: #1DB954;
+  padding: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 25px;
+  transition: .5s;
+  outline: none;
+}
+
+.splash-img a:hover {
+  background-color: #55DA5D;
+  border: #55DA5D;
+}
+
+.splash-bottom {
+  font-family: "Circular Bold";
+  background-color: black;
+  height: 200px;
+  width: 100%;
+  position: absolute;
+  top: 700px;
+}
+
+.splash-bottom img {
+  position: absolute;
+  top: 16px;
+  left: 15px;
+  height: 25px;
+  width: 25px;
+}
+
+.splash-bottom p {
+  position: absolute;
+  top: 0;
+  left: 49px;
+  font-size: 18px;
+  color: white;
+}

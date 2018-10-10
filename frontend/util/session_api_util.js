@@ -23,3 +23,11 @@ export const logout = () => (
     method: 'DELETE'
   })
 );
+
+export const loginDemo = () => (
+  $.ajax({
+    url: 'api/session',
+    method: 'POST',
+    data: { user: { username: 'guestuser', password: '123456' } }
+  })
+);

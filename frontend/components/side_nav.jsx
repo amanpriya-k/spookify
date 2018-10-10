@@ -10,14 +10,13 @@ class SideNav extends React.Component {
   }
 
   render() {
-    if (!currentUser) {
+    if (!this.props.currentUser) {
       return null;
     }
-    console.log('wut');
     return (
       <div>
         <h2> {this.props.currentUser.username} </h2>
-        <button onClick={this.props.logout}>Log Out</button>
+        <button onClick={() => this.props.logout()}>Log Out</button>
       </div>
     )
   }

@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+
+ html, body, #app, #app>div {
+   height: 100%
+ }
+
+@font-face {
+  font-family: "Circular Bold";
+  src: url('/assets/CircularStd-Bold.otf');
+}
+
+@font-face {
+  font-family: "Circular";
+  src: url('/assets/CircularStd-Book.otf');
+}

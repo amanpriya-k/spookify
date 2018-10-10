@@ -2,11 +2,11 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save!
+    if @user.save
       login(@user)
       render :show
     else
-      render json: ['unable to create new user'], status: 400
+      render json: @user.errors.full_messages, status: 400
     end
   end
 
@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
     if @user.update(user_params)
       render :show
     else
-      render json: @user.errors.full_messages, status: 400
+      render json: ['Unable to update. Please try again.'], status: 400
     end
   end
 
