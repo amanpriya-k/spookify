@@ -19,6 +19,9 @@ class User < ApplicationRecord
 
   attr_reader :password
 
+  has_many :followed_items, as: :followable
+  has_many :saved_items, as: :saveable
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return user if (user && user.is_password?(password))

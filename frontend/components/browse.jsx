@@ -6,7 +6,7 @@ class Browse extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="browse-container">
         <h1>Browsing</h1>
       </div>
     )

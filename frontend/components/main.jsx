@@ -10,8 +10,8 @@ class Main extends React.Component {
     return(
       <div>
         <SideNav/>
-        <AuthRoute path="/browse/albums" component={Browse} ></AuthRoute>
-        <AuthRoute path="/search" component={Browse} ></AuthRoute>
+        <ProtectedRoute path="/browse/albums" component={Browse}></ProtectedRoute>
+
       </div>
     )
   }

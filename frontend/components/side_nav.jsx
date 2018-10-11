@@ -24,7 +24,7 @@ class SideNav extends React.Component {
 
         <div className="side-bar-links">
           <a href="/#/search"><i class="fa fa-search"><span>Search</span></i></a>
-          <a href="/#/browse"><i class="fa fa-home"><span>Home</span></i></a>
+          <a href="/#/browse/albums"><i class="fa fa-home"><span>Home</span></i></a>
           <a href="/#/library"><i class="fa fa-bookmark"><span>Your Library</span></i></a>
         </div>
 
