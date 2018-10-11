@@ -27,6 +27,7 @@
     top: 25px;
     left: 88px;
     color: white;
+    letter-spacing: -0.04em;
   }
 }
 
@@ -136,7 +137,7 @@
   top: 700px;
   color: white;
 
-  img:last-of-type {
+  .spook {
     width: 90px;
     height: 80px;
     position: absolute;
@@ -167,6 +168,7 @@
   left: 74px;
   font-size: 18px;
   color: white;
+  letter-spacing: -0.04em;
 }
 
 .bottom-lists {

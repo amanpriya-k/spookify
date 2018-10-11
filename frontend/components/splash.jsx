@@ -55,7 +55,9 @@ class Splash extends React.Component {
             </div>
 
             <p>developed by Riya Kulkarni!</p>
-            <img src={window.images.spook}></img>
+            <a target="_blank" href="https://media1.giphy.com/media/YARUMKaGd8cRG/giphy.gif?cid=3640f6095bbeae732e425a7863318478">
+              <img className="spook" src={window.images.spook}></img>
+            </a>
 
           </div>
       </div>

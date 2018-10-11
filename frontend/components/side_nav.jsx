@@ -14,9 +14,25 @@ class SideNav extends React.Component {
       return null;
     }
     return (
-      <div>
-        <h2> welcome, {this.props.currentUser.username} </h2>
-        <button onClick={() => this.props.logout()}>Log Out (clickable even though its ugly i promise)</button>
+      <div className="side-bar">
+        <div className="side-bar-logo">
+          <a href="/#/">
+            <p>Spookify</p>
+            <img src={window.images.white_icon}></img>
+          </a>
+        </div>
+
+        <div className="side-bar-links">
+          <a href="/#/search"><i class="fa fa-search"><span>Search</span></i></a>
+          <a href="/#/browse"><i class="fa fa-home"><span>Home</span></i></a>
+          <a href="/#/library"><i class="fa fa-bookmark"><span>Your Library</span></i></a>
+        </div>
+
+
+        <div className="side-bar-bottom">
+          <a href="/#/"><i class="fa fa-user"><span>{this.props.currentUser.username}</span></i></a>
+          <button onClick={() => this.props.logout()}>LOG OUT</button>
+        </div>
       </div>
     )
   }
