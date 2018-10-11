@@ -19,7 +19,11 @@ class Splash extends React.Component {
               <p>Spookify</p>
               <img src={window.images.white_icon}></img>
             </a>
+            <div className="other-icons-nav">
 
+              <a href="https://github.com/amanpriya-k"><i class="fab fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/amanpriyakulkarni/"><i class="fab fa-linkedin"></i></a>
+            </div>
             <div className='splash-nav-links'>
               <Link to="/signup"> Sign Up </Link>
               <Link to="/login"> Login </Link>

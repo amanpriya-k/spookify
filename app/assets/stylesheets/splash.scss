@@ -1,15 +1,7 @@
 
 .splash {
-  // background-image: image-url('splash-bg.jpg');
   background: image-url('splash-bg.jpg') no-repeat fixed center;
-  // position: absolute;
-  // top: 0;
-  // bottom: 0;
-  // left: 0;
-  // right: 0;
-  // height: 100vh;
   background-size: cover;
-  // height: 400px;
   background-attachment: fixed;
 }
 
@@ -19,92 +11,120 @@
   height: 80px;
 }
 
-.splash-logo img {
-  position: absolute;
-  top: 24px;
-  left: 45px;
-  height: 35px;
-  width: 35px;
-}
+.splash-logo {
 
-.splash-logo p {
-  position: absolute;
-  font-size: 25px;
-  top: 25px;
-  left: 88px;
-  color: white;
+  img {
+    position: absolute;
+    top: 24px;
+    left: 45px;
+    height: 35px;
+    width: 35px;
+  }
+
+  p {
+    position: absolute;
+    font-size: 25px;
+    top: 25px;
+    left: 88px;
+    color: white;
+  }
 }
 
 .splash-nav-links {
   position: absolute;
-  right: 30px;
+  right: 50px;
   top: 28px;
+
+  a {
+    color: white;
+    font-size: 17px;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 15px;
+    transition: .5s;
+  }
+
+  a:hover {
+    color: orange;
+  }
+
+
 }
 
-.splash-nav-links a {
-  color: white;
-  font-size: 17px;
-  text-decoration: none;
-  padding-left: 30px;
-  padding-right: 30px;
-  transition: .5s;
-}
+.other-icons-nav {
+  position: absolute;
+  right: 240px;
+  top: 24px;
+  display: flex;
+  flex-direction: row;
+  border-right: 1px solid white;
 
-.splash-nav-links a:hover {
-  color: orange;
-}
+  i {
+    color: white;
+    transition: .5s;
+    font-size: 30px;
+    padding-left: 10px;
+  }
 
-.splash-nav-links a:last-of-type {
-  border-left: 1px solid white;
+  i:hover {
+    color: orange;
+  }
+
+  a {
+    color: white;
+    font-size: 17px;
+    text-decoration: none;
+    transition: .5s;
+    padding-right: 40px;
+  }
 }
 
 .splash-img {
   height: 700px;
-}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-.splash-img h1 {
-  font-family: "Circular Bold";
-  font-size: 80px;
-  text-align: center;
-  color: white;
-  position: absolute;
-  top: 30%;
-  right: 20%;
-}
+  h1 {
+    margin-top: 160px;
+    font-family: "Circular Bold";
+    font-size: 80px;
+    text-align: center;
+    color: white;
+    letter-spacing: -0.04em;
+    font-weight: 900;
+  }
 
-.splash-img h3 {
-  font-family: "Circular";
-  font-size: 20px;
-  text-align: center;
-  color: white;
-  position: absolute;
-  top: 50%;
-  right: 35%;
-}
+  h3 {
+    font-family: "Circular";
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+  }
 
-.splash-img a {
-  font-family: "Circular Bold";
-  font-size: 15px;
-  text-align: center;
-  letter-spacing: 2px;
-  color: white;
-  position: absolute;
-  top: 62%;
-  right: 40%;
-  text-decoration: none;
-  background-color: #1DB954;
-  border: #1DB954;
-  padding: 15px;
-  padding-left: 30px;
-  padding-right: 30px;
-  border-radius: 25px;
-  transition: .5s;
-  outline: none;
-}
+  a {
+    font-family: "Circular Bold";
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 2px;
+    color: white;
+    text-decoration: none;
+    background-color: #1DB954;
+    border: #1DB954;
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 25px;
+    transition: .5s;
+    outline: none;
+    margin-top: 20px;
+  }
 
-.splash-img a:hover {
-  background-color: #55DA5D;
-  border: #55DA5D;
+  a:hover {
+    background-color: #55DA5D;
+    border: #55DA5D;
+  }
 }
 
 .splash-bottom {
@@ -115,6 +135,22 @@
   position: absolute;
   top: 700px;
   color: white;
+
+  img:last-of-type {
+    width: 90px;
+    height: 80px;
+    position: absolute;
+    bottom: 0px;
+    right: 39px;
+  }
+
+  p:last-of-type {
+    font-family: "Circular";
+    font-size: 12px;
+    position: absolute;
+    bottom: 0px;
+    right: 120px;
+  }
 }
 
 .bottom-logo {
@@ -138,44 +174,28 @@
   flex-direction: row;
   position: absolute;
   left: 200px;
-}
 
-.bottom-lists a {
-  color: white;
-  text-decoration: none;
-}
+  a {
+    color: white;
+    text-decoration: none;
+  }
 
-.bottom-lists a:hover {
-  color: orange;
-}
+  a:hover {
+    color: orange;
+  }
 
-.bottom-lists div {
-  padding-top: 20px;
-  padding-right: 30px;
-}
+  div {
+    padding-top: 20px;
+    padding-right: 30px;
+  }
 
-.bottom-lists h3 {
-  font-size: 13px;
-  text-transform: uppercase;
-  color: grey;
-}
+  h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    color: grey;
+  }
 
-.bottom-lists h4 {
-  font-size: 15px;
-}
-
-.splash-bottom img:last-of-type {
-  width: 90px;
-  height: 80px;
-  position: absolute;
-  bottom: 0px;
-  right: 39px;
-}
-
-.splash-bottom p:last-of-type {
-  font-family: "Circular";
-  font-size: 12px;
-  position: absolute;
-  bottom: 0px;
-  right: 120px;
+  h4 {
+    font-size: 15px;
+  }
 }
