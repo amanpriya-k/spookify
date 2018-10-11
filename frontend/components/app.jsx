@@ -5,6 +5,7 @@ import SignupFormContainer from './session/signup_form_container'
 import { AuthRoute, ProtectedRoute } from '../util/auth_route_util.js'
 import Splash from './splash'
 import SideNav from './side_nav';
+import Main from './main';
 
 
 class App extends React.Component {
@@ -17,11 +18,11 @@ class App extends React.Component {
     return(
       <div id='app'>
           <Switch>
-            <ProtectedRoute path="/browse" component={SideNav} />
+            <ProtectedRoute path="/browse/albums" component={Main} />
             <AuthRoute path="/signup" component={SignupFormContainer} ></AuthRoute>
             <AuthRoute path="/login" component={LoginFormContainer} ></AuthRoute>
 
-            <Route path="/" component={Splash} />
+            <Route exact path="/" component={Splash} />
             <Redirect to="/"/>
           </Switch>
 

@@ -37,6 +37,7 @@
   color: #BBBBBB;
   display: flex;
   flex-direction: column;
+  letter-spacing: -.04em;
 
   a {
     margin-bottom: 30px;
@@ -52,13 +53,13 @@
   }
 
   i {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   span {
     font-family: "Circular Bold";
     padding-left: 26px;
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
@@ -72,6 +73,7 @@
 
   a {
     padding-bottom: 15px;
+    transition: .2s;
   }
 
   a:hover {

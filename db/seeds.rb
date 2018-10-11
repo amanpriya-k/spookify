@@ -30,12 +30,12 @@ smallpools = Artist.create(name: 'Smallpools')
 
 # Albums
 
-facedown = Albums.create(title: 'Facedown', artist_id: the1975.id)
-musicforcars = Albums.create(title: 'Music For Cars', artist_id: the1975.id)
-deluxe = Albums.create(title: 'The 1975 (Deluxe)', artist_id: the1975.id)
-sweetener = Albums.create(title: 'Sweetener', artist_id: ariana.id)
-dangerous = Albums.create(title: 'Dangerous Woman', artist_id: ariana.id)
-Albums.create(title: 'Sincerity is Scary', artist_id: the1975.id)
+facedown = Album.create(title: 'Facedown', artist_id: the1975.id)
+musicforcars = Album.create(title: 'Music For Cars', artist_id: the1975.id)
+deluxe = Album.create(title: 'The 1975 (Deluxe)', artist_id: the1975.id)
+sweetener = Album.create(title: 'Sweetener', artist_id: ariana.id)
+dangerous = Album.create(title: 'Dangerous Woman', artist_id: ariana.id)
+Album.create(title: 'Sincerity is Scary', artist_id: the1975.id)
 
 # Songs
 
