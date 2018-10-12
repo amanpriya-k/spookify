@@ -29,6 +29,8 @@ gem 'jquery-rails'
 
 gem "aws-sdk-s3"
 
+gem 'ez_download', '~> 0.2.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

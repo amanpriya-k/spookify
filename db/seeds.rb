@@ -21,56 +21,55 @@ User.create(username: 'ghostuser', email: 'ghostuser@gmail.com', password: '1234
 # Artists
 
 the1975 = Artist.create(name: 'The 1975')
-# x = File.open('app/assets/images/1975-artist.jpg')
-x = File.open('https://s3-us-west-1.amazonaws.com/spookify-dev/3ULsAsCRJ8gW1ijynqpq4e4y')
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/1975-artist.jpg')
 the1975.photo.attach(io: x, filename: '1975-artist.jpg')
 
 ariana = Artist.create(name: 'Ariana Grande')
-x = File.open('app/assets/images/ariana-grande-artist.jpg')
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/ariana-grande-artist.jpg')
 ariana.photo.attach(io: x, filename: 'ariana-grande-artist.jpg')
 
 bastille = Artist.create(name: 'Bastille')
-x = File.open('app/assets/images/bastille-artist.jpg')
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/bastille-artist.jpg')
 bastille.photo.attach(io: x, filename: 'bastille-artist.jpg')
 
 birdy = Artist.create(name: 'Birdy')
-x = File.open('app/assets/images/birdy-artist.jpg')
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/birdy-artist.jpg')
 birdy.photo.attach(io: x, filename: 'birdy-artist.jpg')
 
 borns = Artist.create(name: 'BORNS')
-x = File.open('app/assets/images/borns-artist.jpg')
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/borns-artist.jpg')
 borns.photo.attach(io: x, filename: 'borns-artist.jpg')
 
 bishop = Artist.create(name: 'Bishop Briggs')
-x = File.open('app/assets/images/bishop-briggs-artist.jpg')
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/bishop-briggs-artist.jpg')
 bishop.photo.attach(io: x, filename: 'bishop-briggs-artist.jpg')
 
 coin = Artist.create(name: 'COIN')
-x = File.open('app/assets/images/coin-artist.jpg')
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/coin-artist.jpg')
 coin.photo.attach(io: x, filename: 'coin-artist.jpg')
 
 finefrenzy = Artist.create(name: 'A Fine Frenzy')
-x = File.open('app/assets/images/fine-frenzy-artist.jpg')
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/fine-frenzy-artist.jpg')
 finefrenzy.photo.attach(io: x, filename: 'fine-frenzy-artist.jpg')
 
 hansomeghost = Artist.create(name: 'Handsome Ghost')
-x = File.open('app/assets/images/handsome-ghost-artist.jpg')
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/handsome-ghost-artist.jpg')
 hansomeghost.photo.attach(io: x, filename: 'handsome-ghost-artist.jpg')
 
 headandtheheart = Artist.create(name: 'The Head and the Heart')
-x = File.open('app/assets/images/head-and-the-heart-artist.jpg')
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/head-and-the-heart-artist.jpg')
 headandtheheart.photo.attach(io: x, filename: 'head-and-the-heart-artist.jpg')
 
 jukeboxtheghost = Artist.create(name: 'Jukebox the Ghost')
-x = File.open('app/assets/images/jukebox-the-ghost-artist.jpg')
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/jukebox-the-ghost-artist.jpg')
 jukeboxtheghost.photo.attach(io: x, filename: 'jukebox-the-ghost-artist.jpg')
 
 londongrammar = Artist.create(name: 'London Grammar')
-x = File.open('app/assets/images/london-grammar-artist.jpg')
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/london-grammar-artist.jpg')
 londongrammar.photo.attach(io: x, filename: 'london-grammar-artist.jpg')
 
 smallpools = Artist.create(name: 'Smallpools')
-x = File.open('app/assets/images/smallpools-artist.jpg')
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/smallpools-artist.jpg')
 smallpools.photo.attach(io: x, filename: 'smallpools-artist.jpg')
 
 # Albums
@@ -86,34 +85,34 @@ deluxe = Album.create(title: 'The 1975 (Deluxe)', artist_id: the1975.id)
 sincerity = Album.create(title: 'Sincerity is Scary', artist_id: the1975.id)
 musicforcars = Album.create(title: 'Music For Cars', artist_id: the1975.id)
 
-facedown_cover = File.open('app/assets/images/facedown-album.jpg')
+facedown_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/facedown-album.jpg')
 facedown.cover.attach(io: facedown_cover, filename: 'facedown-album.jpg')
 
-musicforcars_cover = File.open('app/assets/images/musicforcars-album.png')
+musicforcars_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/musicforcars-album.png')
 musicforcars.cover.attach(io: musicforcars_cover, filename: 'musicforcars-album.jpg')
 
-deluxe_cover = File.open('app/assets/images/1975deluxe-album.jpg')
+deluxe_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/1975deluxe-album.jpg')
 deluxe.cover.attach(io: deluxe_cover, filename: '1975deluxe-album.jpg')
 
-sweetener_cover = File.open('app/assets/images/sweetener-album.jpg')
+sweetener_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sweetener-album.jpg')
 sweetener.cover.attach(io: sweetener_cover, filename: 'sweetener-album.jpg')
 
-dangerous_cover = File.open('app/assets/images/dangerouswoman-album.jpg')
+dangerous_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/dangerouswoman-album.jpg')
 dangerous.cover.attach(io: dangerous_cover, filename: 'dangerouswoman-album.jpg')
 
-sincerity_cover = File.open('app/assets/images/sincerityisscary-album.jpg')
+sincerity_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sincerityisscary-album.jpg')
 sincerity.cover.attach(io: sincerity_cover, filename: 'sincerityisscary-album.jpg')
 
-badblood_cover = File.open('app/assets/images/badblood-cover.png')
+badblood_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/badblood-cover.png')
 badblood.cover.attach(io: badblood_cover, filename: 'badblood-album.png')
 
-fadedheart_cover = File.open('app/assets/images/fadedheart-album.jpg')
+fadedheart_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/fadedheart-album.jpg')
 fadedheart.cover.attach(io: fadedheart_cover, filename: 'fadedheart-album.jpg')
 
-howwillyouknow_cover = File.open('app/assets/images/howwillyouknow.jpg')
+howwillyouknow_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/howwillyouknow.jpg')
 howwillyouknow.cover.attach(io: howwillyouknow_cover, filename: 'howwillyouknow.jpg')
 
-brilliantglow_cover = File.open('app/assets/images/brilliant-glow-album.png')
+brilliantglow_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/brilliant-glow-album.png')
 brilliantglow.cover.attach(io: brilliantglow_cover, filename: 'brilliantglow-album.jpg')
 
 
