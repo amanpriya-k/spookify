@@ -1,0 +1,26 @@
+.browse-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: lightgray;
+  padding-top: 46px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-family: "Circular";
+  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.browse-nav a {
+  padding-bottom: 3px;
+}
+
+.browse-nav a:hover {
+  color: white;
+}
+
+.browse-nav a:active {
+  color: white;
+  border-bottom: 3px solid #1DB954;
+}

@@ -11,6 +11,13 @@
   height: 80px;
 }
 
+.shine-me {
+    -webkit-animation-name: ShineAnimation;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: cubic-bezier(.62,.79,.88,.47);
+}
+
 .splash-logo {
 
   img {
@@ -29,6 +36,24 @@
     color: white;
     letter-spacing: -0.04em;
   }
+}
+
+.splash-btn {
+  display: block;
+  z-index: 1;
+}
+
+.splash-btn:hover + .spook-1 {
+  display:block;
+}
+
+.spook-1 {
+  height: 35px;
+  width: 40px;
+  transition: 1s;
+  position: absolute;
+  top: 387px;
+  display:none;
 }
 
 .splash-nav-links {

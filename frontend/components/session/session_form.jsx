@@ -54,6 +54,7 @@ class SessionForm extends React.Component {
       </div>
     )
 
+
     return (
       <div className="session-page">
 

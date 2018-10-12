@@ -23,14 +23,14 @@ class SideNav extends React.Component {
         </div>
 
         <div className="side-bar-links">
-          <a href="/#/search"><i class="fa fa-search"><span>Search</span></i></a>
-          <a href="/#/browse/albums"><i class="fa fa-home"><span>Home</span></i></a>
-          <a href="/#/library"><i class="fa fa-bookmark"><span>Your Library</span></i></a>
+          <a href="/#/search"><i className="fa fa-search"><span>Search</span></i></a>
+          <a href="/#/browse/albums"><i className="fa fa-home"><span>Home</span></i></a>
+          <a href="/#/library"><i className="fa fa-bookmark"><span>Your Library</span></i></a>
         </div>
 
 
         <div className="side-bar-bottom">
-          <a href="/#/"><i class="fa fa-user"><span>{this.props.currentUser.username}</span></i></a>
+          <a href="/#/"><i className="fa fa-user"><span>{this.props.currentUser.username}</span></i></a>
           <button onClick={() => this.props.logout()}>LOG OUT</button>
         </div>
       </div>

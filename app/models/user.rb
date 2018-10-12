@@ -19,8 +19,32 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  has_many :followed_items, as: :followable
-  has_many :saved_items, as: :saveable
+
+  has_many :savings,
+    foreign_key: :user_id,
+    class_name: :Save
+
+  has_many :follows
+
+  has_many :saved_songs,
+    through: :savings,
+    source: :saveable,
+    source_type: 'Song'
+
+  has_many :saved_albums,
+    through: :savings,
+    source: :saveable,
+    source_type: 'Album'
+
+  has_many :followed_artists,
+    through: :follows,
+    source: :followable,
+    source_type: 'Artist'
+
+  has_many :followed_playlists,
+    through: :follows,
+    source: :followable,
+    source_type: 'Playlist'
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

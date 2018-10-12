@@ -21,8 +21,8 @@ class Splash extends React.Component {
             </a>
             <div className="other-icons-nav">
 
-              <a href="https://github.com/amanpriya-k"><i class="fab fa-github"></i></a>
-              <a href="https://www.linkedin.com/in/amanpriyakulkarni/"><i class="fab fa-linkedin"></i></a>
+              <a href="https://github.com/amanpriya-k"><i className="fab fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/amanpriyakulkarni/"><i className="fab fa-linkedin"></i></a>
             </div>
             <div className='splash-nav-links'>
               <Link to="/signup"> Sign Up </Link>
@@ -32,8 +32,10 @@ class Splash extends React.Component {
 
           <div className='splash-img'>
             <h1>Music for everyone.</h1>
-            <h3>Millions of songs. No credit card needed.</h3>
-            <Link className='splash-btn' to="/signup"> GET SPOOKIFY FREE </Link>
+            <h3 >Millions of songs. No credit card needed.</h3>
+            <Link className='splash-btn shine-me' to="/signup"> GET SPOOKIFY FREE </Link>
+            <img className="spook-1 animated slideInUp delay-2s" src={window.images.spook}></img>
+
           </div>
 
           <div className="splash-bottom">

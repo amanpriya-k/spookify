@@ -8,6 +8,12 @@
 
 
 User.destroy_all
+Song.destroy_all
+Album.destroy_all
+Artist.destroy_all
+Playlist.destroy_all
+Follow.destroy_all
+Save.destroy_all
 
 User.create(username: 'ghostuser', email: 'ghostuser@gmail.com', password: '123456')
 

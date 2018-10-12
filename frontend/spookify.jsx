@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { signup, login, logout, loginDemo } from './actions/session_actions'
 import configureStore from './store/store'
 import Root from './components/root';
+import { fetchAllAlbums, fetchAllArtists, fetchAllSongs } from './actions/music_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -28,4 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.login = login;
   window.logout = logout;
   window.loginDemo = loginDemo;
+  window.fetchAllAlbums = fetchAllAlbums;
+  window.fetchAllArtists = fetchAllArtists;
+  window.fetchAllSongs = fetchAllSongs;
 });
