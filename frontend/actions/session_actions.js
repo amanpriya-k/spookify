@@ -40,8 +40,10 @@ export const logout = () => (dispatch) => (
           errors => dispatch(receiveErrors(errors.responseJSON)))
 );
 
-export const loginDemo = () => (dispatch) => (
-  SessionApiUtil.loginDemo()
+export const loginDemo = () => (dispatch) => {
+  // debugger
+  return (SessionApiUtil.loginDemo()
     .then(user => dispatch(receiveCurrentUser(user)),
-          errors => dispatch(receiveErrors(errors.responseJSON)))
-)
+          errors => dispatch(receiveErrors(errors.responseJSON))))
+
+}

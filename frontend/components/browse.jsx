@@ -5,6 +5,7 @@ import BrowseNav from './browse_nav'
 import AlbumIndex from './album_index'
 import ArtistIndex from './artist_index'
 import SongIndex from './song_index'
+import AlbumShow from './album_show'
 
 class Browse extends React.Component {
 
@@ -16,6 +17,8 @@ class Browse extends React.Component {
           <ProtectedRoute path="/browse/albums" component={AlbumIndex}></ProtectedRoute>
           <ProtectedRoute path="/browse/artists" component={ArtistIndex}></ProtectedRoute>
           <ProtectedRoute path="/browse/songs" component={SongIndex}></ProtectedRoute>
+          <ProtectedRoute path="/albums/:albumId" component={AlbumShow}></ProtectedRoute>
+
         </Switch>
       </div>
     )

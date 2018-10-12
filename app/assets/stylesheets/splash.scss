@@ -61,7 +61,7 @@
   right: 50px;
   top: 28px;
 
-  a {
+  a, button {
     color: white;
     font-size: 17px;
     text-decoration: none;
@@ -70,7 +70,7 @@
     transition: .5s;
   }
 
-  a:hover {
+  a:hover, button:hover {
     color: orange;
   }
 
@@ -79,7 +79,7 @@
 
 .other-icons-nav {
   position: absolute;
-  right: 240px;
+  right: 310px;
   top: 24px;
   display: flex;
   flex-direction: row;

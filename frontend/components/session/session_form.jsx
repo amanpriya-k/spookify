@@ -9,12 +9,13 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.redirectOnSuccess = this.redirectOnSuccess.bind(this);
     this.demoUser = this.demoUser.bind(this);
+    this.loginAsGuest = this.loginAsGuest.bind(this);
+    this.loginAsGuestHelper = this.loginAsGuestHelper.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state)
-    // .then((res) => { return this.redirectOnSuccess() });
   }
 
   handleChange(type) {
@@ -38,6 +39,38 @@ class SessionForm extends React.Component {
   }
 
 
+  // demo login fake typing methods shown to me by joe olivier!
+
+  loginAsGuest() {
+    const userArr = 'ghostuser'.split('');
+    const passwordArr = '123456'.split('');
+    const button = document.getElementById('submit');
+    this.setState( { username: '', password: '' }, () =>
+      this.loginAsGuestHelper(userArr, passwordArr, button)
+    );
+  }
+
+  loginAsGuestHelper(userArr, passwordArr, button){
+    if (userArr.length > 0) {
+      this.setState(
+        { username: this.state.username + userArr.shift() }, () => {
+          window.setTimeout( () =>
+            this.loginAsGuestHelper(userArr, passwordArr, button), 75);
+        }
+      );
+    } else if (passwordArr.length > 0) {
+      this.setState(
+        { password: this.state.password + passwordArr.shift() }, () => {
+          window.setTimeout( () =>
+            this.loginAsGuestHelper(userArr, passwordArr, button), 100);
+        }
+      );
+    } else {
+      button.click();
+    }
+  }
+
+
   render() {
     let { errors, formType, processForm, loginDemo } = this.props;
 
@@ -47,7 +80,7 @@ class SessionForm extends React.Component {
 
     const bottomButton = formType === 'Sign Up' ? (
       <div className="bottom-form">
-        <p>Already have an account? <a href='/#/login'>Log In</a></p>
+        <p>Already have an account? Wanna log in as a guest? <a href='/#/login'>Log In</a></p>
       </div>
     ) : (
       <div className="bottom-form">
@@ -70,10 +103,9 @@ class SessionForm extends React.Component {
         <br></br>
 
         <div className="demo">
-          <button onClick={this.demoUser}>DEMO USER</button>
+          { formType === 'Login' ? <div><button id="demo" onClick={this.loginAsGuest}>DEMO USER</button><br></br><p className="or">or</p></div> : null }
         </div>
-        <br></br>
-        <p className="or">or</p>
+
 
         <h3> { formType === 'Sign Up' ? 'Sign up for a new account' : 'Log in with your username' } </h3>
         {errorsList}
@@ -92,7 +124,7 @@ class SessionForm extends React.Component {
                  value={this.state.password}
                  placeholder="Password"/>
 
-          <input type="submit" value={formType === 'Login' ? 'LOG IN' : 'SIGN UP'} />
+               <input id="submit" type="submit" value={formType === 'Login' ? 'LOG IN' : 'SIGN UP'} />
           <br></br>
           {bottomButton}
         </form>

@@ -6,7 +6,7 @@ import { AuthRoute, ProtectedRoute } from '../util/auth_route_util.js'
 import Splash from './splash'
 import SideNav from './side_nav';
 import Main from './main';
-
+import AlbumShow from './album_show';
 
 class App extends React.Component {
 
@@ -22,6 +22,7 @@ class App extends React.Component {
             <AuthRoute path="/signup" component={SignupFormContainer} ></AuthRoute>
             <AuthRoute path="/login" component={LoginFormContainer} ></AuthRoute>
 
+
             <Route exact path="/" component={Splash} />
             <Redirect to="/"/>
           </Switch>
@@ -31,6 +32,7 @@ class App extends React.Component {
   }
 
 }
+// <ProtectedRoute path="/albums/:albumId" component={AlbumShow}></ProtectedRoute>
 
 
 export default App;

@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Route, Link } from 'react-router-dom';
+import { ProtectedRoute } from '../util/auth_route_util.js'
 import { fetchAllAlbums } from './../actions/music_actions';
+import AlbumShow from './album_show';
 
 class AlbumIndex extends React.Component {
 
@@ -18,19 +21,21 @@ class AlbumIndex extends React.Component {
       return null;
     }
 
-    console.log("coverurl", albums[0].coverUrl);
-
     return(
       <div className="albumIndexContainer">
+
         <ul className="album-index">
+          <ProtectedRoute path="/albums/:albumId" component={AlbumShow}></ProtectedRoute>
+
           {albums.map(
             (album, idx) =>
             (<li key={idx}>
               <img src={album.coverUrl}></img>
-              <h2>{album.title}</h2>
+              <Link to={`/albums/${album.id}`}><h2>{album.title}</h2></Link>
               <h3>{album.artistName}</h3>
             </li>)
           )}
+
         </ul>
       </div>
     )
@@ -47,3 +52,9 @@ const mapDispatchToProps = (dispatch) => ({
 
 export default connect(mapStateToProps, mapDispatchToProps)
                       (AlbumIndex)
+
+
+
+
+
+                      // <ProtectedRoute path="/albums/:albumId" component={AlbumShow}></ProtectedRoute>

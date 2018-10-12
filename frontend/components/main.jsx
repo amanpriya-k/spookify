@@ -10,8 +10,7 @@ class Main extends React.Component {
     return(
       <div className="main">
         <SideNav/>
-        <ProtectedRoute path="/browse" component={Browse}></ProtectedRoute>
-        <div className="temp-music-space"> music player here </div>
+        <ProtectedRoute path="/browse/:albums" component={Browse}></ProtectedRoute>
       </div>
     )
   }
@@ -20,3 +19,6 @@ class Main extends React.Component {
 
 
 export default Main;
+
+
+// <div className="temp-music-space"> music player here </div>

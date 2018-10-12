@@ -1,13 +1,29 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link, Route } from 'react-router-dom';
 import LoginFormContainer from './session/login_form_container'
 import SignupFormContainer from './session/signup_form_container'
 import SideNav from './side_nav';
+import { loginDemo } from './../actions/session_actions';
 
 class Splash extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.demoLogin = this.demoLogin.bind(this);
+  }
+
   componentDidMount() {
     document.title = "Spookify"
+  }
+
+  demoLogin() {
+    // this.props.history.push('/login');
+    // const button = document.getElementById('demo');
+    // button.click();
+
+    this.props.demoLogin()
+      .then(() => this.props.history.push('/browse/albums'))
   }
 
   render() {
@@ -27,6 +43,7 @@ class Splash extends React.Component {
             <div className='splash-nav-links'>
               <Link to="/signup"> Sign Up </Link>
               <Link to="/login"> Login </Link>
+              <button onClick={this.demoLogin}>Demo</button>
             </div>
           </div>
 
@@ -68,4 +85,10 @@ class Splash extends React.Component {
 
 }
 
-export default Splash;
+// export default Splash;
+
+const mapDispatchToProps = (dispatch) => ({
+  demoLogin: () => dispatch(loginDemo())
+});
+
+export default connect(null, mapDispatchToProps)(Splash)
