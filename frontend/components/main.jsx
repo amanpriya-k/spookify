@@ -8,10 +8,10 @@ class Main extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="main">
         <SideNav/>
-        <ProtectedRoute path="/browse/albums" component={Browse}></ProtectedRoute>
-
+        <ProtectedRoute path="/browse" component={Browse}></ProtectedRoute>
+        <div className="temp-music-space"> music player here </div>
       </div>
     )
   }

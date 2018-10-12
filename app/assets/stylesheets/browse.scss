@@ -3,8 +3,11 @@
   background: image-url('browsegradient');
   width: 83%;
   background-color: black;
-  display: inline-block;
-  position: absolute;
+  // display: inline-block;
+  display: flex;
+  flex-direction: column;
+  // position: absolute;
   top: 0;
+  overflow-y: scroll;
   height: 620px;
 }

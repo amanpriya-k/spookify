@@ -1,26 +1,40 @@
 .browse-nav {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   color: lightgray;
   padding-top: 46px;
   padding-left: 50px;
   padding-right: 50px;
   font-family: "Circular";
   text-transform: uppercase;
-  font-size: 15px;
+  font-size: 13px;
   letter-spacing: 1px;
+
+  h1 {
+    display: none;
+  }
 }
 
 .browse-nav a {
-  padding-bottom: 3px;
+  margin-left: 29px;
+  text-align: center;
+  line-height:  0px;
 }
 
 .browse-nav a:hover {
   color: white;
 }
 
-.browse-nav a:active {
+
+.link-active {
   color: white;
-  border-bottom: 3px solid #1DB954;
+
+  h1 {
+    display: inline-block;
+    color: #1DB954;
+    font-size: 35px;
+    letter-spacing: -1em;
+  }
+
 }

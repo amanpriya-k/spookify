@@ -1,0 +1,60 @@
+
+.albumIndexContainer {
+  // overflow-y: scroll;
+  // height: 551px;
+  // border-top: 1px solid black;
+}
+
+.album-index {
+  padding-top: 40px;
+  font-family: "Circular";
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  img {
+    width: 200px;
+    height: 200px;
+    transition: .3s;
+  }
+
+  img:hover {
+    opacity: 0.2;
+    filter: alpha(opacity=80);
+    background-color: #000000;
+    cursor: pointer;
+  }
+
+  li {
+    padding: 30px;
+    text-align: center;
+    color: white;
+    width: 200px;
+  }
+
+  h2 {
+    padding-top: 9px;
+    font-size: 15px;
+  }
+
+  h2:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  h3 {
+    font-family: 'Poppins', sans-serif;
+    line-height: .3px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: lighter;
+    color: lightgray;
+  }
+
+  h3:hover {
+    text-decoration: underline;
+    color: white;
+    cursor: pointer;
+  }
+
+}

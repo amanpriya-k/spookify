@@ -37,6 +37,7 @@ class SessionForm extends React.Component {
     this.props.loginDemo();
   }
 
+
   render() {
     let { errors, formType, processForm, loginDemo } = this.props;
 
@@ -78,7 +79,7 @@ class SessionForm extends React.Component {
         {errorsList}
 
         <form onSubmit={this.handleSubmit}>
-          <input type="text"
+          <input id="username" type="text"
                  onChange={this.handleChange('username')}
                  value={this.state.username}
                  placeholder="Username"/>
@@ -86,7 +87,7 @@ class SessionForm extends React.Component {
 
           {emailInput}
 
-          <input type="password"
+          <input id="password" type="password"
                  onChange={this.handleChange('password')}
                  value={this.state.password}
                  placeholder="Password"/>

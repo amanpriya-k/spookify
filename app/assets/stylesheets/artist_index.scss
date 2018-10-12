@@ -1,0 +1,53 @@
+
+.artist-index-container {
+}
+
+.artist-index {
+  padding-top: 40px;
+  font-family: "Circular";
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .img-crop {
+     width: 185px;
+     height: 185px;
+     position: relative;
+     overflow: hidden;
+     border-radius: 50%;
+  }
+
+  img {
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+    transition: .3s;
+  }
+
+  img:hover {
+    opacity: 0.2;
+    filter: alpha(opacity=80);
+    background-color: #000000;
+    cursor: pointer;
+  }
+
+  li {
+    padding: 30px;
+    text-align: center;
+    color: white;
+    width: 200px;
+  }
+
+  h2 {
+    padding-top: 11px;
+    font-size: 15px;
+  }
+
+  h2:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+
+}

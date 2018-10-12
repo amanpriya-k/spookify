@@ -2,7 +2,7 @@
   json.set! artist.id do
     json.extract! artist, :name
     if artist.photo.attached?
-      json.cover_url url_for(artist.photo)
+      json.image_url url_for(artist.photo)
     end
   end
 end

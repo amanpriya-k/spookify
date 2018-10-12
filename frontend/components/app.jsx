@@ -18,7 +18,7 @@ class App extends React.Component {
     return(
       <div id='app'>
           <Switch>
-            <ProtectedRoute path="/browse/albums" component={Main} />
+            <ProtectedRoute path="/browse/:albums" component={Main} />
             <AuthRoute path="/signup" component={SignupFormContainer} ></AuthRoute>
             <AuthRoute path="/login" component={LoginFormContainer} ></AuthRoute>
 
