@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, withRouter } from 'react-router-dom';
 import LoginFormContainer from './session/login_form_container'
 import SignupFormContainer from './session/signup_form_container'
 import SideNav from './side_nav';
@@ -11,6 +11,7 @@ class Splash extends React.Component {
   constructor(props) {
     super(props);
     this.demoLogin = this.demoLogin.bind(this);
+    this.helper = this.helper.bind(this);
   }
 
   componentDidMount() {
@@ -21,12 +22,18 @@ class Splash extends React.Component {
     // this.props.history.push('/login');
     // const button = document.getElementById('demo');
     // button.click();
-
+    // debugger
     this.props.demoLogin()
-      .then(() => this.props.history.push('/browse/albums'))
+      .then(() => this.helper())
+  }
+
+  helper() {
+    // debugger
+    this.props.history.push('/browse/albums');
   }
 
   render() {
+    // debugger
     return (
       <div className='splash'>
 
@@ -91,4 +98,4 @@ const mapDispatchToProps = (dispatch) => ({
   demoLogin: () => dispatch(loginDemo())
 });
 
-export default connect(null, mapDispatchToProps)(Splash)
+export default withRouter(connect(null, mapDispatchToProps)(Splash))

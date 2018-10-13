@@ -16,6 +16,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state)
+      .then(() => (console.log('trying to redirect')))
   }
 
   handleChange(type) {

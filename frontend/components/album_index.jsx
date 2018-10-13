@@ -4,6 +4,7 @@ import { Route, Link } from 'react-router-dom';
 import { ProtectedRoute } from '../util/auth_route_util.js'
 import { fetchAllAlbums } from './../actions/music_actions';
 import AlbumShow from './album_show';
+import BrowseNav from './browse_nav'
 
 class AlbumIndex extends React.Component {
 
@@ -16,6 +17,7 @@ class AlbumIndex extends React.Component {
   }
 
   render() {
+
     let { albums } = this.props;
     if (albums.length < 1) {
       return null;
@@ -23,24 +25,30 @@ class AlbumIndex extends React.Component {
 
     return(
       <div className="albumIndexContainer">
+        <div>
 
-        <ul className="album-index">
-          <ProtectedRoute path="/albums/:albumId" component={AlbumShow}></ProtectedRoute>
+          <ul className="album-index">
 
-          {albums.map(
-            (album, idx) =>
-            (<li key={idx}>
-              <img src={album.coverUrl}></img>
-              <Link to={`/albums/${album.id}`}><h2>{album.title}</h2></Link>
-              <h3>{album.artistName}</h3>
-            </li>)
-          )}
+            {albums.map(
+              (album, idx) =>
+              (<li key={idx}>
+                <div className="img-container">
+                  <img src={album.coverUrl}></img>
+                  <i className="far fa-play-circle"></i>
+                </div>
+                <Link to={`/browse/albums/${album.id}`}><h2>{album.title}</h2></Link>
+                <h3>{album.artistName}</h3>
+              </li>)
+            )}
 
-        </ul>
+          </ul>
+        </div>
       </div>
+
     )
   }
 }
+// <BrowseNav></BrowseNav>
 
 const mapStateToProps = (state) => ({
   albums: Object.values(state.entities.albums)

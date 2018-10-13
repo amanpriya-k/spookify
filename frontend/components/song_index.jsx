@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchAllSongs } from './../actions/music_actions';
 
 class SongIndex extends React.Component {
@@ -25,8 +26,8 @@ class SongIndex extends React.Component {
           {songs.map(
             (song, idx) =>
             (<li key={idx}>
-              <h2>♪ <span>{song.name}</span></h2>
-              <h4>{song.artistName} • {song.albumTitle}</h4>
+              <Link to="/"><h2>♪ <span><p>{song.name}</p></span></h2></Link>
+              <h4><Link className="ugh" to="/">{song.artistName}</Link> • <Link className="ugh" to="/">{song.albumTitle}</Link></h4>
             </li>)
           )}
         </ul>

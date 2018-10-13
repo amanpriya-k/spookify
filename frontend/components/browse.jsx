@@ -12,18 +12,22 @@ class Browse extends React.Component {
   render() {
     return(
       <div className="browse-container">
+
         <BrowseNav></BrowseNav>
+
         <Switch>
-          <ProtectedRoute path="/browse/albums" component={AlbumIndex}></ProtectedRoute>
+          <ProtectedRoute path="/browse/albums/:albumId" component={AlbumShow}></ProtectedRoute>
           <ProtectedRoute path="/browse/artists" component={ArtistIndex}></ProtectedRoute>
           <ProtectedRoute path="/browse/songs" component={SongIndex}></ProtectedRoute>
-          <ProtectedRoute path="/albums/:albumId" component={AlbumShow}></ProtectedRoute>
-
+          <ProtectedRoute path="/browse/albums" component={AlbumIndex}></ProtectedRoute>
         </Switch>
+
+
       </div>
     )
   }
 
 }
 
+// <ProtectedRoute path="/browse/albums" component={AlbumIndex}></ProtectedRoute>
 export default Browse;

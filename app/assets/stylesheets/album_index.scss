@@ -1,8 +1,9 @@
 
 .albumIndexContainer {
+  // width: 90%;
+  // background: orange;
+  // height: 620px;
   // overflow-y: scroll;
-  // height: 551px;
-  // border-top: 1px solid black;
 }
 
 .album-index {
@@ -12,17 +13,45 @@
   flex-direction: row;
   flex-wrap: wrap;
 
-  img {
-    width: 200px;
-    height: 200px;
-    transition: .3s;
+  .img-container {
+    position: relative;
+    transition: .4s;
+    display: flex;
+
+    img {
+      width: 200px;
+      height: 200px;
+      transition: .4s;
+    }
+
+    i {
+      display: none;
+      color: white;
+      font-size: 80px;
+      top: 64px;
+      left: 64px;
+      position: absolute;
+      transition: .3s;
+      z-index: 999;
+    }
   }
 
-  img:hover {
-    opacity: 0.2;
-    filter: alpha(opacity=80);
-    background-color: #000000;
+  .img-container:hover {
     cursor: pointer;
+    img {
+      opacity: 0.5;
+      filter: alpha(opacity=40);
+    }
+
+    i {
+      display: block;
+    }
+  }
+
+  i:hover {
+    font-size: 85px;
+    top: 62px;
+    left: 62px;
   }
 
   li {

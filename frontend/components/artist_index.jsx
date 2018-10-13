@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchAllArtists } from './../actions/music_actions';
+import BrowseNav from './browse_nav'
 
 class ArtistIndex extends React.Component {
 
@@ -21,21 +22,25 @@ class ArtistIndex extends React.Component {
 
     return(
       <div className="artist-index-container">
-        <ul className="artist-index">
-          {artists.map(
-            (artist, idx) =>
-            (<li key={idx}>
-              <div className="img-crop">
-                <img src={artist.imageUrl}></img>
-              </div>
-              <h2>{artist.name}</h2>
-            </li>)
-          )}
-        </ul>
+        <div>
+          <ul className="artist-index">
+            {artists.map(
+              (artist, idx) =>
+              (<li key={idx}>
+                <div className="img-crop">
+                  <img src={artist.imageUrl}></img>
+                  <i className="far fa-play-circle"></i>
+                </div>
+                <h2>{artist.name}</h2>
+              </li>)
+            )}
+          </ul>
+        </div>
       </div>
     )
   }
 }
+// <BrowseNav></BrowseNav>
 
 const mapStateToProps = (state) => ({
   artists: Object.values(state.entities.artists)

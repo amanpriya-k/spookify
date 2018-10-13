@@ -30,7 +30,14 @@
     span {
       font-family: 'Montserrat', sans-serif;
       font-weight: lighter;
-      padding-left: 10px;
+    }
+
+    p {
+      padding-left: 20px;
+    }
+
+    p:hover {
+      text-decoration: underline;
     }
 
     h4 {
@@ -39,6 +46,9 @@
       padding-left: 25px;
     }
 
+    .ugh:hover {
+      text-decoration: underline;
+    }
 
   }
 }

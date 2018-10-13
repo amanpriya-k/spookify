@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchOneAlbum } from './../actions/music_actions';
+import BrowseNav from './browse_nav'
 
 class AlbumShow extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log('in show');
   }
 
   componentDidMount() {
@@ -14,6 +16,9 @@ class AlbumShow extends React.Component {
   }
 
   render() {
+    // debugger
+
+
     let { album } = this.props;
     if(!album || !album.songs) {
       console.log("havent fetched album yet");
