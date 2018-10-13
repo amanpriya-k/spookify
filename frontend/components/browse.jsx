@@ -10,16 +10,16 @@ import AlbumShow from './album_show'
 class Browse extends React.Component {
 
   render() {
+    console.log('in browse component');
     return(
       <div className="browse-container">
 
         <BrowseNav></BrowseNav>
 
         <Switch>
-          <ProtectedRoute path="/browse/albums/:albumId" component={AlbumShow}></ProtectedRoute>
+          <ProtectedRoute path="/browse/albums" component={AlbumIndex}></ProtectedRoute>
           <ProtectedRoute path="/browse/artists" component={ArtistIndex}></ProtectedRoute>
           <ProtectedRoute path="/browse/songs" component={SongIndex}></ProtectedRoute>
-          <ProtectedRoute path="/browse/albums" component={AlbumIndex}></ProtectedRoute>
         </Switch>
 
 
@@ -29,5 +29,4 @@ class Browse extends React.Component {
 
 }
 
-// <ProtectedRoute path="/browse/albums" component={AlbumIndex}></ProtectedRoute>
 export default Browse;

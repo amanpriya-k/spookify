@@ -36,7 +36,7 @@ class AlbumIndex extends React.Component {
                   <img src={album.coverUrl}></img>
                   <i className="far fa-play-circle"></i>
                 </div>
-                <Link to={`/browse/albums/${album.id}`}><h2>{album.title}</h2></Link>
+                <Link to={`/albums/${album.id}`}><h2>{album.title}</h2></Link>
                 <h3>{album.artistName}</h3>
               </li>)
             )}
@@ -48,7 +48,6 @@ class AlbumIndex extends React.Component {
     )
   }
 }
-// <BrowseNav></BrowseNav>
 
 const mapStateToProps = (state) => ({
   albums: Object.values(state.entities.albums)

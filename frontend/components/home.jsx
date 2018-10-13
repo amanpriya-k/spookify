@@ -5,9 +5,14 @@ import Main from './main';
 
 
 const Home = ( {currentUser} ) => {
+  console.log("HOME COMPONENTTTTT");
   if (currentUser) {
-    return (<Main></Main>);
+    console.log('logged in!');
+    return (
+      <Main></Main>
+  );
   } else {
+    console.log('not logged in!');
     return (<Splash></Splash>)
   }
 };

@@ -11,13 +11,10 @@ class AlbumShow extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     this.props.fetchOneAlbum(this.props.match.params.albumId);
   }
 
   render() {
-    // debugger
-
 
     let { album } = this.props;
     if(!album || !album.songs) {

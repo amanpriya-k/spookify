@@ -19,13 +19,11 @@ class App extends React.Component {
     return(
       <div id='app'>
           <Switch>
-            <ProtectedRoute path="/browse/:album" component={Main}></ProtectedRoute>
-
             <AuthRoute path="/signup" component={SignupFormContainer} ></AuthRoute>
             <AuthRoute path="/login" component={LoginFormContainer} ></AuthRoute>
+            <ProtectedRoute path="/:section" component={Main}></ProtectedRoute>
+            <AuthRoute path="/" component={Splash} />
 
-            <Route path="/" component={Home} />
-            <Redirect to="/"/>
 
           </Switch>
 
@@ -34,8 +32,5 @@ class App extends React.Component {
   }
 
 }
-
-// <AuthRoute exact path="/" component={Splash} />
-// <ProtectedRoute path="/albums/:albumId" component={AlbumShow}></ProtectedRoute>
 
 export default App;

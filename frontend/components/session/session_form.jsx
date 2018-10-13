@@ -7,7 +7,6 @@ class SessionForm extends React.Component {
     super(props);
     this.state = { username: '', email: '', password: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.redirectOnSuccess = this.redirectOnSuccess.bind(this);
     this.demoUser = this.demoUser.bind(this);
     this.loginAsGuest = this.loginAsGuest.bind(this);
     this.loginAsGuestHelper = this.loginAsGuestHelper.bind(this);
@@ -16,15 +15,10 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state)
-      .then(() => (console.log('trying to redirect')))
   }
 
   handleChange(type) {
     return (e) => ( this.setState({ [type]: e.currentTarget.value }) );
-  }
-
-  redirectOnSuccess() {
-    this.props.history.push('/browse');
   }
 
   componentWillUnmount() {

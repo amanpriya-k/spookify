@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Route, withRouter } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from '../util/auth_route_util.js'
 import LoginFormContainer from './session/login_form_container'
 import SignupFormContainer from './session/signup_form_container'
 import SideNav from './side_nav';
@@ -19,21 +20,15 @@ class Splash extends React.Component {
   }
 
   demoLogin() {
-    // this.props.history.push('/login');
-    // const button = document.getElementById('demo');
-    // button.click();
-    // debugger
     this.props.demoLogin()
       .then(() => this.helper())
   }
 
   helper() {
-    // debugger
     this.props.history.push('/browse/albums');
   }
 
   render() {
-    // debugger
     return (
       <div className='splash'>
 
@@ -91,6 +86,8 @@ class Splash extends React.Component {
   }
 
 }
+// <AuthRoute path="/signup" component={SignupFormContainer} ></AuthRoute>
+// <AuthRoute path="/login" component={LoginFormContainer} ></AuthRoute>
 
 // export default Splash;
 

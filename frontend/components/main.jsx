@@ -14,20 +14,15 @@ import AlbumShow from './album_show'
 class Main extends React.Component {
 
   render() {
-    // debugger
 
-    // if (!currentUser) {
-    //   console.log('wtfff');
-    //   return (
-    //     null
-    //   )
-    // }
-
+    console.log('in the main component');
     return(
       <div className="main">
 
         <SideNav/>
-        <ProtectedRoute path="/browse/:albums" component={Browse}></ProtectedRoute>
+        
+        <ProtectedRoute path="/browse" component={Browse}></ProtectedRoute>
+        <ProtectedRoute path="/albums/:albumId" component={AlbumShow}></ProtectedRoute>
 
 
       </div>
@@ -35,6 +30,11 @@ class Main extends React.Component {
   }
 
 }
+
+
+
+
+
 // <ProtectedRoute path="/browse/albums" component={AlbumIndex}></ProtectedRoute>
 // <ProtectedRoute path="/browse/artists" component={ArtistIndex}></ProtectedRoute>
 // <ProtectedRoute path="/browse/artists" component={ArtistIndex}></ProtectedRoute>
