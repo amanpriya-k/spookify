@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchAllPlaylists } from './../actions/music_actions';
+import { Route, Link } from 'react-router-dom';
+import { fetchAllPlaylists, fetchFollowedPlaylists } from './../actions/music_actions';
 
 class PlaylistIndex extends React.Component {
 
@@ -9,24 +10,34 @@ class PlaylistIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllPlaylists();
+    if (this.props.location.pathname == "/browse/playlists") {
+      this.props.fetchAllPlaylists();
+    } else {
+      this.props.fetchFollowedPlaylists();
+    }
   }
 
   render() {
-
     let { playlists } = this.props;
+
     if (playlists.length < 1) {
-      return <h1> there's nothing here :o </h1>
+      return null;
     }
 
     return(
-      <div className="playlist-index">
-        <ul>
+      <div>
+        <ul className="playlist-index">
           {playlists.map(
             (playlist, idx) =>
             (<li key={idx}>
-              <h2>title: {playlist.name}</h2>
-              <h3>cover: {playlist.imageUrl}</h3>
+              <Link to={`/playlists/${playlist.id}`}>
+                <div className="img-container">
+                  <img src={playlist.imageUrl}></img>
+                  <i className="far fa-play-circle"></i>
+                </div>
+              </Link>
+
+              <Link to={`/playlists/${playlist.id}`}><h2>{playlist.name}</h2></Link>
             </li>)
           )}
         </ul>
@@ -40,7 +51,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAllPlaylists: () => (dispatch(fetchAllPlaylists()))
+  fetchAllPlaylists: () => (dispatch(fetchAllPlaylists())),
+  fetchFollowedPlaylists: () => (dispatch(fetchFollowedPlaylists()))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)

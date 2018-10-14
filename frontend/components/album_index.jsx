@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Link } from 'react-router-dom';
 import { ProtectedRoute } from '../util/auth_route_util.js'
-import { fetchAllAlbums } from './../actions/music_actions';
+import { fetchAllAlbums, fetchSavedAlbums } from './../actions/music_actions';
 import AlbumShow from './album_show';
 import BrowseNav from './browse_nav'
 
@@ -13,7 +13,12 @@ class AlbumIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllAlbums();
+
+    if (this.props.location.pathname == "/browse/albums") {
+      this.props.fetchAllAlbums();
+    } else {
+      this.props.fetchSavedAlbums();
+    }
   }
 
   render() {
@@ -32,10 +37,13 @@ class AlbumIndex extends React.Component {
             {albums.map(
               (album, idx) =>
               (<li key={idx}>
-                <div className="img-container">
-                  <img src={album.coverUrl}></img>
-                  <i className="far fa-play-circle"></i>
-                </div>
+                <Link to={`/albums/${album.id}`}>
+                  <div className="img-container">
+                    <img src={album.coverUrl}></img>
+                    <i className="far fa-play-circle"></i>
+                  </div>
+                </Link>
+
                 <Link to={`/albums/${album.id}`}><h2>{album.title}</h2></Link>
                 <h3>{album.artistName}</h3>
               </li>)
@@ -54,7 +62,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAllAlbums: () => (dispatch(fetchAllAlbums()))
+  fetchAllAlbums: () => (dispatch(fetchAllAlbums())),
+  fetchSavedAlbums: () => (dispatch(fetchSavedAlbums()))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)

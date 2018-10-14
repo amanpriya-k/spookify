@@ -8,4 +8,9 @@ class Api::AlbumsController < ApplicationController
     @album = Album.find_by(id: params[:id])
   end
 
+  def saved_albums
+    @albums = current_user.saved_albums
+    render :index
+  end
+
 end

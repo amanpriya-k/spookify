@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchAllSongs } from './../actions/music_actions';
+import { fetchAllSongs, fetchSavedSongs } from './../actions/music_actions';
+import SongIndexItem from './song_index_item';
 
 class SongIndex extends React.Component {
 
@@ -10,7 +11,11 @@ class SongIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllSongs();
+    if (this.props.location.pathname == "/browse/songs") {
+      this.props.fetchAllSongs();
+    } else {
+      this.props.fetchSavedSongs();
+    }
   }
 
   render() {
@@ -25,10 +30,7 @@ class SongIndex extends React.Component {
         <ul className="song-index">
           {songs.map(
             (song, idx) =>
-            (<li key={idx}>
-              <Link to="/"><h2>♪ <span><p>{song.name}</p></span></h2></Link>
-              <h4><Link className="ugh" to="/">{song.artistName}</Link> • <Link className="ugh" to="/">{song.albumTitle}</Link></h4>
-            </li>)
+            ( <SongIndexItem key={idx} song={song}></SongIndexItem> )
           )}
         </ul>
       </div>
@@ -41,7 +43,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAllSongs: () => (dispatch(fetchAllSongs()))
+  fetchAllSongs: () => (dispatch(fetchAllSongs())),
+  fetchSavedSongs: () => (dispatch(fetchSavedSongs()))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)

@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :api do
-    get 'songs/index'
-  end
-  namespace :api do
-    get 'artists/index'
-    get 'artists/show'
-  end
   root to: "static_pages#root"
 
   namespace :api, defaults: {format: :json} do
@@ -14,15 +7,39 @@ Rails.application.routes.draw do
   end
 
   namespace :api, defaults: {format: :json} do
-    resources :albums, only: [:index, :show]
+    resources :albums, only: [:index, :show] do
+      collection do
+        get :saved_albums
+      end
+    end
   end
 
   namespace :api, defaults: {format: :json} do
-    resources :artists, only: [:index, :show]
+    resources :artists, only: [:index, :show] do
+      collection do
+        get :followed_artists
+      end
+    end
   end
 
   namespace :api, defaults: {format: :json} do
-    resources :songs, only: [:index]
+    resources :playlists, only: [:index, :show, :create, :destroy] do
+      collection do
+        get :followed_playlists
+      end
+    end
+  end
+
+  namespace :api, defaults: {format: :json} do
+    resources :playlist_songs, only: [:create, :destroy]
+  end
+
+  namespace :api, defaults: {format: :json} do
+    resources :songs, only: [:index] do
+      collection do
+        get :saved_songs
+      end
+    end
   end
 
   namespace :api, defaults: {format: :json} do

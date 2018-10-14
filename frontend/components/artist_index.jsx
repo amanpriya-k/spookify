@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchAllArtists } from './../actions/music_actions';
+import { Route, Link } from 'react-router-dom';
+import { fetchAllArtists, fetchFollowedArtists } from './../actions/music_actions';
 import BrowseNav from './browse_nav'
 
 class ArtistIndex extends React.Component {
@@ -10,11 +11,14 @@ class ArtistIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllArtists();
+    if (this.props.location.pathname == "/browse/artists") {
+      this.props.fetchAllArtists();
+    } else {
+      this.props.fetchFollowedArtists();
+    }
   }
 
   render() {
-
     let { artists } = this.props;
     if (artists.length < 1) {
       return null;
@@ -31,7 +35,7 @@ class ArtistIndex extends React.Component {
                   <img src={artist.imageUrl}></img>
                   <i className="far fa-play-circle"></i>
                 </div>
-                <h2>{artist.name}</h2>
+                <Link to={`/artists/${artist.id}`}><h2>{artist.name}</h2></Link>
               </li>)
             )}
           </ul>
@@ -40,14 +44,15 @@ class ArtistIndex extends React.Component {
     )
   }
 }
-// <BrowseNav></BrowseNav>
+
 
 const mapStateToProps = (state) => ({
   artists: Object.values(state.entities.artists)
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAllArtists: () => (dispatch(fetchAllArtists()))
+  fetchAllArtists: () => (dispatch(fetchAllArtists())),
+  fetchFollowedArtists: () => (dispatch(fetchFollowedArtists()))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)

@@ -15,7 +15,7 @@ Playlist.destroy_all
 Follow.destroy_all
 Save.destroy_all
 
-User.create(username: 'ghostuser', email: 'ghostuser@gmail.com', password: '123456')
+ghost = User.create(username: 'ghostuser', email: 'ghostuser@gmail.com', password: '123456')
 
 
 # Artists
@@ -72,6 +72,11 @@ smallpools = Artist.create(name: 'Smallpools')
 x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/smallpools-artist.jpg')
 smallpools.photo.attach(io: x, filename: 'smallpools-artist.jpg')
 
+ghost.followed_artists << smallpools
+ghost.followed_artists << hansomeghost
+ghost.followed_artists << coin
+ghost.followed_artists << ariana
+
 # Albums
 
 facedown = Album.create(title: 'Facedown', artist_id: the1975.id)
@@ -84,6 +89,10 @@ badblood = Album.create(title: 'Bad Blood', artist_id: bastille.id)
 deluxe = Album.create(title: 'The 1975 (Deluxe)', artist_id: the1975.id)
 sincerity = Album.create(title: 'Sincerity is Scary', artist_id: the1975.id)
 musicforcars = Album.create(title: 'Music For Cars', artist_id: the1975.id)
+
+ghost.saved_albums << facedown
+ghost.saved_albums << sweetener
+ghost.saved_albums << badblood
 
 facedown_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/facedown-album.jpg')
 facedown.cover.attach(io: facedown_cover, filename: 'facedown-album.jpg')
@@ -116,24 +125,57 @@ brilliantglow_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spooki
 brilliantglow.cover.attach(io: brilliantglow_cover, filename: 'brilliantglow-album.jpg')
 
 
+
+# Playlists
+
+a = Playlist.create(name: 'Chill Vibes', user_id: ghost.id)
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/playlist-image.png')
+a.image.attach(io: x, filename: 'playlist-image.png')
+
+b = Playlist.create(name: 'rainy day', user_id: ghost.id)
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/playlist-image.png')
+b.image.attach(io: x, filename: 'playlist-image1.png')
+
+c = Playlist.create(name: 'Fall Music', user_id: ghost.id)
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/playlist-image.png')
+c.image.attach(io: x, filename: 'playlist-image2.jpg')
+
+d = Playlist.create(name: 'harrys favs', user_id: ghost.id)
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/playlist-image.png')
+d.image.attach(io: x, filename: 'playlist-image3.jpg')
+
+e = Playlist.create(name: 'best of ariana', user_id: ghost.id)
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/playlist-image.png')
+e.image.attach(io: x, filename: 'playlist-image4.jpg')
+
+f = Playlist.create(name: 'random stuff', user_id: ghost.id)
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/playlist-image.png')
+f.image.attach(io: x, filename: 'playlist-image5.jpg')
+
+ghost.followed_playlists << a
+ghost.followed_playlists << d
+ghost.followed_playlists << f
+
+
+
 # Songs
 
-Song.create(name: 'Facedown', album_id: facedown.id)
-Song.create(name: 'Antichrist', album_id: facedown.id)
-Song.create(name: 'The City', album_id: facedown.id)
-Song.create(name: 'Woman', album_id: facedown.id)
-Song.create(name: 'Anobrain', album_id: musicforcars.id)
-Song.create(name: 'Chocolate', album_id: musicforcars.id)
-Song.create(name: 'HNSCC', album_id: musicforcars.id)
-Song.create(name: 'Me', album_id: musicforcars.id)
+ghost.saved_songs << Song.create(name: 'Facedown', album_id: facedown.id)
+ghost.saved_songs << Song.create(name: 'Antichrist', album_id: facedown.id)
+ghost.saved_songs << Song.create(name: 'The City', album_id: facedown.id)
+ghost.saved_songs << Song.create(name: 'Woman', album_id: facedown.id)
+a.songs << Song.create(name: 'Anobrain', album_id: musicforcars.id)
+a.songs << Song.create(name: 'Chocolate', album_id: musicforcars.id)
+ghost.saved_songs << Song.create(name: 'HNSCC', album_id: musicforcars.id)
+b.songs << Song.create(name: 'Me', album_id: musicforcars.id)
 Song.create(name: 'M.O.N.E.Y', album_id: deluxe.id)
-Song.create(name: 'Talk!', album_id: deluxe.id)
+ghost.saved_songs << Song.create(name: 'Talk!', album_id: deluxe.id)
 Song.create(name: 'Heart Out', album_id: deluxe.id)
 Song.create(name: 'Girls', album_id: deluxe.id)
-Song.create(name: 'breathin', album_id: sweetener.id)
+b.songs << Song.create(name: 'breathin', album_id: sweetener.id)
 Song.create(name: 'God is a woman', album_id: sweetener.id)
 Song.create(name: 'no tears left to cry', album_id: sweetener.id)
-Song.create(name: 'sweetener', album_id: sweetener.id)
+b.songs << Song.create(name: 'sweetener', album_id: sweetener.id)
 Song.create(name: 'Moonlight', album_id: dangerous.id)
 Song.create(name: 'Be Alright', album_id: dangerous.id)
 Song.create(name: 'Into You', album_id: dangerous.id)

@@ -1,0 +1,40 @@
+.library-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: lightgray;
+  padding-top: 46px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-family: "Circular";
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
+
+  h1 {
+    display: none;
+  }
+}
+
+.library-nav a {
+  margin-left: 29px;
+  text-align: center;
+  line-height:  0px;
+}
+
+.library-nav a:hover {
+  color: white;
+}
+
+
+.link-active {
+  color: white;
+
+  h1 {
+    display: inline-block;
+    color: #1DB954;
+    font-size: 35px;
+    letter-spacing: -1em;
+  }
+
+}

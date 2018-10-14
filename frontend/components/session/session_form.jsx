@@ -50,14 +50,14 @@ class SessionForm extends React.Component {
       this.setState(
         { username: this.state.username + userArr.shift() }, () => {
           window.setTimeout( () =>
-            this.loginAsGuestHelper(userArr, passwordArr, button), 75);
+            this.loginAsGuestHelper(userArr, passwordArr, button), 65);
         }
       );
     } else if (passwordArr.length > 0) {
       this.setState(
         { password: this.state.password + passwordArr.shift() }, () => {
           window.setTimeout( () =>
-            this.loginAsGuestHelper(userArr, passwordArr, button), 100);
+            this.loginAsGuestHelper(userArr, passwordArr, button), 65);
         }
       );
     } else {

@@ -3,7 +3,16 @@ import ReactDOM from 'react-dom';
 import { signup, login, logout, loginDemo } from './actions/session_actions'
 import configureStore from './store/store'
 import Root from './components/root';
-import { fetchAllAlbums, fetchAllArtists, fetchAllSongs, fetchOneAlbum } from './actions/music_actions'
+import { fetchAllAlbums,
+         fetchAllArtists,
+         fetchAllSongs,
+         fetchOneAlbum,
+         fetchAllPlaylists,
+         fetchOnePlaylist,
+         fetchSavedSongs,
+         fetchSavedAlbums,
+         fetchFollowedArtists,
+         fetchFollowedPlaylists } from './actions/music_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -31,6 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
   window.loginDemo = loginDemo;
   window.fetchAllAlbums = fetchAllAlbums;
   window.fetchAllArtists = fetchAllArtists;
+  window.fetchAllPlaylists = fetchAllPlaylists;
   window.fetchAllSongs = fetchAllSongs;
   window.fetchOneAlbum = fetchOneAlbum;
+  window.fetchOnePlaylist = fetchOnePlaylist;
+  window.fetchSavedSongs = fetchSavedSongs;
+  window.fetchSavedAlbums = fetchSavedAlbums;
+  window.fetchFollowedArtists = fetchFollowedArtists;
+  window.fetchFollowedPlaylists = fetchFollowedPlaylists;
 });

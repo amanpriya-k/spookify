@@ -28,6 +28,28 @@ export const fetchOneArtist = (artistId) => (
   })
 );
 
+export const fetchAllPlaylists = () => (
+  $.ajax({
+    url: '/api/playlists',
+    method: 'GET'
+  })
+);
+
+export const fetchOnePlaylist = (playlistId) => (
+  $.ajax({
+    url: `/api/playlists/${playlistId}`,
+    method: 'GET'
+  })
+);
+
+export const createPlaylist = (playlist) => (
+  $.ajax({
+    url: `/api/playlists/`,
+    method: 'POST',
+    data: { playlist }
+  })
+);
+
 export const fetchAllSongs = () => (
   $.ajax({
     url: '/api/songs',

@@ -4,6 +4,12 @@ class Api::ArtistsController < ApplicationController
   end
 
   def show
-    @artist = Artist.find_by(:artistId)
+    @artist = Artist.find_by(id: params[:id])
   end
+
+  def followed_artists
+    @artists = current_user.followed_artists
+    render :index
+  end
+
 end

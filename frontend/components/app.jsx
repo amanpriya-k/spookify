@@ -7,7 +7,6 @@ import Splash from './splash';
 import SideNav from './side_nav';
 import Main from './main';
 import AlbumShow from './album_show';
-import Home from './home';
 
 class App extends React.Component {
 

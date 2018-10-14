@@ -1,9 +1,6 @@
 
 .albumIndexContainer {
-  // width: 90%;
-  // background: orange;
-  // height: 620px;
-  // overflow-y: scroll;
+
 }
 
 .album-index {
@@ -34,6 +31,12 @@
       transition: .3s;
       z-index: 999;
     }
+
+    i:hover {
+      font-size: 85px;
+      top: 62px;
+      left: 62px;
+    }
   }
 
   .img-container:hover {
@@ -48,11 +51,7 @@
     }
   }
 
-  i:hover {
-    font-size: 85px;
-    top: 62px;
-    left: 62px;
-  }
+
 
   li {
     padding: 30px;
