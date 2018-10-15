@@ -8,4 +8,13 @@ json.albums do
   end
 end
 
+json.songs do
+  @artist.songs.limit(5).each do |song|
+    json.partial! 'api/songs/song', song: song
+  end
+end
+
+
 json.image_url @artist.photo.service_url
+
+json.followed current_user.followed_artist_ids.include?(@artist.id)

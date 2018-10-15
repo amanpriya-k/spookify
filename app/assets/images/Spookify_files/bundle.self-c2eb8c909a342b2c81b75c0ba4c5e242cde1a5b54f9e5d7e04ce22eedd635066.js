@@ -293,7 +293,7 @@ var logout = function logout() {
 };
 var loginDemo = function loginDemo() {
   return function (dispatch) {
-    // debugger
+    //  
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["loginDemo"]().then(function (user) {
       return dispatch(receiveCurrentUser(user));
     }, function (errors) {
@@ -466,13 +466,13 @@ function (_React$Component) {
   _createClass(AlbumShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
+       ;
       this.props.fetchOneAlbum(this.props.match.params.albumId);
     }
   }, {
     key: "render",
     value: function render() {
-      // debugger
+      //  
       var album = this.props.album;
 
       if (!album || !album.songs) {
@@ -957,7 +957,7 @@ function (_React$Component) {
   _createClass(Main, [{
     key: "render",
     value: function render() {
-      // debugger
+      //  
       if (!currentUser) {
         console.log('wtfff');
         return null;
@@ -1620,7 +1620,7 @@ function (_React$Component) {
       // this.props.history.push('/login');
       // const button = document.getElementById('demo');
       // button.click();
-      // debugger
+      //  
       this.props.demoLogin().then(function () {
         return _this2.helper();
       });
@@ -1628,13 +1628,13 @@ function (_React$Component) {
   }, {
     key: "helper",
     value: function helper() {
-      // debugger
+      //  
       this.props.history.push('/browse/albums');
     }
   }, {
     key: "render",
     value: function render() {
-      // debugger
+      //  
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "splash"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -25611,7 +25611,7 @@ var debugRenderPhaseSideEffects = false;
 // This feature flag can be used to control the behavior:
 var debugRenderPhaseSideEffectsForStrictMode = true;
 
-// To preserve the "Pause on caught exceptions" behavior of the debugger, we
+// To preserve the "Pause on caught exceptions" behavior of the  , we
 // replay the begin phase of a failed component inside invokeGuardedCallback.
 var replayFailedUnitOfWorkWithInvokeGuardedCallback = true;
 
@@ -43636,7 +43636,7 @@ var enableSuspense = false;
 // This feature flag can be used to control the behavior:
 
 
-// To preserve the "Pause on caught exceptions" behavior of the debugger, we
+// To preserve the "Pause on caught exceptions" behavior of the  , we
 // replay the begin phase of a failed component inside invokeGuardedCallback.
 
 
@@ -46092,7 +46092,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 // This feature flag can be used to control the behavior:
 
 
-// To preserve the "Pause on caught exceptions" behavior of the debugger, we
+// To preserve the "Pause on caught exceptions" behavior of the  , we
 // replay the begin phase of a failed component inside invokeGuardedCallback.
 
 

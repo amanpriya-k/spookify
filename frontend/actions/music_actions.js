@@ -53,6 +53,8 @@ export const receiveAllPlaylists = (playlists) => ({
 // thunk actions
 
 
+// songs
+
 export const fetchAllSongs = () => (dispatch) => (
   MusicApiUtil.fetchAllSongs()
     .then(songs => dispatch(receiveAllSongs(songs)))
@@ -73,6 +75,7 @@ export const saveSong = (id) => (dispatch) => (
     .then(song => dispatch(receiveOneSong(song)))
 )
 
+// artists
 
 export const fetchAllArtists = () => (dispatch) => (
   MusicApiUtil.fetchAllArtists()
@@ -88,6 +91,20 @@ export const fetchOneArtist = (artistId) => (dispatch) => (
   MusicApiUtil.fetchOneArtist(artistId)
     .then(artist => dispatch(receiveOneArtist(artist)))
 )
+
+export const followArtist = (id) => (dispatch) => {
+  return (
+    UserMusicApiUtil.followArtist(id)
+    )
+}
+
+export const unfollowArtist = (id) => (dispatch) => {
+  return (
+    UserMusicApiUtil.unfollowArtist(id)
+  )
+}
+
+// albums
 
 export const fetchAllAlbums = () => (dispatch) => (
   MusicApiUtil.fetchAllAlbums()
@@ -115,6 +132,8 @@ export const unsaveAlbum = (id) => (dispatch) => {
     UserMusicApiUtil.unsaveAlbum(id)
   )
 }
+
+// playlists
 
 export const fetchOnePlaylist = (playlistId) => (dispatch) => (
   MusicApiUtil.fetchOnePlaylist(playlistId)

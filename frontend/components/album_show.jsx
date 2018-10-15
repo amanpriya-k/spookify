@@ -19,7 +19,6 @@ class AlbumShow extends React.Component {
   }
 
   setInitialState() {
-    // debugger
     this.setState( { saved: this.props.album.saved });
   }
 
@@ -34,8 +33,6 @@ class AlbumShow extends React.Component {
   }
 
   render() {
-
-    // debugger;
 
     let { album, saveAlbum, unsaveAlbum } = this.props;
     if(!album) {

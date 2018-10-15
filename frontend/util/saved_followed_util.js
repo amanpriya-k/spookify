@@ -1,5 +1,5 @@
 
-
+// songs
 
 export const fetchSavedSongs = () => (
   $.ajax({
@@ -14,6 +14,8 @@ export const saveSong = (id) => (
     method: 'POST'
   })
 )
+
+// albums
 
 export const fetchSavedAlbums = () => (
   $.ajax({
@@ -36,6 +38,9 @@ export const unsaveAlbum = (id) => (
   })
 )
 
+
+// artists
+
 export const fetchFollowedArtists = () => (
   $.ajax({
     url: 'api/artists/followed_artists',
@@ -49,6 +54,15 @@ export const followArtist = (id) => (
     method: 'POST'
   })
 )
+
+export const unfollowArtist = (id) => (
+  $.ajax({
+    url: `api/artists/${id}/unfollow`,
+    method: 'DELETE'
+  })
+)
+
+// playlists
 
 export const fetchFollowedPlaylists = () => (
   $.ajax({
