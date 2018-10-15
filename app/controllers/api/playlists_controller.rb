@@ -1,7 +1,7 @@
 class Api::PlaylistsController < ApplicationController
 
   def index
-    @playlists = Playlist.all
+    @playlists = Playlist.with_attached_image.all
   end
 
   def show
@@ -30,6 +30,12 @@ class Api::PlaylistsController < ApplicationController
   def followed_playlists
     @playlists = current_user.followed_playlists
     render :index
+  end
+
+  def follow
+    @playlist = Playlist.find(params[:id])
+    current_user.followed_playlists << @playlist
+    render :show
   end
 
 end

@@ -1,7 +1,7 @@
 class Api::AlbumsController < ApplicationController
 
   def index
-    @albums = Album.all
+    @albums = Album.with_attached_cover.all.includes(:artist)
   end
 
   def show
@@ -11,6 +11,21 @@ class Api::AlbumsController < ApplicationController
   def saved_albums
     @albums = current_user.saved_albums
     render :index
+  end
+
+  def save
+    @album = Album.find(params[:id])
+    current_user.saved_albums << @album
+    render :show
+  end
+
+  def unsave
+    @album = Album.find(params[:id])
+    @save = Save.find_by( saveable_id: @album.id,
+                          saveable_type: 'Album',
+                          user_id: current_user.id)
+    @save.destroy
+    render :show
   end
 
 end

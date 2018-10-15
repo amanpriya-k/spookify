@@ -11,6 +11,10 @@ Rails.application.routes.draw do
       collection do
         get :saved_albums
       end
+      member do
+        post :save
+        delete :unsave
+      end
     end
   end
 
@@ -19,6 +23,9 @@ Rails.application.routes.draw do
       collection do
         get :followed_artists
       end
+      member do
+        post :follow
+      end
     end
   end
 
@@ -26,6 +33,9 @@ Rails.application.routes.draw do
     resources :playlists, only: [:index, :show, :create, :destroy] do
       collection do
         get :followed_playlists
+      end
+      member do
+        post :follow
       end
     end
   end
@@ -38,6 +48,9 @@ Rails.application.routes.draw do
     resources :songs, only: [:index] do
       collection do
         get :saved_songs
+      end
+      member do
+        post :save
       end
     end
   end

@@ -1,6 +1,6 @@
 class Api::ArtistsController < ApplicationController
   def index
-    @artists = Artist.all
+    @artists = Artist.with_attached_photo.all
   end
 
   def show
@@ -10,6 +10,12 @@ class Api::ArtistsController < ApplicationController
   def followed_artists
     @artists = current_user.followed_artists
     render :index
+  end
+
+  def follow
+    @artist = Artist.find(params[:id])
+    current_user.followed_artists << @artist
+    render :show
   end
 
 end

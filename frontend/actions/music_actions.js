@@ -68,6 +68,12 @@ export const fetchOneSong = (songId) => (dispatch) => (
     .then(song => dispatch(receiveOneSong(song)))
 )
 
+export const saveSong = (id) => (dispatch) => (
+  UserMusicApiUtil.saveSong(id)
+    .then(song => dispatch(receiveOneSong(song)))
+)
+
+
 export const fetchAllArtists = () => (dispatch) => (
   MusicApiUtil.fetchAllArtists()
     .then(songs => dispatch(receiveAllArtists(songs)))
@@ -97,6 +103,18 @@ export const fetchOneAlbum = (albumId) => (dispatch) => (
   MusicApiUtil.fetchOneAlbum(albumId)
     .then(album => dispatch(receiveOneAlbum(album)))
 )
+
+export const saveAlbum = (id) => (dispatch) => {
+  return (
+    UserMusicApiUtil.saveAlbum(id)
+    )
+}
+
+export const unsaveAlbum = (id) => (dispatch) => {
+  return (
+    UserMusicApiUtil.unsaveAlbum(id)
+  )
+}
 
 export const fetchOnePlaylist = (playlistId) => (dispatch) => (
   MusicApiUtil.fetchOnePlaylist(playlistId)

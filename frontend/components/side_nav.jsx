@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect} from 'react-router-dom';
+import { Redirect, Link, NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../actions/session_actions';
 
@@ -23,9 +23,9 @@ class SideNav extends React.Component {
         </div>
 
         <div className="side-bar-links">
-          <a href="/#/search"><i className="fa fa-search"><span>Search</span></i></a>
-          <a href="/#/browse/albums"><i className="fa fa-home"><span>Home</span></i></a>
-          <a href="/#/library/albums"><i className="fa fa-bookmark"><span>Your Library</span></i></a>
+          <NavLink className={ this.props.match.params.section === "search" ? "active-links" : "" } to="/search"><i className="fa fa-search"><span>Search</span></i></NavLink>
+          <NavLink className={ this.props.match.params.section === "browse" ? "active-links" : "" } to="/browse/albums"><i className="fa fa-home"><span>Home</span></i></NavLink>
+          <NavLink className={ this.props.match.params.section === "library" ? "active-links" : "" } to="/library/albums"><i className="fa fa-bookmark"><span>Your Library</span></i></NavLink>
         </div>
 
 
@@ -46,4 +46,4 @@ const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SideNav)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SideNav))

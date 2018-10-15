@@ -8,3 +8,5 @@ json.songs do
 end
 
 json.cover_url @album.cover.service_url
+
+json.saved current_user.saved_album_ids.include?(@album.id)
