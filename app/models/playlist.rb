@@ -10,6 +10,8 @@
 #
 
 class Playlist < ApplicationRecord
+  after_initialize :add_image_to_playlist
+
   validates :name, presence: true
 
   belongs_to :user
@@ -19,5 +21,10 @@ class Playlist < ApplicationRecord
   has_many :playlist_songs
 
   has_many :songs, through: :playlist_songs
+
+  def add_image_to_playlist
+    # img = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/playlist-image.png')
+    # self.image.attach(io: img, filename: 'playlist-image.jpg')
+  end
 
 end

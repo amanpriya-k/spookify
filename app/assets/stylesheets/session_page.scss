@@ -110,6 +110,8 @@
   color: #1DB954;
 }
 
+
+
 .demo {
   display: flex;
   flex-direction: column;
@@ -143,4 +145,20 @@
 
 .or {
   text-align: center;
+}
+
+.bottom-form {
+
+  p {
+    text-decoration: none;
+  }
+
+  p:hover {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+  
 }

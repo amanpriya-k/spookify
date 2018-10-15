@@ -1,19 +1,43 @@
 .browse-nav {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-end;
   color: lightgray;
-  padding-top: 46px;
+  padding-top: 16px;
   padding-left: 50px;
   padding-right: 50px;
   font-family: "Circular";
   text-transform: uppercase;
   font-size: 13px;
   letter-spacing: 1px;
+  align-items: baseline;
 
   h1 {
     display: none;
   }
+
+  button {
+    font-family: "Circular";
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: 2px;
+    background-color: #1DB954;
+    border: #1DB954;
+    margin: 30px 10px 0 20px;
+    padding: 9px 27px 9px 27px;
+    border-radius: 25px;
+    color: white;
+    transition: .5s;
+    outline: none;
+    text-align: center;
+    margin-left: 150px;
+  }
+
+  button:hover {
+    background-color: #55DA5D;
+    border: #55DA5D;
+  }
+
 }
 
 .browse-nav a {

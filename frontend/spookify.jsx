@@ -12,7 +12,7 @@ import { fetchAllAlbums,
          fetchSavedSongs,
          fetchSavedAlbums,
          fetchFollowedArtists,
-         fetchFollowedPlaylists } from './actions/music_actions'
+         fetchFollowedPlaylists, deletePlaylist, createPlaylist  } from './actions/music_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -48,4 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchSavedAlbums = fetchSavedAlbums;
   window.fetchFollowedArtists = fetchFollowedArtists;
   window.fetchFollowedPlaylists = fetchFollowedPlaylists;
+  window.deletePlaylist = deletePlaylist;
+  window.createPlaylist = createPlaylist;
 });

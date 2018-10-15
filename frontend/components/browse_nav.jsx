@@ -6,11 +6,18 @@ class BrowseNav extends React.Component {
 
   render() {
     return(
-      <div className="browse-nav">
-        <NavLink activeClassName="link-active" to="/browse/albums">Albums<br></br><h1>__</h1></NavLink>
-        <NavLink activeClassName="link-active" to="/browse/artists">Artists<br></br><h1>__</h1></NavLink>
-        <NavLink activeClassName="link-active" to="/browse/songs">Songs<br></br><h1>__</h1></NavLink>
-        <NavLink activeClassName="link-active" to="/browse/playlists">Playlists<br></br><h1>__</h1></NavLink>
+      <div className="top-nav">
+
+        <div className="browse-nav">
+          <NavLink activeClassName="link-active" to="/browse/albums">Albums<br></br><h1>__</h1></NavLink>
+          <NavLink activeClassName="link-active" to="/browse/artists">Artists<br></br><h1>__</h1></NavLink>
+          <NavLink activeClassName="link-active" to="/browse/songs">Songs<br></br><h1>__</h1></NavLink>
+          <NavLink activeClassName="link-active" to="/browse/playlists">Playlists<br></br><h1>__</h1></NavLink>
+          <button>NEW PLAYLIST</button>
+        </div>
+
+        <div>
+        </div>
       </div>
     )
   }

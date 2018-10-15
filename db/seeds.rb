@@ -129,28 +129,16 @@ brilliantglow.cover.attach(io: brilliantglow_cover, filename: 'brilliantglow-alb
 # Playlists
 
 a = Playlist.create(name: 'Chill Vibes', user_id: ghost.id)
-x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/playlist-image.png')
-a.image.attach(io: x, filename: 'playlist-image.png')
 
 b = Playlist.create(name: 'rainy day', user_id: ghost.id)
-x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/playlist-image.png')
-b.image.attach(io: x, filename: 'playlist-image1.png')
 
 c = Playlist.create(name: 'Fall Music', user_id: ghost.id)
-x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/playlist-image.png')
-c.image.attach(io: x, filename: 'playlist-image2.jpg')
 
 d = Playlist.create(name: 'harrys favs', user_id: ghost.id)
-x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/playlist-image.png')
-d.image.attach(io: x, filename: 'playlist-image3.jpg')
 
 e = Playlist.create(name: 'best of ariana', user_id: ghost.id)
-x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/playlist-image.png')
-e.image.attach(io: x, filename: 'playlist-image4.jpg')
 
 f = Playlist.create(name: 'random stuff', user_id: ghost.id)
-x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/playlist-image.png')
-f.image.attach(io: x, filename: 'playlist-image5.jpg')
 
 ghost.followed_playlists << a
 ghost.followed_playlists << d

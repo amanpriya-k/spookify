@@ -9,12 +9,10 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def create
-    @playlist = Playlist.new(params[:playlist][:name])
+    @playlist = Playlist.new(params.require(:playlist).permit(:name))
     @playlist.user_id = current_user.id
-    img = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/playlist-image.png')
-    @playlist.image.attach(io: img, filename: 'playlist-image.jpg')
 
-    if @playlist.create
+    if @playlist.save
       render :show
     else
       render json: ["Unable to create playlist"], status: 401

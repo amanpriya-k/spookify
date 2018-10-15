@@ -6,6 +6,7 @@ export const RECEIVE_ONE_ALBUM = 'RECEIVE_ONE_ALBUM';
 export const RECEIVE_ONE_SONG = 'RECEIVE_ONE_SONG';
 export const RECEIVE_ONE_ARTIST = 'RECEIVE_ONE_ARTIST';
 export const RECEIVE_ONE_PLAYLIST = 'RECEIVE_ONE_PLAYLIST';
+export const REMOVE_ONE_PLAYLIST = 'REMOVE_ONE_PLAYLIST';
 
 import * as MusicApiUtil from '../util/music_util'
 import * as UserMusicApiUtil from '../util/saved_followed_util'
@@ -42,6 +43,11 @@ export const receiveOneAlbum = (album) => ({
 
 export const receiveOnePlaylist = (playlist) => ({
   type: RECEIVE_ONE_PLAYLIST,
+  playlist
+});
+
+export const removeOnePlaylist = (playlist) => ({
+  type: REMOVE_ONE_PLAYLIST,
   playlist
 });
 
@@ -124,7 +130,7 @@ export const fetchOneAlbum = (albumId) => (dispatch) => (
 export const saveAlbum = (id) => (dispatch) => {
   return (
     UserMusicApiUtil.saveAlbum(id)
-    )
+  )
 }
 
 export const unsaveAlbum = (id) => (dispatch) => {
@@ -159,5 +165,17 @@ export const followPlaylist = (id) => (dispatch) => {
 export const unfollowPlaylist = (id) => (dispatch) => {
   return (
     UserMusicApiUtil.unfollowPlaylist(id)
+  )
+}
+
+export const createPlaylist = (playlist) => (dispatch) => (
+  MusicApiUtil.createPlaylist(playlist)
+    .then( playlist => dispatch(receiveOnePlaylist(playlist)) )
+)
+
+export const deletePlaylist = (id) => (dispatch) => {
+  return (
+    MusicApiUtil.deletePlaylist(id)
+      .then( playlist => dispatch(removeOnePlaylist(playlist)) )
   )
 }

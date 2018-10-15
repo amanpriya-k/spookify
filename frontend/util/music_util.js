@@ -50,6 +50,13 @@ export const createPlaylist = (playlist) => (
   })
 );
 
+export const deletePlaylist = (id) => (
+  $.ajax({
+    url: `/api/playlists/${id}`,
+    method: 'DELETE'
+  })
+);
+
 export const fetchAllSongs = () => (
   $.ajax({
     url: '/api/songs',
