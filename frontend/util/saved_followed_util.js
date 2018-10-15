@@ -77,3 +77,10 @@ export const followPlaylist = (id) => (
     method: 'POST'
   })
 )
+
+export const unfollowPlaylist = (id) => (
+  $.ajax({
+    url: `api/playlists/${id}/unfollow`,
+    method: 'DELETE'
+  })
+)

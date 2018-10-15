@@ -1,17 +1,37 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchOnePlaylist } from './../actions/music_actions';
+import { fetchOnePlaylist, followPlaylist, unfollowPlaylist } from './../actions/music_actions';
 import SongIndexItem from './song_index_item';
 
 class PlaylistShow extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = { followed: null }
+    this.handleFollow = this.handleFollow.bind(this);
+    this.handleUnfollow = this.handleUnfollow.bind(this);
+    this.setInitialState = this.setInitialState.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchOnePlaylist(this.props.match.params.playlistId);
+    this.props.fetchOnePlaylist(this.props.match.params.playlistId)
+        .then( () => this.setInitialState() )
   }
+
+  setInitialState() {
+    this.setState( { followed: this.props.playlist.followed });
+  }
+
+  handleFollow() {
+    this.setState({ followed: true })
+    this.props.followPlaylist(this.props.playlist.id)
+  }
+
+  handleUnfollow() {
+    this.setState({ followed: false })
+    this.props.unfollowPlaylist(this.props.playlist.id)
+  }
+
 
   render() {
 
@@ -30,6 +50,13 @@ class PlaylistShow extends React.Component {
       songs = null
     }
 
+    let followButton;
+    if (!this.state.followed) {
+      followButton = (<button onClick={this.handleFollow}>FOLLOW</button>)
+    } else {
+      followButton = (<button onClick={this.handleUnfollow}>UNFOLLOW</button>)
+    }
+
 
     return(
       <div className="playlist-show-container">
@@ -40,6 +67,7 @@ class PlaylistShow extends React.Component {
           </div>
           <h1>{playlist.name}</h1>
           <button>PLAY</button>
+          {followButton}
           <h3>{songs ? Object.values(playlist.songs).length : 0} SONGS</h3>
         </div>
 
@@ -58,7 +86,9 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchOnePlaylist: (playlistId) => dispatch(fetchOnePlaylist(playlistId))
+  fetchOnePlaylist: (playlistId) => dispatch(fetchOnePlaylist(playlistId)),
+  followPlaylist: (playlistId) => dispatch(followPlaylist(playlistId)),
+  unfollowPlaylist: (playlistId) => dispatch(unfollowPlaylist(playlistId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)

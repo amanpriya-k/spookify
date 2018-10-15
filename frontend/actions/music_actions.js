@@ -149,3 +149,15 @@ export const fetchFollowedPlaylists = () => (dispatch) => (
   UserMusicApiUtil.fetchFollowedPlaylists()
     .then(playlists => dispatch(receiveAllPlaylists(playlists)))
 )
+
+export const followPlaylist = (id) => (dispatch) => {
+  return (
+    UserMusicApiUtil.followPlaylist(id)
+    )
+}
+
+export const unfollowPlaylist = (id) => (dispatch) => {
+  return (
+    UserMusicApiUtil.unfollowPlaylist(id)
+  )
+}

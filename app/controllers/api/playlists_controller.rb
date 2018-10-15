@@ -38,4 +38,13 @@ class Api::PlaylistsController < ApplicationController
     render :show
   end
 
+  def unfollow
+    @playlist = Playlist.find(params[:id])
+    @follow = Follow.find_by( followable_id: @playlist.id,
+                          followable_type: 'Playlist',
+                          user_id: current_user.id)
+    @follow.destroy
+    render :show
+  end
+
 end

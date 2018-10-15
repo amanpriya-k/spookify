@@ -7,3 +7,5 @@ json.songs do
 end
 
 json.cover_url @playlist.image.service_url
+
+json.followed current_user.followed_playlist_ids.include?(@playlist.id)
