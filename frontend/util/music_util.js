@@ -63,3 +63,10 @@ export const fetchAllSongs = () => (
     method: 'GET'
   })
 );
+
+export const fetchOneSong = (songId) => (
+  $.ajax({
+    url: `/api/songs/${songId}`,
+    method: 'GET'
+  })
+);

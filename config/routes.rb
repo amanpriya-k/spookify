@@ -47,12 +47,13 @@ Rails.application.routes.draw do
   end
 
   namespace :api, defaults: {format: :json} do
-    resources :songs, only: [:index] do
+    resources :songs, only: [:index, :show] do
       collection do
         get :saved_songs
       end
       member do
         post :save
+        delete :unsave
       end
     end
   end

@@ -8,18 +8,31 @@ class SongIndex extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = { songs: null };
+    this.setInitialState = this.setInitialState.bind(this);
   }
 
   componentDidMount() {
     if (this.props.location.pathname == "/browse/songs") {
-      this.props.fetchAllSongs();
+      this.props.fetchAllSongs()
+        .then(() => this.setInitialState())
     } else {
-      this.props.fetchSavedSongs();
+      this.props.fetchSavedSongs()
+        .then(() => this.setInitialState())
     }
   }
 
-  render() {
+  componentWillReceiveProps(newProps) {
+    if (this.props.songs != newProps.songs) {
+      this.setState( { songs: newProps.songs } )
+    }
+  }
 
+  setInitialState() {
+    this.setState( { songs: this.props.songs} );
+  }
+
+  render() {
     let { songs } = this.props;
     if (songs.length < 1) {
       return null;
@@ -30,7 +43,7 @@ class SongIndex extends React.Component {
         <ul className="song-index">
           {songs.map(
             (song, idx) =>
-            ( <SongIndexItem key={idx} song={song}></SongIndexItem> )
+            ( <SongIndexItem key={song.id} song={song}></SongIndexItem> )
           )}
         </ul>
       </div>

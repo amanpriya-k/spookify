@@ -1,17 +1,20 @@
 import React from 'react';
 import { Link, Route, Switch, Redirect } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../util/auth_route_util.js'
-import BrowseNav from './browse_nav'
-import AlbumIndex from './album_index'
-import ArtistIndex from './artist_index'
-import SongIndex from './song_index'
-import PlaylistIndex from './playlist_index'
+import { AuthRoute, ProtectedRoute } from '../util/auth_route_util.js';
+import BrowseNav from './browse_nav';
+import AlbumIndex from './album_index';
+import ArtistIndex from './artist_index';
+import SongIndex from './song_index';
+import PlaylistIndex from './playlist_index';
+import NewPlaylistModal from './new_playlist_modal';
 
 class Browse extends React.Component {
 
   render() {
     return(
       <div className="browse-container">
+
+        <NewPlaylistModal></NewPlaylistModal>
 
         <BrowseNav></BrowseNav>
 

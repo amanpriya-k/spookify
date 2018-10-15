@@ -4,6 +4,25 @@
   padding-left: 15px;
   padding-top: 20px;
   transition: .3s;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .song-btns {
+    margin-right: 20px;
+    .save-btn {
+      color: white;
+      font-family: "Circular Bold";
+      font-size: 15px;
+    }
+
+    .unsave-btn {
+      color: #1DB954;
+      font-family: "Circular Bold";
+      font-size: 13px;
+    }
+  }
+
+
 }
 
 .song-index-item:hover {

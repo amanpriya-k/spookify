@@ -13,6 +13,7 @@ class Api::PlaylistsController < ApplicationController
     @playlist.user_id = current_user.id
 
     if @playlist.save
+      current_user.followed_playlists << @playlist
       render :show
     else
       render json: ["Unable to create playlist"], status: 401

@@ -61,18 +61,22 @@ export const receiveAllPlaylists = (playlists) => ({
 
 // songs
 
-export const fetchAllSongs = () => (dispatch) => (
+export const fetchAllSongs = () => (dispatch) => {
+  console.log('fetching all songs');
+return (
   MusicApiUtil.fetchAllSongs()
     .then(songs => dispatch(receiveAllSongs(songs)))
-)
+)}
 
-export const fetchSavedSongs = () => (dispatch) => (
+export const fetchSavedSongs = () => (dispatch) => {
+  console.log('fetching saved songs');
+return (
   UserMusicApiUtil.fetchSavedSongs()
     .then(songs => dispatch(receiveAllSongs(songs)))
-)
+)}
 
 export const fetchOneSong = (songId) => (dispatch) => (
-  MusicApiUtil.fetchOneArtist(songId)
+  MusicApiUtil.fetchOneSong(songId)
     .then(song => dispatch(receiveOneSong(song)))
 )
 
@@ -80,6 +84,12 @@ export const saveSong = (id) => (dispatch) => (
   UserMusicApiUtil.saveSong(id)
     .then(song => dispatch(receiveOneSong(song)))
 )
+
+export const unsaveSong = (id) => (dispatch) => {
+  return (
+    UserMusicApiUtil.unsaveSong(id)
+  )
+}
 
 // artists
 

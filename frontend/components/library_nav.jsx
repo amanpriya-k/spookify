@@ -1,7 +1,10 @@
 import React from 'react';
-import { NavLink, Route, Switch, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { NavLink, Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/auth_route_util.js'
 import { createPlaylist } from '../actions/music_actions';
+import { openModal } from '../actions/modal_actions';
+
 
 class LibraryNav extends React.Component {
 
@@ -14,7 +17,7 @@ class LibraryNav extends React.Component {
           <NavLink activeClassName="link-active" to="/library/artists">Artists<br></br><h1>__</h1></NavLink>
           <NavLink activeClassName="link-active" to="/library/songs">Songs<br></br><h1>__</h1></NavLink>
           <NavLink activeClassName="link-active" to="/library/playlists">Playlists<br></br><h1>__</h1></NavLink>
-          <button>NEW PLAYLIST</button>
+          <button onClick={this.props.openModal}>NEW PLAYLIST</button>
         </div>
 
       </div>
@@ -23,4 +26,9 @@ class LibraryNav extends React.Component {
 
 }
 
-export default LibraryNav;
+
+const mapDispatchToProps = (dispatch) => ({
+  openModal: () => dispatch(openModal('playlist'))
+})
+
+export default withRouter(connect(null, mapDispatchToProps)(LibraryNav))

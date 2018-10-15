@@ -15,6 +15,13 @@ export const saveSong = (id) => (
   })
 )
 
+export const unsaveSong = (id) => (
+  $.ajax({
+    url: `api/songs/${id}/unsave`,
+    method: 'DELETE'
+  })
+)
+
 // albums
 
 export const fetchSavedAlbums = () => (
