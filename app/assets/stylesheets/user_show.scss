@@ -1,0 +1,99 @@
+
+.user-show {
+  background: image-url('gray');
+  width: 83%;
+  height: 620px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  .user-header {
+    i {
+      padding-top: 50px;
+      font-size: 60px;
+      color: white;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-family: "Circular Bold";
+      font-size: 48px;
+      color: white;
+      margin-bottom: 7px;
+    }
+
+    hr {
+      width: 60%;
+    }
+
+    h3 {
+      margin-top: 5px;
+      font-family: "Montserrat";
+      color: lightgray;
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    h4 {
+      margin-top: 0;
+      font-family: "Circular";
+      color:#3B2A49;
+      font-size: 13px;
+      padding-right: 25px;
+    }
+  }
+
+
+
+  .user-lists {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 50px;
+
+    .user-list {
+      padding: 10px;
+      width: 250px;
+      height: 200px;
+      overflow-y: scroll;
+      background-color: rgba(0,0,0,.2);
+      border-radius: 4px;
+      border-radius: 1px solid gray;
+
+      h1 {
+        font-family: "Circular";
+        font-size: 20px;
+        color: #B8A5C9;
+        padding-bottom: 5px;
+      }
+
+      .empty-user-list {
+        font-family: "Poppins";
+        font-size: 13px;
+        color: lightgray;
+        text-align: center;
+        align-items: center;
+        padding-right: 10px;
+        padding-top: 20px;
+      }
+
+    }
+
+  }
+
+  .single-user-bar {
+    color: white;
+    font-family: "Poppins";
+    font-size: 12px;
+    padding: 5px;
+    margin-right: 10px;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+  }
+
+}

@@ -3,6 +3,7 @@ export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 import * as SessionApiUtil from '../util/session_api_util'
+import * as UserUtil from '../util/user_util'
 
 // normal actions
 
@@ -41,9 +42,13 @@ export const logout = () => (dispatch) => (
 );
 
 export const loginDemo = () => (dispatch) => {
-  //  
+  //
   return (SessionApiUtil.loginDemo()
     .then(user => dispatch(receiveCurrentUser(user)),
           errors => dispatch(receiveErrors(errors.responseJSON))))
-
 }
+
+export const refetchUserInfo = (id) => (dispatch) => (
+  UserUtil.refetchUserInfo(id)
+    .then(user => dispatch(receiveCurrentUser(user)))
+)

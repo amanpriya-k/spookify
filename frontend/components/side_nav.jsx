@@ -30,7 +30,7 @@ class SideNav extends React.Component {
 
 
         <div className="side-bar-bottom">
-          <a href="/#/"><i className="fa fa-user"><span>{this.props.currentUser.username}</span></i></a>
+          <Link to={`/user/${currentUser.id}`}><i className="fa fa-user"><span>{this.props.currentUser.username}</span></i></Link>
           <button onClick={() => this.props.logout()}>LOG OUT</button>
         </div>
       </div>

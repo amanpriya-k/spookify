@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { signup, login, logout, loginDemo } from './actions/session_actions'
+import * as UserUtil from './util/user_util'
+import { signup, login, logout, loginDemo, refetchUserInfo } from './actions/session_actions'
 import configureStore from './store/store'
 import Root from './components/root';
 import { searchSongs, searchAlbums, searchArtists, searchPlaylists } from './util/music_util';
@@ -17,7 +18,9 @@ import { fetchAllAlbums,
          deletePlaylist,
          createPlaylist,
          addSongToPlaylist,
-         fetchSearchedSongs, fetchSearchedArtists, fetchSearchedPlaylists  } from './actions/music_actions'
+         fetchSearchedSongs,
+         fetchSearchedArtists,
+         fetchSearchedPlaylists  } from './actions/music_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -63,4 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.searchAlbums = searchAlbums;
   window.searchPlaylists = searchPlaylists;
   window.searchArtists = searchArtists;
+  window.refetchUserInfo = refetchUserInfo;
+  window.UserUtil = UserUtil;
 });

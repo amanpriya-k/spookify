@@ -13,6 +13,7 @@ import SongIndex from './song_index'
 import AlbumShow from './album_show'
 import ArtistShow from './artist_show'
 import PlaylistShow from './playlist_show'
+import UserShow from './user_show'
 
 class Main extends React.Component {
 
@@ -30,6 +31,7 @@ class Main extends React.Component {
           <ProtectedRoute path="/albums/:albumId" component={AlbumShow}></ProtectedRoute>
           <ProtectedRoute path="/artists/:artistId" component={ArtistShow}></ProtectedRoute>
           <ProtectedRoute path="/playlists/:playlistId" component={PlaylistShow}></ProtectedRoute>
+          <ProtectedRoute path="/user/:id" component={UserShow}></ProtectedRoute>
         </Switch>
 
 

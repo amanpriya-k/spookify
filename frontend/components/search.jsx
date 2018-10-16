@@ -18,8 +18,6 @@ class Search extends React.Component {
   render() {
     let { searchTerm } = this.state;
 
-     // console.log(`rerendering search with ${searchTerm}`);
-
     let results;
     if (!(searchTerm.length > 0)) {
       results = (

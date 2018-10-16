@@ -50,6 +50,29 @@
   }
 
 
+  i, span {
+    font-size: 16px;
+  }
+
+  span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+  }
+
+  p {
+    padding-left: 20px;
+  }
+
+  p:hover {
+    text-decoration: underline;
+  }
+
+  h4 {
+    font-size: 10px;
+    color: lightgray;
+    padding-left: 25px;
+  }
+  
 }
 
 .song-index-item:hover  {
@@ -59,28 +82,6 @@
 }
 
 
-i, span {
-  font-size: 16px;
-}
-
-span {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: lighter;
-}
-
-p {
-  padding-left: 20px;
-}
-
-p:hover {
-  text-decoration: underline;
-}
-
-h4 {
-  font-size: 10px;
-  color: lightgray;
-  padding-left: 25px;
-}
 
 .ugh:hover {
   text-decoration: underline;
