@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Link } from 'react-router-dom';
-import { fetchAllArtists, fetchFollowedArtists } from './../actions/music_actions';
+import { Route, Link, withRouter } from 'react-router-dom';
+import { fetchAllArtists, fetchFollowedArtists, fetchSearchedArtists } from './../actions/music_actions';
 import BrowseNav from './browse_nav'
 
 class ArtistIndex extends React.Component {
@@ -13,8 +13,10 @@ class ArtistIndex extends React.Component {
   componentDidMount() {
     if (this.props.location.pathname == "/browse/artists") {
       this.props.fetchAllArtists();
-    } else {
+    } else  if (this.props.location.pathname == "/library/artists") {
       this.props.fetchFollowedArtists();
+    } else if ( this.props.searchTerm != undefined ) {
+      this.props.fetchSearchedArtists(this.props.searchTerm)
     }
   }
 
@@ -27,6 +29,7 @@ class ArtistIndex extends React.Component {
     return(
       <div className="artist-index-container">
         <div>
+          { this.props.searchTerm ? <h1>Artists</h1> : null }
           <ul className="artist-index">
             {artists.map(
               (artist, idx) =>
@@ -52,8 +55,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchAllArtists: () => (dispatch(fetchAllArtists())),
-  fetchFollowedArtists: () => (dispatch(fetchFollowedArtists()))
+  fetchFollowedArtists: () => (dispatch(fetchFollowedArtists())),
+  fetchSearchedArtists: (searchTerm) => (dispatch(fetchSearchedArtists(searchTerm)))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)
-                      (ArtistIndex)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)
+                      (ArtistIndex));

@@ -84,6 +84,11 @@ export const fetchOneSong = (songId) => (dispatch) => (
     .then(song => dispatch(receiveOneSong(song)))
 )
 
+export const fetchSearchedSongs = (searchTerm) => (dispatch) => (
+  MusicApiUtil.searchSongs(searchTerm)
+    .then(songs => dispatch(receiveAllSongs(songs)))
+)
+
 export const saveSong = (id) => (dispatch) => (
   UserMusicApiUtil.saveSong(id)
     .then(song => dispatch(receiveOneSong(song)))
@@ -110,6 +115,11 @@ export const fetchFollowedArtists = () => (dispatch) => (
 export const fetchOneArtist = (artistId) => (dispatch) => (
   MusicApiUtil.fetchOneArtist(artistId)
     .then(artist => dispatch(receiveOneArtist(artist)))
+)
+
+export const fetchSearchedArtists = (searchTerm) => (dispatch) => (
+  MusicApiUtil.searchArtists(searchTerm)
+    .then(artists => dispatch(receiveAllArtists(artists)))
 )
 
 export const followArtist = (id) => (dispatch) => {
@@ -141,6 +151,11 @@ export const fetchOneAlbum = (albumId) => (dispatch) => (
     .then(album => dispatch(receiveOneAlbum(album)))
 )
 
+export const fetchSearchedAlbums = (searchTerm) => (dispatch) => (
+  MusicApiUtil.searchAlbums(searchTerm)
+    .then(albums => dispatch(receiveAllAlbums(albums)))
+)
+
 export const saveAlbum = (id) => (dispatch) => {
   return (
     UserMusicApiUtil.saveAlbum(id)
@@ -156,7 +171,6 @@ export const unsaveAlbum = (id) => (dispatch) => {
 // playlists
 
 export const fetchOnePlaylist = (playlistId) => (dispatch) => {
-  // debugger
 return (
   MusicApiUtil.fetchOnePlaylist(playlistId)
     .then(playlist => dispatch(receiveOnePlaylist(playlist)))
@@ -169,6 +183,11 @@ export const fetchAllPlaylists = () => (dispatch) => (
 
 export const fetchFollowedPlaylists = () => (dispatch) => (
   UserMusicApiUtil.fetchFollowedPlaylists()
+    .then(playlists => dispatch(receiveAllPlaylists(playlists)))
+)
+
+export const fetchSearchedPlaylists = (searchTerm) => (dispatch) => (
+  MusicApiUtil.searchPlaylists(searchTerm)
     .then(playlists => dispatch(receiveAllPlaylists(playlists)))
 )
 

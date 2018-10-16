@@ -10,6 +10,10 @@ import Modal from './new_playlist_modal';
 
 class Library extends React.Component {
 
+  componentDidMount(){
+    document.title = 'Library';
+  }
+
   render() {
     return(
       <div className="browse-container">

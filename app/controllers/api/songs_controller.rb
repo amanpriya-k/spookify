@@ -30,4 +30,10 @@ class Api::SongsController < ApplicationController
     render :show
   end
 
+  def search
+    search_term = params[:search_term]
+    @songs = Song.where('lower(name) like ?', "%#{search_term.downcase}%")
+    render :index
+  end
+
 end

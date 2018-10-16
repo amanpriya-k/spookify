@@ -15,6 +15,7 @@ class AlbumShow extends React.Component {
   }
 
   componentDidMount() {
+    document.title = `${this.props.album.title}`;
     this.props.fetchOneAlbum(this.props.match.params.albumId)
       .then( () => this.setInitialState() )
   }
@@ -52,9 +53,9 @@ class AlbumShow extends React.Component {
 
     let saveButton;
     if (!this.state.saved) {
-      saveButton = (<button onClick={this.handleSave}>SAVE TO LIBRARY</button>)
+      saveButton = (<button onClick={this.handleSave}>SAVE</button>)
     } else {
-      saveButton = (<button onClick={this.handleUnsave}>REMOVE FROM LIBRARY</button>)
+      saveButton = (<button onClick={this.handleUnsave}>UNSAVE</button>)
     }
 
     return(

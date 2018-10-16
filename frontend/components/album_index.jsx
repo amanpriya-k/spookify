@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, withRouter } from 'react-router-dom';
 import { ProtectedRoute } from '../util/auth_route_util.js'
-import { fetchAllAlbums, fetchSavedAlbums } from './../actions/music_actions';
+import { fetchAllAlbums, fetchSavedAlbums, fetchSearchedAlbums } from './../actions/music_actions';
 import AlbumShow from './album_show';
 import BrowseNav from './browse_nav'
 
@@ -16,8 +16,10 @@ class AlbumIndex extends React.Component {
 
     if (this.props.location.pathname == "/browse/albums") {
       this.props.fetchAllAlbums();
-    } else {
+    } else  if (this.props.location.pathname == "/library/albums") {
       this.props.fetchSavedAlbums();
+    } else if ( this.props.searchTerm != undefined ) {
+      this.props.fetchSearchedAlbums(this.props.searchTerm)
     }
   }
 
@@ -31,7 +33,7 @@ class AlbumIndex extends React.Component {
     return(
       <div className="albumIndexContainer">
         <div>
-
+          { this.props.searchTerm ? <h1>Albums</h1> : null }
           <ul className="album-index">
 
             {albums.map(
@@ -63,11 +65,12 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchAllAlbums: () => (dispatch(fetchAllAlbums())),
-  fetchSavedAlbums: () => (dispatch(fetchSavedAlbums()))
+  fetchSavedAlbums: () => (dispatch(fetchSavedAlbums())),
+  fetchSearchedAlbums: (searchTerm) => (dispatch(fetchSearchedAlbums(searchTerm)))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)
-                      (AlbumIndex)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)
+                      (AlbumIndex));
 
 
 

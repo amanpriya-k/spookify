@@ -28,4 +28,10 @@ class Api::AlbumsController < ApplicationController
     render :show
   end
 
+  def search
+    search_term = params[:search_term]
+    @albums = Album.where('lower(title) like ?', "%#{search_term.downcase}%")
+    render :index
+  end
+
 end

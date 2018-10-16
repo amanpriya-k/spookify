@@ -5,6 +5,7 @@ import { AuthRoute, ProtectedRoute } from '../util/auth_route_util.js'
 import SideNav from './side_nav';
 import Browse from './browse';
 import Library from './library';
+import Search from './search';
 import BrowseNav from './browse_nav'
 import AlbumIndex from './album_index'
 import ArtistIndex from './artist_index'
@@ -25,6 +26,7 @@ class Main extends React.Component {
         <Switch>
           <ProtectedRoute path="/browse" component={Browse}></ProtectedRoute>
           <ProtectedRoute path="/library" component={Library}></ProtectedRoute>
+          <ProtectedRoute path="/search" component={Search}></ProtectedRoute>
           <ProtectedRoute path="/albums/:albumId" component={AlbumShow}></ProtectedRoute>
           <ProtectedRoute path="/artists/:artistId" component={ArtistShow}></ProtectedRoute>
           <ProtectedRoute path="/playlists/:playlistId" component={PlaylistShow}></ProtectedRoute>

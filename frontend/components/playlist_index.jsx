@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Link } from 'react-router-dom';
-import { fetchAllPlaylists, fetchFollowedPlaylists } from './../actions/music_actions';
+import { Route, Link, withRouter } from 'react-router-dom';
+import { fetchAllPlaylists, fetchFollowedPlaylists, fetchSearchedPlaylists } from './../actions/music_actions';
 
 class PlaylistIndex extends React.Component {
 
@@ -12,8 +12,10 @@ class PlaylistIndex extends React.Component {
   componentDidMount() {
     if (this.props.location.pathname == "/browse/playlists") {
       this.props.fetchAllPlaylists();
-    } else {
+    } else  if (this.props.location.pathname == "/library/playlists") {
       this.props.fetchFollowedPlaylists();
+    } else if ( this.props.searchTerm != undefined ) {
+      this.props.fetchSearchedPlaylists(this.props.searchTerm)
     }
   }
 
@@ -26,6 +28,7 @@ class PlaylistIndex extends React.Component {
 
     return(
       <div>
+        { this.props.searchTerm ? <h1>Playlists</h1> : null }
         <ul className="playlist-index">
           {playlists.map(
             (playlist, idx) =>
@@ -52,8 +55,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchAllPlaylists: () => (dispatch(fetchAllPlaylists())),
-  fetchFollowedPlaylists: () => (dispatch(fetchFollowedPlaylists()))
+  fetchFollowedPlaylists: () => (dispatch(fetchFollowedPlaylists())),
+  fetchSearchedPlaylists: (searchTerm) => (dispatch(fetchSearchedPlaylists(searchTerm)))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)
-                      (PlaylistIndex)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)
+                      (PlaylistIndex));

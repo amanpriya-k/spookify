@@ -16,6 +16,7 @@ class PlaylistShow extends React.Component {
   }
 
   componentDidMount() {
+    document.title = `${this.props.playlist.name}`;
     this.props.fetchOnePlaylist(this.props.match.params.playlistId)
         .then( () => this.setInitialState() )
   }

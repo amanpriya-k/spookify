@@ -62,14 +62,11 @@ class SongIndexItem extends React.Component {
   }
 
   refetchPlaylist() {
-    console.log('refetching');
-    // debugger
     let playlistId = this.props.match.params.playlistId;
     this.props.fetchOnePlaylist(playlistId);
   }
 
   render () {
-    console.log('rendering item');
     let { song, openModal, inPlaylist } = this.props;
 
     if (!song) {

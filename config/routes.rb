@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :albums, only: [:index, :show] do
       collection do
         get :saved_albums
+        get :search
       end
       member do
         post :save
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
     resources :artists, only: [:index, :show] do
       collection do
         get :followed_artists
+        get :search
       end
       member do
         post :follow
@@ -34,6 +36,7 @@ Rails.application.routes.draw do
     resources :playlists, only: [:index, :show, :create, :destroy] do
       collection do
         get :followed_playlists
+        get :search
       end
       member do
         post :follow
@@ -51,6 +54,7 @@ Rails.application.routes.draw do
     resources :songs, only: [:index, :show] do
       collection do
         get :saved_songs
+        get :search
       end
       member do
         post :save

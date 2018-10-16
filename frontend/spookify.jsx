@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { signup, login, logout, loginDemo } from './actions/session_actions'
 import configureStore from './store/store'
 import Root from './components/root';
+import { searchSongs, searchAlbums, searchArtists, searchPlaylists } from './util/music_util';
 import { fetchAllAlbums,
          fetchAllArtists,
          fetchAllSongs,
@@ -12,7 +13,11 @@ import { fetchAllAlbums,
          fetchSavedSongs,
          fetchSavedAlbums,
          fetchFollowedArtists,
-         fetchFollowedPlaylists, deletePlaylist, createPlaylist, addSongToPlaylist  } from './actions/music_actions'
+         fetchFollowedPlaylists,
+         deletePlaylist,
+         createPlaylist,
+         addSongToPlaylist,
+         fetchSearchedSongs, fetchSearchedArtists, fetchSearchedPlaylists  } from './actions/music_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -51,4 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
   window.deletePlaylist = deletePlaylist;
   window.createPlaylist = createPlaylist;
   window.addSongToPlaylist = addSongToPlaylist;
+  window.fetchSearchedSongs = fetchSearchedSongs;
+  window.fetchSearchedArtists = fetchSearchedArtists;
+  window.fetchSearchedPlaylists = fetchSearchedPlaylists;
+  window.searchSongs = searchSongs;
+  window.searchAlbums = searchAlbums;
+  window.searchPlaylists = searchPlaylists;
+  window.searchArtists = searchArtists;
 });

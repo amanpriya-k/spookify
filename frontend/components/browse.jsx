@@ -10,6 +10,10 @@ import Modal from './new_playlist_modal';
 
 class Browse extends React.Component {
 
+  componentDidMount(){
+    document.title = 'Browse';
+  }
+
   render() {
     return(
       <div className="browse-container">

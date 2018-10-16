@@ -15,6 +15,14 @@ export const fetchOneAlbum = (albumId) => (
   })
 );
 
+export const searchAlbums = (searchTerm) => (
+  $.ajax({
+    url: `/api/albums/search`,
+    method: 'GET',
+    data: { search_term: searchTerm }
+  })
+)
+
 // artists
 
 export const fetchAllArtists = () => (
@@ -30,6 +38,14 @@ export const fetchOneArtist = (artistId) => (
     method: 'GET'
   })
 );
+
+export const searchArtists = (searchTerm) => (
+  $.ajax({
+    url: `/api/artists/search`,
+    method: 'GET',
+    data: { search_term: searchTerm }
+  })
+)
 
 // playlists
 
@@ -78,6 +94,14 @@ export const removeSongFromPlaylist = (id, data) => (
   })
 )
 
+export const searchPlaylists = (searchTerm) => (
+  $.ajax({
+    url: `/api/playlists/search`,
+    method: 'GET',
+    data: { search_term: searchTerm }
+  })
+)
+
 // songs
 
 export const fetchAllSongs = () => (
@@ -93,3 +117,11 @@ export const fetchOneSong = (songId) => (
     method: 'GET'
   })
 );
+
+export const searchSongs = (searchTerm) => (
+  $.ajax({
+    url: `/api/songs/search`,
+    method: 'GET',
+    data: { search_term: searchTerm }
+  })
+)

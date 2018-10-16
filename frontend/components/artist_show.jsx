@@ -15,6 +15,7 @@ class ArtistShow extends React.Component {
   }
 
   componentDidMount() {
+    document.title = `${this.props.artist.name}`;
     this.props.fetchOneArtist(this.props.match.params.artistId)
       .then( () => this.setInitialState() )
   }

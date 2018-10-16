@@ -41,10 +41,13 @@ class NewPlaylistForm extends React.Component {
           <h1>Create new playlist</h1>
           <div className="playlist-input">
             <label>Playlist name</label>
-            <input type="text"
+            <input
+              autofocus="autofocus"
+              type="text"
               value={this.state.name}
               onChange={this.handleChange}
-              placeholder="Start typing...">
+              placeholder="Start typing..."
+              >
             </input>
           </div>
           <div className="modal-buttons">

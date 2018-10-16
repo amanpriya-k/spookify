@@ -27,4 +27,10 @@ class Api::ArtistsController < ApplicationController
     render :show
   end
 
+  def search
+    search_term = params[:search_term]
+    @artists = Artist.where('lower(name) like ?', "%#{search_term.downcase}%")
+    render :index
+  end
+
 end

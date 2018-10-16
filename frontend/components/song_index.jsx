@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { fetchAllSongs, fetchSavedSongs } from './../actions/music_actions';
+import { Route, Link, withRouter } from 'react-router-dom';
+import { fetchAllSongs, fetchSavedSongs, fetchSearchedSongs } from './../actions/music_actions';
 import SongIndexItem from './song_index_item';
 
 class SongIndex extends React.Component {
@@ -16,14 +16,17 @@ class SongIndex extends React.Component {
     if (this.props.location.pathname == "/browse/songs") {
       this.props.fetchAllSongs()
         .then(() => this.setInitialState())
-    } else {
+    } else if (this.props.location.pathname == "/library/songs") {
       this.props.fetchSavedSongs()
+        .then(() => this.setInitialState())
+    } else if ( this.props.searchTerm != undefined) {
+      this.props.fetchSearchedSongs(this.props.searchTerm)
         .then(() => this.setInitialState())
     }
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.songs != newProps.songs) {
+    if ( !(this.props.songs.length === 0 && newProps.songs.length === 0) && (this.props.songs != newProps.songs) ) {
       this.setState( { songs: newProps.songs } )
     }
   }
@@ -34,12 +37,17 @@ class SongIndex extends React.Component {
 
   render() {
     let { songs } = this.props;
+
     if (songs.length < 1) {
       return null;
     }
 
+    console.log(`rerendering songindex with ${this.props.searchTerm}`);
+
+
     return(
       <div className="song-index-container">
+        { this.props.searchTerm ? <h1>Songs</h1> : null }
         <ul className="song-index">
           {songs.map(
             (song, idx) =>
@@ -57,8 +65,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchAllSongs: () => (dispatch(fetchAllSongs())),
-  fetchSavedSongs: () => (dispatch(fetchSavedSongs()))
+  fetchSavedSongs: () => (dispatch(fetchSavedSongs())),
+  fetchSearchedSongs: (searchTerm) => (dispatch(fetchSearchedSongs(searchTerm)))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)
-                      (SongIndex)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)
+                      (SongIndex));
