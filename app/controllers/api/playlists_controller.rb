@@ -5,6 +5,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def show
+    # debugger
     @playlist = Playlist.find_by(id: params[:id])
   end
 
@@ -43,6 +44,18 @@ class Api::PlaylistsController < ApplicationController
                           followable_type: 'Playlist',
                           user_id: current_user.id)
     @follow.destroy
+    render :show
+  end
+
+  def remove_song_from_playlist
+    @playlist = Playlist.find(params[:id])
+
+    song_id = params[:song_id]
+    @playlist_song = PlaylistSong.find_by(playlist_id: @playlist.id, song_id: song_id)
+    PlaylistSong.destroy(@playlist_song.id)
+    @playlist = Playlist.find(params[:id])
+
+    # debugger
     render :show
   end
 

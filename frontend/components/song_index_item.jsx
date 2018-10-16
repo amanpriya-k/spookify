@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
-import { fetchOneSong, fetchAllSongs, fetchSavedSongs, saveSong, unsaveSong } from '../actions/music_actions';
+import { fetchOneSong, fetchAllSongs, fetchSavedSongs, saveSong, unsaveSong, removeSongFromPlaylist, fetchOnePlaylist } from '../actions/music_actions';
 import { openModal } from '../actions/modal_actions';
 
 class SongIndexItem extends React.Component {
@@ -16,7 +16,9 @@ class SongIndexItem extends React.Component {
     this.setInitialState = this.setInitialState.bind(this);
     this.setStateTrue = this.setStateTrue.bind(this);
     this.setStateFalse = this.setStateFalse.bind(this);
+    this.handleRemoveFromPlaylist = this.handleRemoveFromPlaylist.bind(this);
     this.refetch = this.refetch.bind(this);
+    this.refetchPlaylist = this.refetchPlaylist.bind(this);
   }
 
   handleSave() {
@@ -29,6 +31,14 @@ class SongIndexItem extends React.Component {
     this.props.unsaveSong(this.props.song.id)
       .then( () => this.setStateFalse() )
       .then( () => this.refetch() )
+  }
+
+  handleRemoveFromPlaylist(id, data) {
+
+    return (e) => {
+      this.props.removeSongFromPlaylist(id, data)
+        .then( () => this.refetchPlaylist() )
+    }
   }
 
   setInitialState() {
@@ -51,12 +61,24 @@ class SongIndexItem extends React.Component {
     }
   }
 
-  render () {
+  refetchPlaylist() {
+    console.log('refetching');
+    // debugger
+    let playlistId = this.props.match.params.playlistId;
+    this.props.fetchOnePlaylist(playlistId);
+  }
 
-    let { song, openModal } = this.props;
+  render () {
+    console.log('rendering item');
+    let { song, openModal, inPlaylist } = this.props;
 
     if (!song) {
       return null;
+    }
+
+    let removeButton = null;
+    if (inPlaylist === true) {
+      removeButton = (<button className="rm-pl-btn" onClick={this.handleRemoveFromPlaylist(this.props.match.params.playlistId, { song_id: song.id })}><i className="fa fa-times-circle"></i></button> )
     }
 
     let saveButton;
@@ -75,6 +97,7 @@ class SongIndexItem extends React.Component {
         </div>
 
         <div className="song-btns">
+          {removeButton}
           <button onClick={() => openModal(song.id)} className="pl-btn"> <i className="fa fa-ellipsis-h"></i> </button>
           {saveButton}
         </div>
@@ -92,6 +115,8 @@ const mapDispatchToProps = (dispatch) => ({
   fetchAllSongs: () => (dispatch(fetchAllSongs())),
   fetchSavedSongs: () => (dispatch(fetchSavedSongs())),
   fetchOneSong: (id) => (dispatch(fetchOneSong(id))),
+  fetchOnePlaylist: (playlistId) => dispatch(fetchOnePlaylist(playlistId)),
+  removeSongFromPlaylist: (id, data) => (dispatch(removeSongFromPlaylist(id, data))),
   openModal: (id) => dispatch(openModal({ modal:'add_to_playlist', song_id: id }))
 });
 

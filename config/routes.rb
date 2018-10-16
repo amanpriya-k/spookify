@@ -38,6 +38,7 @@ Rails.application.routes.draw do
       member do
         post :follow
         delete :unfollow
+        delete :remove_song_from_playlist
       end
     end
   end

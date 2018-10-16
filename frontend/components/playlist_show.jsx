@@ -8,6 +8,7 @@ class PlaylistShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = { followed: null }
+    // this.state = { followed: null, playlist: null }
     this.handleFollow = this.handleFollow.bind(this);
     this.handleUnfollow = this.handleUnfollow.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -21,6 +22,7 @@ class PlaylistShow extends React.Component {
 
   setInitialState() {
     this.setState( { followed: this.props.playlist.followed });
+    // this.setState( { playlist: this.props.playlist, followed: this.props.playlist.followed });
   }
 
   handleFollow() {
@@ -38,10 +40,28 @@ class PlaylistShow extends React.Component {
       .then( () =>  this.props.history.push(`/library/playlists/`) )
   }
 
+  // componentWillReceiveProps(newProps) {
+  //   if (this.props.playlist && (this.props.playlist.songs != newProps.playlist.songs)) {
+  //     // debugger
+  //     newProps.fetchOnePlaylist(this.props.playlist.id)
+  //     //   .then( () => this.setInitialState() )
+  //     // console.log('new songs', this.state.playlist.songs);
+  //   }
+  // }
+
+  // componentWillReceiveProps(newProps) {
+  //   console.log("newProps ",newProps);
+  //   if (this.props.playlist && newProps.playlist && (this.props.playlist.songs.length != newProps.playlist.songs.length)) {
+  //     console.log(newProps.playlist.songs);
+  //     this.setState({ playlist: newProps.playlist });
+  //   }
+  // }
+
 
   render() {
-
+    console.log('rendering ps show');
     let { playlist } = this.props;
+    // let { playlist } = this.state;
     if(!playlist ) {
       return null;
     }
@@ -50,7 +70,7 @@ class PlaylistShow extends React.Component {
     if (playlist.songs && Object.values(playlist.songs).length > 0) {
       songs = Object.values(playlist.songs).map(
         (song, idx) =>
-        ( <SongIndexItem key={idx} song={song}></SongIndexItem> )
+        ( <SongIndexItem key={song.id} song={song} inPlaylist={true}></SongIndexItem> )
       )
     } else {
       songs = null

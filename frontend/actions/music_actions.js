@@ -155,10 +155,12 @@ export const unsaveAlbum = (id) => (dispatch) => {
 
 // playlists
 
-export const fetchOnePlaylist = (playlistId) => (dispatch) => (
+export const fetchOnePlaylist = (playlistId) => (dispatch) => {
+  // debugger
+return (
   MusicApiUtil.fetchOnePlaylist(playlistId)
     .then(playlist => dispatch(receiveOnePlaylist(playlist)))
-)
+)}
 
 export const fetchAllPlaylists = () => (dispatch) => (
   MusicApiUtil.fetchAllPlaylists()
@@ -200,8 +202,8 @@ export const addSongToPlaylist = (data) => (dispatch) => (
             errors => dispatch(receivePlaylistErrors(errors.responseJSON)) )
 )
 
-export const addSongToPlaylist = (data) => (dispatch) => (
-  MusicApiUtil.addSongToPlaylist(data)
-    .then( null,
+export const removeSongFromPlaylist = (id, data) => (dispatch) => (
+  MusicApiUtil.removeSongFromPlaylist(id, data)
+    .then( (playlist) => dispatch(receiveOnePlaylist(playlist)),
             errors => dispatch(receivePlaylistErrors(errors.responseJSON)) )
 )

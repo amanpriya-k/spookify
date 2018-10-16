@@ -70,6 +70,14 @@ export const addSongToPlaylist = (data) => (
   })
 )
 
+export const removeSongFromPlaylist = (id, data) => (
+  $.ajax({
+    url: `/api/playlists/${id}/remove_song_from_playlist`,
+    method: 'DELETE',
+    data
+  })
+)
+
 // songs
 
 export const fetchAllSongs = () => (
