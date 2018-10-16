@@ -7,29 +7,50 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  height: 40px;
+
+
   .song-btns {
     margin-right: 20px;
+    position: relative;
+
+    .pl-btn {
+      position: absolute;
+      right: 50px;
+      color: lightgray;
+    }
+
     .save-btn {
       color: white;
-      font-family: "Circular Bold";
-      font-size: 15px;
+      font-family: "Circular";
+      font-size: 12px;
+      color: lightgray;
+    }
+
+    .save-btn:hover {
+      color: white;
     }
 
     .unsave-btn {
       color: #1DB954;
-      font-family: "Circular Bold";
+      font-family: "Circular";
       font-size: 13px;
+    }
+
+    .unsave-btn:hover {
+      color: #55DA5D;
     }
   }
 
 
 }
 
-.song-index-item:hover {
+.song-index-item:hover  {
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   cursor: pointer;
 }
+
 
 i, span {
   font-size: 16px;

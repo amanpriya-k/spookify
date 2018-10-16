@@ -28,7 +28,7 @@ class LibraryNav extends React.Component {
 
 
 const mapDispatchToProps = (dispatch) => ({
-  openModal: () => dispatch(openModal('playlist'))
+  openModal: () => dispatch(openModal({ modal:'new_playlist' }))
 })
 
 export default withRouter(connect(null, mapDispatchToProps)(LibraryNav))

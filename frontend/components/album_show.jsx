@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchOneAlbum, saveAlbum, unsaveAlbum } from './../actions/music_actions';
 import SongIndexItem from './song_index_item';
 
@@ -64,7 +65,7 @@ class AlbumShow extends React.Component {
             <i className="far fa-play-circle"></i>
           </div>
           <h1>{album.title}</h1>
-          <h2>{album.artist}</h2>
+          <Link to={`/artists/${album.artistId}`}><h2>{album.artistName}</h2></Link>
           <button>PLAY</button>
           {saveButton}
           <h3>{songs ? Object.values(album.songs).length : 0} SONGS</h3>

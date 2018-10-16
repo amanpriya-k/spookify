@@ -2,10 +2,11 @@ class Api::PlaylistSongsController < ApplicationController
 
   def create
     @playlist_song = PlaylistSong.new(params.require(:playlist_song).permit(:song_id, :playlist_id))
-    if @playlist_song.save
-      render 'api/playlist/_playlist', playlist: @playlist_song.playlist
+
+    if PlaylistSong.exists?(playlist_id: @playlist_song.playlist_id, song_id: @playlist_song.song_id)
+      render json: ["Song is already in playlist '#{Playlist.find(@playlist_song.playlist_id).name}'"], status: 401
     else
-      render json: ["Unable to add song to playlist"], status: 401
+      @playlist_song.save
     end
   end
 

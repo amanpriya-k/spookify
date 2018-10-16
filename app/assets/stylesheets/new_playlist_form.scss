@@ -1,13 +1,15 @@
 .modal-container {
   position: fixed;
   top: 0;
-  bottom: 0;
+  // bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.9);
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
   z-index: 10;
   text-align: center;
   color: white;
+  overflow-y: scroll;
 
   .modal-x {
     color: white;
@@ -91,5 +93,11 @@
       border: #55DA5D;
     }
   }
+
+    .modal-error {
+      font-size: 20px;
+      font-family: "Montserrat";
+      color: #1DB954;
+    }
 
 }

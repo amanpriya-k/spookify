@@ -7,6 +7,7 @@ export const RECEIVE_ONE_SONG = 'RECEIVE_ONE_SONG';
 export const RECEIVE_ONE_ARTIST = 'RECEIVE_ONE_ARTIST';
 export const RECEIVE_ONE_PLAYLIST = 'RECEIVE_ONE_PLAYLIST';
 export const REMOVE_ONE_PLAYLIST = 'REMOVE_ONE_PLAYLIST';
+export const RECEIVE_PLAYLIST_ERRORS = 'RECEIVE_PLAYLIST_ERRORS';
 
 import * as MusicApiUtil from '../util/music_util'
 import * as UserMusicApiUtil from '../util/saved_followed_util'
@@ -56,20 +57,23 @@ export const receiveAllPlaylists = (playlists) => ({
   playlists
 });
 
+export const receivePlaylistErrors = (errors) => ({
+  type: RECEIVE_PLAYLIST_ERRORS,
+  errors
+})
+
 // thunk actions
 
 
 // songs
 
 export const fetchAllSongs = () => (dispatch) => {
-  console.log('fetching all songs');
 return (
   MusicApiUtil.fetchAllSongs()
     .then(songs => dispatch(receiveAllSongs(songs)))
 )}
 
 export const fetchSavedSongs = () => (dispatch) => {
-  console.log('fetching saved songs');
 return (
   UserMusicApiUtil.fetchSavedSongs()
     .then(songs => dispatch(receiveAllSongs(songs)))
@@ -189,3 +193,15 @@ export const deletePlaylist = (id) => (dispatch) => {
       .then( playlist => dispatch(removeOnePlaylist(playlist)) )
   )
 }
+
+export const addSongToPlaylist = (data) => (dispatch) => (
+  MusicApiUtil.addSongToPlaylist(data)
+    .then( null,
+            errors => dispatch(receivePlaylistErrors(errors.responseJSON)) )
+)
+
+export const addSongToPlaylist = (data) => (dispatch) => (
+  MusicApiUtil.addSongToPlaylist(data)
+    .then( null,
+            errors => dispatch(receivePlaylistErrors(errors.responseJSON)) )
+)

@@ -1,5 +1,6 @@
 json.extract! @album, :title, :id
-json.artist @album.artist.name
+json.artist_name @album.artist.name
+json.artist_id @album.artist.id
 
 json.songs do
   @album.songs.each do |song|

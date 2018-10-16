@@ -1,4 +1,5 @@
 
+// albums
 
 export const fetchAllAlbums = () => (
   $.ajax({
@@ -14,6 +15,8 @@ export const fetchOneAlbum = (albumId) => (
   })
 );
 
+// artists
+
 export const fetchAllArtists = () => (
   $.ajax({
     url: '/api/artists',
@@ -27,6 +30,8 @@ export const fetchOneArtist = (artistId) => (
     method: 'GET'
   })
 );
+
+// playlists
 
 export const fetchAllPlaylists = () => (
   $.ajax({
@@ -56,6 +61,16 @@ export const deletePlaylist = (id) => (
     method: 'DELETE'
   })
 );
+
+export const addSongToPlaylist = (data) => (
+  $.ajax({
+    url: '/api/playlist_songs',
+    method: 'POST',
+    data: { playlist_song: data }
+  })
+)
+
+// songs
 
 export const fetchAllSongs = () => (
   $.ajax({

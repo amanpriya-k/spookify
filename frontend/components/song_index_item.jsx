@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { fetchOneSong, fetchAllSongs, fetchSavedSongs, saveSong, unsaveSong } from '../actions/music_actions';
+import { openModal } from '../actions/modal_actions';
 
 class SongIndexItem extends React.Component {
 
@@ -48,39 +49,33 @@ class SongIndexItem extends React.Component {
     } else {
       this.props.fetchSavedSongs();
     }
-    // this.props.fetchOneSong(this.props.song.id)
-    //   .then( () => this.setState( { saved: this.props.song.saved} ))
   }
-
-  // componentWillReceiveProps(newProps) {
-  //     if (this.props.song.id != newProps.song.id ) {
-  //       this.setState( { saved: newProps.song.saved } )
-  //     }
-  // }
 
   render () {
 
-    let { song } = this.props;
+    let { song, openModal } = this.props;
 
     if (!song) {
       return null;
     }
-    // debugger
+
     let saveButton;
     if (this.state.saved === false) {
-      saveButton = (<button className="save-btn" onClick={this.handleSave}> + </button>)
+      saveButton = (<button className="save-btn" onClick={this.handleSave}><i className="fa fa-plus"></i></button>)
     } else {
-      saveButton = (<button className="unsave-btn" onClick={this.handleUnsave}> ✓ </button>)
+      saveButton = (<button className="unsave-btn" onClick={this.handleUnsave}><i className="fa fa-check"></i></button>)
     }
 
     return (
       <li className="song-index-item">
         <div>
-          <Link to="/"><h2>♪ <span><p>{song.name}</p></span></h2></Link>
-          <h4><Link className="ugh" to="/">{song.artistName}</Link> • <Link className="ugh" to="/">{song.albumTitle}</Link></h4>
+          <Link to={`/albums/${song.albumId}`}><h2>♪ <span><p>{song.name}</p></span></h2></Link>
+          <h4><Link className="ugh" to={`/artists/${song.artistId}`}>{song.artistName}</Link> •
+            <Link className="ugh" to={`/albums/${song.albumId}`}>{song.albumTitle}</Link></h4>
         </div>
 
         <div className="song-btns">
+          <button onClick={() => openModal(song.id)} className="pl-btn"> <i className="fa fa-ellipsis-h"></i> </button>
           {saveButton}
         </div>
       </li>
@@ -89,9 +84,6 @@ class SongIndexItem extends React.Component {
 
 }
 
-const mapStateToProps = (state, ownProps) => ({
-
-});
 
 
 const mapDispatchToProps = (dispatch) => ({
@@ -99,7 +91,8 @@ const mapDispatchToProps = (dispatch) => ({
   unsaveSong: (id) => dispatch(unsaveSong(id)),
   fetchAllSongs: () => (dispatch(fetchAllSongs())),
   fetchSavedSongs: () => (dispatch(fetchSavedSongs())),
-  fetchOneSong: (id) => (dispatch(fetchOneSong(id)))
+  fetchOneSong: (id) => (dispatch(fetchOneSong(id))),
+  openModal: (id) => dispatch(openModal({ modal:'add_to_playlist', song_id: id }))
 });
 
 export default withRouter(connect(null, mapDispatchToProps)

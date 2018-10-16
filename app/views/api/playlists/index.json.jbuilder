@@ -2,6 +2,7 @@
   json.set! playlist.id do
     json.extract! playlist, :name, :id
     json.user_id playlist.user.id
+    json.owned current_user.playlist_ids.include?(playlist.id)
 
     if playlist.image.attached?
       json.image_url playlist.image.service_url

@@ -6,7 +6,7 @@ import AlbumIndex from './album_index';
 import ArtistIndex from './artist_index';
 import SongIndex from './song_index';
 import PlaylistIndex from './playlist_index';
-import NewPlaylistModal from './new_playlist_modal';
+import Modal from './new_playlist_modal';
 
 class Library extends React.Component {
 
@@ -14,7 +14,7 @@ class Library extends React.Component {
     return(
       <div className="browse-container">
 
-        <NewPlaylistModal></NewPlaylistModal>
+        <Modal></Modal>
 
         <LibraryNav></LibraryNav>
 

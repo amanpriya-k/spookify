@@ -16,6 +16,7 @@ Follow.destroy_all
 Save.destroy_all
 
 ghost = User.create(username: 'ghostuser', email: 'ghostuser@gmail.com', password: '123456')
+user2 = User.create(username: 'user2woohoo', email: 'user2@gmail.com', password: '123456')
 
 
 # Artists
@@ -130,13 +131,13 @@ brilliantglow.cover.attach(io: brilliantglow_cover, filename: 'brilliantglow-alb
 
 a = Playlist.create(name: 'Chill Vibes', user_id: ghost.id)
 
-b = Playlist.create(name: 'rainy day', user_id: ghost.id)
+b = Playlist.create(name: 'rainy day', user_id: user2.id)
 
 c = Playlist.create(name: 'Fall Music', user_id: ghost.id)
 
-d = Playlist.create(name: 'harrys favs', user_id: ghost.id)
+d = Playlist.create(name: 'harrys favs', user_id: user2.id)
 
-e = Playlist.create(name: 'best of ariana', user_id: ghost.id)
+e = Playlist.create(name: 'best of ariana', user_id: user2.id)
 
 f = Playlist.create(name: 'random stuff', user_id: ghost.id)
 
