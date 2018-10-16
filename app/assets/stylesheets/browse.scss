@@ -11,3 +11,17 @@
   overflow-y: scroll;
   height: 620px;
 }
+
+.library-container {
+  background: image-url('netflix');
+  background-size: cover;
+  width: 83%;
+  background-color: black;
+  // display: inline-block;
+  display: flex;
+  flex-direction: column;
+  // position: absolute;
+  top: 0;
+  overflow-y: scroll;
+  height: 620px;
+}

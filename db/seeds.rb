@@ -17,6 +17,12 @@ Save.destroy_all
 
 ghost = User.create(username: 'ghostuser', email: 'ghostuser@gmail.com', password: '123456')
 user2 = User.create(username: 'user2woohoo', email: 'user2@gmail.com', password: '123456')
+grace18 = User.create(username: 'grace18', email: 'grace18@gmail.com', password: '123456')
+alexandrax = User.create(username: 'alexandrax', email: 'alexandrax@gmail.com', password: '123456')
+luciast = User.create(username: 'luciast', email: 'luciast@gmail.com', password: '123456')
+jones3 = User.create(username: 'jones3', email: 'jones3@gmail.com', password: '123456')
+musig = User.create(username: 'musig', email: 'musig@gmail.com', password: '123456')
+
 
 
 # Artists

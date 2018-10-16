@@ -20,6 +20,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def index
@@ -35,4 +36,10 @@ class Api::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :email, :password)
   end
+
+  def follow
+    user_to_follow = User.find(params[:user_id])
+    current_user.following << user_to_follow
+  end
+
 end

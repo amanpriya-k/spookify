@@ -28,6 +28,8 @@ class SongIndex extends React.Component {
   componentWillReceiveProps(newProps) {
     if ( !(this.props.songs.length === 0 && newProps.songs.length === 0) && (this.props.songs != newProps.songs) ) {
       this.setState( { songs: newProps.songs } )
+    } else if (this.props.searchTerm != newProps.searchTerm ) {
+      this.props.fetchSearchedSongs(newProps.searchTerm)
     }
   }
 
@@ -36,14 +38,11 @@ class SongIndex extends React.Component {
   }
 
   render() {
-    let { songs } = this.props;
+    let { songs, searchTerm } = this.props;
 
     if (songs.length < 1) {
       return null;
     }
-
-    console.log(`rerendering songindex with ${this.props.searchTerm}`);
-
 
     return(
       <div className="song-index-container">
@@ -51,7 +50,7 @@ class SongIndex extends React.Component {
         <ul className="song-index">
           {songs.map(
             (song, idx) =>
-            ( <SongIndexItem key={song.id} song={song}></SongIndexItem> )
+            ( <SongIndexItem key={song.id * Math.random()} song={song} searchTerm={searchTerm} ></SongIndexItem> )
           )}
         </ul>
       </div>

@@ -15,7 +15,6 @@ class ArtistShow extends React.Component {
   }
 
   componentDidMount() {
-    document.title = `${this.props.artist.name}`;
     this.props.fetchOneArtist(this.props.match.params.artistId)
       .then( () => this.setInitialState() )
   }
@@ -70,8 +69,6 @@ class ArtistShow extends React.Component {
     } else {
       albums = null;
     }
-
-    debugger;
 
     let songs;
     if ( artist.songs && Object.values(artist.songs).length > 0  ) {

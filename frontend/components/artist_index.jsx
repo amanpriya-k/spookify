@@ -20,6 +20,12 @@ class ArtistIndex extends React.Component {
     }
   }
 
+  componentWillReceiveProps(newProps) {
+    if (this.props.searchTerm != newProps.searchTerm ) {
+      this.props.fetchSearchedArtists(newProps.searchTerm)
+    }
+  }
+
   render() {
     let { artists } = this.props;
     if (artists.length < 1) {

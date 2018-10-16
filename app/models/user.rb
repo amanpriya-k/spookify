@@ -47,6 +47,23 @@ class User < ApplicationRecord
     source: :followable,
     source_type: 'Playlist'
 
+  has_many :follower_associations, # people following the user
+    foreign_key: :followee_id,
+    class_name: :UserFollow
+
+  has_many :followers,
+    through: :follower_associations,
+    source: :follower
+
+  has_many :followee_associations,
+    foreign_key: :follower_id,
+    class_name: :UserFollow
+
+  has_many :following,
+    through: :followee_associations,
+    source: :followee
+
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return user if (user && user.is_password?(password))

@@ -19,6 +19,12 @@ class PlaylistIndex extends React.Component {
     }
   }
 
+  componentWillReceiveProps(newProps) {
+    if (this.props.searchTerm != newProps.searchTerm ) {
+      this.props.fetchSearchedPlaylists(newProps.searchTerm)
+    }
+  }
+
   render() {
     let { playlists } = this.props;
 

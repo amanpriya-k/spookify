@@ -15,7 +15,6 @@ class AlbumShow extends React.Component {
   }
 
   componentDidMount() {
-    document.title = `${this.props.album.title}`;
     this.props.fetchOneAlbum(this.props.match.params.albumId)
       .then( () => this.setInitialState() )
   }

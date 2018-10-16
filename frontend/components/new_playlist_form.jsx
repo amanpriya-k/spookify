@@ -42,7 +42,7 @@ class NewPlaylistForm extends React.Component {
           <div className="playlist-input">
             <label>Playlist name</label>
             <input
-              autofocus="autofocus"
+              autoFocus="autoFocus"
               type="text"
               value={this.state.name}
               onChange={this.handleChange}

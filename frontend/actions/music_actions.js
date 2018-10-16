@@ -84,10 +84,13 @@ export const fetchOneSong = (songId) => (dispatch) => (
     .then(song => dispatch(receiveOneSong(song)))
 )
 
-export const fetchSearchedSongs = (searchTerm) => (dispatch) => (
+export const fetchSearchedSongs = (searchTerm) => (dispatch) => {
+  // debugger
+  return (
   MusicApiUtil.searchSongs(searchTerm)
     .then(songs => dispatch(receiveAllSongs(songs)))
-)
+  )
+}
 
 export const saveSong = (id) => (dispatch) => (
   UserMusicApiUtil.saveSong(id)

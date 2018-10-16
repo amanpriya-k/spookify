@@ -16,7 +16,7 @@ class Library extends React.Component {
 
   render() {
     return(
-      <div className="browse-container">
+      <div className="library-container">
 
         <Modal></Modal>
 

@@ -11,21 +11,21 @@ class Search extends React.Component {
   }
 
   updateInput(e) {
-    console.log(e.target.value);
+     // console.log(e.target.value);
     this.setState({ searchTerm: e.target.value });
   }
 
   render() {
     let { searchTerm } = this.state;
 
-    console.log(`rerendering search with ${searchTerm}`);
+     // console.log(`rerendering search with ${searchTerm}`);
 
     let results;
     if (!(searchTerm.length > 0)) {
       results = (
         <div className="null-search-results">
           <h1>Search Spookify</h1>
-          <h4>Find your favorite songs, artists, albums, podcasts and playlists.</h4>
+          <h4>Find your favorite songs, artists, albums, podcasts, playlists, and other users to follow.</h4>
         </div>
       )
     } else {
@@ -35,7 +35,7 @@ class Search extends React.Component {
     return (
       <div className="search">
         <div className="search-input">
-          <input autofocus="autofocus"
+          <input autoFocus="autoFocus"
                  type="text"
                  value={this.state.searchTerm}
                  onChange={this.updateInput}

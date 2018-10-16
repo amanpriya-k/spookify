@@ -16,7 +16,6 @@ class PlaylistShow extends React.Component {
   }
 
   componentDidMount() {
-    document.title = `${this.props.playlist.name}`;
     this.props.fetchOnePlaylist(this.props.match.params.playlistId)
         .then( () => this.setInitialState() )
   }
@@ -46,21 +45,21 @@ class PlaylistShow extends React.Component {
   //     // debugger
   //     newProps.fetchOnePlaylist(this.props.playlist.id)
   //     //   .then( () => this.setInitialState() )
-  //     // console.log('new songs', this.state.playlist.songs);
+  //     //  // console.log('new songs', this.state.playlist.songs);
   //   }
   // }
 
   // componentWillReceiveProps(newProps) {
-  //   console.log("newProps ",newProps);
+  //    // console.log("newProps ",newProps);
   //   if (this.props.playlist && newProps.playlist && (this.props.playlist.songs.length != newProps.playlist.songs.length)) {
-  //     console.log(newProps.playlist.songs);
+  //      // console.log(newProps.playlist.songs);
   //     this.setState({ playlist: newProps.playlist });
   //   }
   // }
 
 
   render() {
-    console.log('rendering ps show');
+     // console.log('rendering ps show');
     let { playlist } = this.props;
     // let { playlist } = this.state;
     if(!playlist ) {

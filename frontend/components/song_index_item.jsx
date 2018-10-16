@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
-import { fetchOneSong, fetchAllSongs, fetchSavedSongs, saveSong, unsaveSong, removeSongFromPlaylist, fetchOnePlaylist } from '../actions/music_actions';
+import { fetchOneSong, fetchAllSongs, fetchSavedSongs, saveSong, unsaveSong, removeSongFromPlaylist, fetchOnePlaylist, fetchSearchedSongs } from '../actions/music_actions';
 import { openModal } from '../actions/modal_actions';
 
 class SongIndexItem extends React.Component {
@@ -34,7 +34,6 @@ class SongIndexItem extends React.Component {
   }
 
   handleRemoveFromPlaylist(id, data) {
-
     return (e) => {
       this.props.removeSongFromPlaylist(id, data)
         .then( () => this.refetchPlaylist() )
@@ -56,8 +55,10 @@ class SongIndexItem extends React.Component {
   refetch() {
     if (this.props.location.pathname == "/browse/songs") {
       this.props.fetchAllSongs();
-    } else {
+    } else if (this.props.location.pathname == "/library/songs") {
       this.props.fetchSavedSongs();
+    } else if (this.props.location.pathname == "/search") {
+      this.props.fetchSearchedSongs(this.props.searchTerm);
     }
   }
 
@@ -67,7 +68,7 @@ class SongIndexItem extends React.Component {
   }
 
   render () {
-    let { song, openModal, inPlaylist } = this.props;
+    let { song, openModal, inPlaylist, searchTerm } = this.props;
 
     if (!song) {
       return null;
@@ -113,6 +114,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchSavedSongs: () => (dispatch(fetchSavedSongs())),
   fetchOneSong: (id) => (dispatch(fetchOneSong(id))),
   fetchOnePlaylist: (playlistId) => dispatch(fetchOnePlaylist(playlistId)),
+  fetchSearchedSongs: (searchTerm) => (dispatch(fetchSearchedSongs(searchTerm))),
   removeSongFromPlaylist: (id, data) => (dispatch(removeSongFromPlaylist(id, data))),
   openModal: (id) => dispatch(openModal({ modal:'add_to_playlist', song_id: id }))
 });
