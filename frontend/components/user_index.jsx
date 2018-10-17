@@ -68,7 +68,7 @@ class UserIndex extends React.Component {
 
     return (
       <div className="user-list">
-        {users.length > 0 ? <h1>title</h1> : null }
+        { result.length > 0 ? <h1>{title}</h1> : null }
         <ul className="user-list-items">
           {result}
         </ul>

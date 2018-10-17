@@ -24,7 +24,8 @@ class Api::PlaylistsController < ApplicationController
   def destroy
     @playlist = Playlist.find_by(id: params[:id])
     @playlist.destroy
-    render :show
+    @playlists = current_user.followed_playlists
+    render :index
   end
 
   def followed_playlists

@@ -30,7 +30,7 @@ class SongIndexItem extends React.Component {
   handleUnsave() {
     this.props.unsaveSong(this.props.song.id)
       // .then( () => this.setStateFalse() )
-      // .then( () => this.refetch() )
+      .then( () => this.refetch() )
   }
 
   handleRemoveFromPlaylist(id, data) {

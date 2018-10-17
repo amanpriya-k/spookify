@@ -1,6 +1,7 @@
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_NEW_USER = 'RECEIVE_NEW_USER';
 export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
+export const RECEIVE_NEW_USERS = 'RECEIVE_NEW_USERS';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
@@ -14,13 +15,18 @@ export const receiveCurrentUser = (user) => ({
   user
 });
 
-export const receiveNewUser = (user) => ({
+export const receiveNewUser = (payload) => ({
   type: RECEIVE_NEW_USER,
-  user
+  payload
 });
 
 export const receiveAllUsers = (users) => ({
   type: RECEIVE_ALL_USERS,
+  users
+});
+
+export const receiveNewUsers = (users) => ({
+  type: RECEIVE_NEW_USERS,
   users
 });
 
@@ -67,15 +73,15 @@ export const refetchUserInfo = (id) => (dispatch) => (
 
 export const follow = (userId, otherId) => (dispatch) => (
   UserUtil.follow(userId, otherId)
-    .then(users => dispatch(receiveAllUsers(users)))
+    .then(user => dispatch(receiveNewUser(user)))
 )
 
 export const unfollow = (userId, otherId) => (dispatch) => (
   UserUtil.unfollow(userId, otherId)
-    .then(users => dispatch(receiveAllUsers(users)))
+    .then(user => dispatch(receiveNewUser(user)))
 )
 
 export const searchUsers = (searchTerm) => (dispatch) => (
   UserUtil.searchUsers(searchTerm)
-    .then(users => dispatch(receiveAllUsers(users)))
+    .then(users => dispatch(receiveNewUsers(users)))
 )

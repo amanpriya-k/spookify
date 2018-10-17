@@ -8,6 +8,7 @@ import PlaylistIndex from './playlist_index';
 import UserIndex from './user_index';
 import * as Util from '../util/user_util';
 import { merge } from 'lodash';
+import { searchUsers } from '../actions/session_actions';
 
 class SearchResults extends React.Component {
 
@@ -23,11 +24,13 @@ class SearchResults extends React.Component {
   componentWillReceiveProps(newProps) {
     if ( this.props.searchTerm != newProps.searchTerm ) {
       this.setState({ searchTerm: newProps.searchTerm })
-    }
-    if ( JSON.stringify(this.props.users) != JSON.stringify(newProps.users) ) {
-      // debugger
       this.props.searchUsers(this.props.searchTerm)
       .then( () => this.setState({ users: newProps.users }) )
+    }
+    if ( JSON.stringify(this.props.users) != JSON.stringify(newProps.users) ) {
+      this.props.searchUsers(this.props.searchTerm)
+      .then( () => this.setState({ users: newProps.users }) )
+      // this.setState({ users: newProps.users });
     }
   }
 
@@ -55,7 +58,6 @@ class SearchResults extends React.Component {
         </div>
         {artists}
         {albums}
-        {songs}
       </div>
     )
   }

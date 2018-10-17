@@ -14,6 +14,8 @@ Artist.destroy_all
 Playlist.destroy_all
 Follow.destroy_all
 Save.destroy_all
+UserFollow.destroy_all
+PlaylistSong.destroy_all
 
 ghost = User.create(username: 'ghostuser', email: 'ghostuser@gmail.com', password: '123456')
 user2 = User.create(username: 'user2woohoo', email: 'user2@gmail.com', password: '123456')
@@ -22,10 +24,23 @@ alexandrax = User.create(username: 'alexandrax', email: 'alexandrax@gmail.com', 
 luciast = User.create(username: 'luciast', email: 'luciast@gmail.com', password: '123456')
 jones3 = User.create(username: 'jones3', email: 'jones3@gmail.com', password: '123456')
 musig = User.create(username: 'musig', email: 'musig@gmail.com', password: '123456')
+thekingofrb = User.create(username: 'thekingofrb', email: 'thekingofrb@gmail.com', password: '123456')
+denny = User.create(username: 'denny', email: 'denny@gmail.com', password: '123456')
+francan = User.create(username: 'francan', email: 'francan@gmail.com', password: '123456')
+jerry1982 = User.create(username: 'jerry1982', email: 'jerry1982@gmail.com', password: '123456')
+leilagxh = User.create(username: 'leilagxh', email: 'leilagxh@gmail.com', password: '123456')
+reenxa = User.create(username: 'reenxa', email: 'reenxa@gmail.com', password: '123456')
+selinak = User.create(username: 'selinak', email: 'selinak@gmail.com', password: '123456')
+aprilf = User.create(username: 'aprilf', email: 'aprilf@gmail.com', password: '123456')
 
 ghost.following << user2
+ghost.following << jones3
 ghost.following << grace18
+ghost.following << selinak
+
 ghost.followers << alexandrax
+ghost.followers << aprilf
+ghost.followers << selinak
 
 # Artists
 
@@ -170,7 +185,11 @@ ghost.saved_songs << Song.create(name: 'Talk!', album_id: deluxe.id)
 a.songs << Song.create(name: 'Heart Out', album_id: deluxe.id)
 a.songs << Song.create(name: 'Girls', album_id: deluxe.id)
 b.songs << Song.create(name: 'breathin', album_id: sweetener.id)
-a.songs << Song.create(name: 'God is a woman', album_id: sweetener.id)
+godisawoman = Song.create(name: 'God is a woman', album_id: sweetener.id)
+godisawoman_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/godisawoman.mp3')
+godisawoman.audio.attach(io: godisawoman_audio, filename: 'godisawoman-audio.mp3')
+a.songs << godisawoman
+
 a.songs << Song.create(name: 'no tears left to cry', album_id: sweetener.id)
 b.songs << Song.create(name: 'sweetener', album_id: sweetener.id)
 a.songs << Song.create(name: 'Moonlight', album_id: dangerous.id)

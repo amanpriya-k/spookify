@@ -9,14 +9,27 @@ class UserShow extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = { user: null };
   }
 
   componentDidMount() {
     this.props.refetchUserInfo(this.props.match.params.id)
+      .then( () => this.setState({ user: this.props.user }))
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (JSON.stringify(this.props.users) != JSON.stringify(newProps.users)) {
+      // debugger
+      this.setState({ users: newProps.users, user: newProps.users[this.props.match.params.id] });
+    }
   }
 
   render() {
-    let { user } = this.props;
+    let { user } = this.state;
+
+    if (!user) {
+      return null;
+    }
 
     return(
       <div className="user-show">
@@ -44,7 +57,8 @@ class UserShow extends React.Component {
 
 
 const mapStateToProps = (state, ownProps) => ({
-  user: Object.values(state.entities.users)[0]
+  user: Object.values(state.entities.users)[0],
+  users: state.entities.users
 })
 
 const mapDispatchToProps = (dispatch) => ({

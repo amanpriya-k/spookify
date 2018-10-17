@@ -36,6 +36,8 @@ class AddSongForm extends React.Component {
     }
   }
 
+
+
   redirectToShow(playlist_id) {
     this.props.history.push(`/playlists/${playlist_id}`);
   }

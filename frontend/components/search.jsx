@@ -6,20 +6,32 @@ class Search extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { searchTerm: '' };
+    this.state = { searchTerm: '', render: false };
+    this.timeout =  0;
     this.updateInput = this.updateInput.bind(this);
   }
 
   updateInput(e) {
-     // console.log(e.target.value);
-    this.setState({ searchTerm: e.target.value });
+    this.setState({render: false})
+
+    let val = e.target.value
+
+    if(this.timeout) clearTimeout(this.timeout);
+
+    this.timeout = setTimeout(() => {
+      this.setState({ render: true });
+    }, 300);
+    this.setState({ searchTerm: val });
   }
 
   render() {
-    let { searchTerm } = this.state;
+    let { searchTerm, render } = this.state;
+    // console.log(searchTerm);
 
     let results;
+    let default_res = false;
     if (!(searchTerm.length > 0)) {
+      default_res = true;
       results = (
         <div className="null-search-results">
           <h1>Search Spookify</h1>
@@ -33,14 +45,14 @@ class Search extends React.Component {
     return (
       <div className="search">
         <div className="search-input">
-          <input autoFocus="autoFocus"
-                 type="text"
-                 value={this.state.searchTerm}
-                 onChange={this.updateInput}
-                 placeholder="Start typing..."></input>
+            <input autoFocus="autoFocus"
+              type="text"
+              value={this.state.searchTerm}
+              onChange={this.updateInput}
+              placeholder="Start typing..."></input>
        </div>
 
-        {results}
+        { (render || default_res) ? results : null}
       </div>
     )
   }

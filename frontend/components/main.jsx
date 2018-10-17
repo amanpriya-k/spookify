@@ -50,6 +50,3 @@ const mapStateToProps = (state, ownProps) => ({
 
 export default connect(mapStateToProps)
                       (Main);
-
-
-// <div className="temp-music-space"> music player here </div>

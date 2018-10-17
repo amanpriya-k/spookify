@@ -215,7 +215,7 @@ export const createPlaylist = (playlist) => (dispatch) => (
 export const deletePlaylist = (id) => (dispatch) => {
   return (
     MusicApiUtil.deletePlaylist(id)
-      .then( playlist => dispatch(removeOnePlaylist(playlist)) )
+      .then( playlist => dispatch(receiveAllPlaylists(playlist)) )
   )
 }
 
