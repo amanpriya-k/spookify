@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { refetchUserInfo } from '../actions/session_actions';
 import UserIndex from './user_index';
+import Modal from './new_playlist_modal';
 
 class UserShow extends React.Component {
 
@@ -19,6 +20,9 @@ class UserShow extends React.Component {
 
     return(
       <div className="user-show">
+
+        <Modal></Modal>
+
         <div className="user-header">
           <i className="fa fa-user-circle"></i>
           <h1>{user.username}</h1>

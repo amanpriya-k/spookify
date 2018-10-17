@@ -88,8 +88,38 @@
     font-family: "Poppins";
     font-size: 12px;
     padding: 5px;
+    width: 200px;
     margin-right: 10px;
     padding-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+  }
+
+}
+
+
+.searched-users {
+  display: block;
+  margin: auto;
+  padding-bottom: 40px;
+  margin-bottom: 10px;
+
+  .user-list-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .single-user-bar {
+    color: white;
+    font-family: "Poppins";
+    font-size: 20px;
+    padding: 10px;
+    width: 600px;
+    margin-right: 10px;
+    padding-bottom: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

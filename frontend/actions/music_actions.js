@@ -100,6 +100,7 @@ export const saveSong = (id) => (dispatch) => (
 export const unsaveSong = (id) => (dispatch) => {
   return (
     UserMusicApiUtil.unsaveSong(id)
+      .then(song => dispatch(receiveOneSong(song)))
   )
 }
 

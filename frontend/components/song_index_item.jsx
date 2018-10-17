@@ -13,7 +13,7 @@ class SongIndexItem extends React.Component {
 
     this.handleSave = this.handleSave.bind(this);
     this.handleUnsave = this.handleUnsave.bind(this);
-    this.setInitialState = this.setInitialState.bind(this);
+    // this.setInitialState = this.setInitialState.bind(this);
     this.setStateTrue = this.setStateTrue.bind(this);
     this.setStateFalse = this.setStateFalse.bind(this);
     this.handleRemoveFromPlaylist = this.handleRemoveFromPlaylist.bind(this);
@@ -23,14 +23,14 @@ class SongIndexItem extends React.Component {
 
   handleSave() {
     this.props.saveSong(this.props.song.id)
-      .then( () => this.setStateTrue() )
-      .then( () => this.refetch() )
+      // .then( () => this.setStateTrue() )
+      // .then( () => this.refetch() )
   }
 
   handleUnsave() {
     this.props.unsaveSong(this.props.song.id)
-      .then( () => this.setStateFalse() )
-      .then( () => this.refetch() )
+      // .then( () => this.setStateFalse() )
+      // .then( () => this.refetch() )
   }
 
   handleRemoveFromPlaylist(id, data) {
@@ -40,9 +40,9 @@ class SongIndexItem extends React.Component {
     }
   }
 
-  setInitialState() {
-    this.setState( { saved: this.props.song.saved } );
-  }
+  // setInitialState() {
+  //   this.setState( { saved: this.props.song.saved } );
+  // }
 
   setStateTrue() {
     this.setState({ saved: true });
@@ -58,7 +58,7 @@ class SongIndexItem extends React.Component {
     } else if (this.props.location.pathname == "/library/songs") {
       this.props.fetchSavedSongs();
     } else if (this.props.location.pathname == "/search") {
-      this.props.fetchSearchedSongs(this.props.searchTerm);
+      // this.props.fetchSearchedSongs(this.props.searchTerm);
     }
   }
 

@@ -64,7 +64,15 @@ Rails.application.routes.draw do
   end
 
   namespace :api, defaults: {format: :json} do
-    resources :users, only: [:create, :update, :destroy, :show, :index]
+    resources :users, only: [:create, :update, :destroy, :show, :index] do
+      member do
+        post :follow
+        delete :unfollow
+      end
+      collection do
+        get :search
+      end
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

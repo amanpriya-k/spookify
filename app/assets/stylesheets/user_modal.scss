@@ -1,0 +1,152 @@
+.user-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  text-align: center;
+  color: white;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .modal-x {
+    color: white;
+    font-family: "Circular";
+    font-size: 70px;
+    // padding-left: 40px;
+    margin-top: 60px;
+  }
+
+  .user-info-modal {
+    padding: 15px;
+    // padding-left: 40px;
+    color: white;
+    background: rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid white;
+    width: 400px;
+    height: 200px;
+    border-radius: 40px;
+    font-family: "Circular";
+
+    i, h1 {
+      font-size: 40px;
+      padding: 10px
+    }
+
+    button {
+      font-family: "Circular Bold";
+      font-size: 15px;
+      text-align: center;
+      letter-spacing: 2px;
+      color: white;
+      text-decoration: none;
+      background-color: rgba(0, 0, 0, 0.2);
+      border: 1px solid lightgray;
+      padding: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-radius: 25px;
+      width: 120px;
+      margin: auto;
+      transition: .5s;
+      outline: none;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: rgba(0, 0, 0, 0.6);
+      border: 1px solid white;
+    }
+
+
+  }
+
+  // .playlist-form {
+  //   display: flex;
+  //   flex-direction: column;
+  // }
+  //
+  // h1 {
+  //   color: white;
+  //   font-family: "Circular Bold";
+  //   font-size: 70px;
+  //   margin-bottom: 20px;
+  // }
+  //
+  // .playlist-input {
+  //   background: #2E2E2E;
+  //   height: 125px;
+  //   color: white;
+  //   padding: 20px;
+  //   display: flex;
+  //   flex-direction: column;
+  //
+  //   label {
+  //     margin-bottom: 10px;
+  //     margin-top: 10px;
+  //     margin-right: 530px;
+  //     font-family: "Circular";
+  //     font-size: 15px;
+  //   }
+  //
+  //   input{
+  //     font-family: "Circular Bold";
+  //     font-size: 60px;
+  //     color: white;
+  //     width: 630px;
+  //     height: 90px;
+  //     margin: auto;
+  //     text-align: left;
+  //     caret-color: #1DB954;
+  //   }
+  //
+  //   input::placeholder {
+  //     color: #8C8C8C;
+  //   }
+  // }
+  //
+  // .modal-buttons {
+  //   display: flex;
+  //   flex-direction: row;
+  //   justify-content: center;
+  //   margin-top: 10px;
+  //
+  //   button {
+  //     font-family: "Circular Bold";
+  //     font-size: 15px;
+  //     text-align: center;
+  //     letter-spacing: 2px;
+  //     color: white;
+  //     text-decoration: none;
+  //     background-color: #1DB954;
+  //     border: #1DB954;
+  //     padding: 9px;
+  //     padding-left: 30px;
+  //     padding-right: 30px;
+  //     border-radius: 25px;
+  //     transition: .5s;
+  //     outline: none;
+  //     margin-top: 20px;
+  //     margin-left: 10px;
+  //   }
+  //
+  //   button:hover {
+  //     background-color: #55DA5D;
+  //     border: #55DA5D;
+  //   }
+  // }
+  //
+  //   .modal-error {
+  //     font-size: 20px;
+  //     font-family: "Montserrat";
+  //     color: #1DB954;
+  //   }
+
+}

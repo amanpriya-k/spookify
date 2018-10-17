@@ -39,8 +39,24 @@ class Api::UsersController < ApplicationController
   end
 
   def follow
-    user_to_follow = User.find(params[:user_id])
+    user_to_follow = User.find(params[:other_user_id])
     current_user.following << user_to_follow
+    @users = [current_user, User.find(user_to_follow.id)]
+    render :index
+  end
+
+  def unfollow
+    user_to_unfollow = User.find(params[:other_user_id])
+    follow = UserFollow.find_by(follower_id: current_user.id, followee_id: user_to_unfollow.id)
+    UserFollow.destroy(follow.id)
+    @users = [current_user, User.find(user_to_unfollow.id)]
+    render :index
+  end
+
+  def search
+    search_term = params[:search_term]
+    @users = User.where('lower(username) like ?', "%#{search_term.downcase}%").limit(5)
+    render :index
   end
 
 end

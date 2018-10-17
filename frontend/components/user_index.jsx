@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { refetchUserInfo } from '../actions/session_actions';
+import { openModal } from '../actions/modal_actions';
 
 class UserIndex extends React.Component {
 
@@ -15,13 +16,15 @@ class UserIndex extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.users != newProps.users) {
+    if (JSON.stringify(this.props.users) != JSON.stringify(newProps.users)) {
+      // debugger
       this.setState({ users: newProps.users });
     }
   }
 
   render() {
     let { users, type } = this.state;
+    let { currentUserId } = this.props;
     // console.log(users, type);
 
     let title;
@@ -42,14 +45,20 @@ class UserIndex extends React.Component {
     }
 
     let result;
-    if (users) {
+    if (users && currentUser) {
       result = (
         Object.values(users).map(
           user => (
-            <div key={user.id} className="single-user-bar">
-              <p>@{user.username}</p>
-              <button> { user.following ? '✓' : '+' } </button>
-            </div>
+            <button key={user.id * Math.random()} onClick={() => this.props.openModal(currentUserId, user)} className="pl-btn">
+              <div className="single-user-bar" >
+                <div>
+                  <p>@{user.username}</p>
+                </div>
+                <div>
+                  <p>{user.following ? '   ✓' : '   +' } </p>
+                </div>
+             </div>
+            </button>
           )
         )
       )
@@ -69,4 +78,15 @@ class UserIndex extends React.Component {
 
 }
 
-export default UserIndex;
+// export default UserIndex;
+
+const mapStateToProps = (state) => ({
+  currentUserId: state.session.id
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  openModal: (currentUserId, subjectUser) => dispatch(openModal
+    ({ modal:'user_modal', currentUserId: currentUserId, subjectUser: subjectUser }))
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserIndex))

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { closeModal } from '../actions/modal_actions';
 import NewPlaylistForm from './new_playlist_form';
 import AddSongForm from './add_song_form';
+import UserModal from './user_modal';
 
 class Modal extends React.Component {
 
@@ -11,11 +12,13 @@ class Modal extends React.Component {
   }
 
   render() {
+
     let { modal, closeModal } = this.props;
-    // debugger;
+
     if (!modal) {
       return null;
     }
+
 
     let component;
     switch (modal.modal) {
@@ -24,6 +27,10 @@ class Modal extends React.Component {
         break;
       case 'add_to_playlist':
         component = <AddSongForm songId={modal.song_id}/>;
+        break;
+      case 'user_modal':
+        // debugger
+        component = <UserModal currentUserId={modal.currentUserId} subjectUser={modal.subjectUser}/>;
         break;
       default:
         return null;

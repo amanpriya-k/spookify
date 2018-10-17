@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as UserUtil from './util/user_util'
-import { signup, login, logout, loginDemo, refetchUserInfo } from './actions/session_actions'
+import { signup, login, logout, loginDemo, refetchUserInfo, searchUsers } from './actions/session_actions'
 import configureStore from './store/store'
 import Root from './components/root';
 import { searchSongs, searchAlbums, searchArtists, searchPlaylists } from './util/music_util';
@@ -68,4 +68,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.searchArtists = searchArtists;
   window.refetchUserInfo = refetchUserInfo;
   window.UserUtil = UserUtil;
+  window.searchUsers = searchUsers;
 });

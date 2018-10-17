@@ -6,14 +6,15 @@ import SideNav from './side_nav';
 import Browse from './browse';
 import Library from './library';
 import Search from './search';
-import BrowseNav from './browse_nav'
-import AlbumIndex from './album_index'
-import ArtistIndex from './artist_index'
-import SongIndex from './song_index'
-import AlbumShow from './album_show'
-import ArtistShow from './artist_show'
-import PlaylistShow from './playlist_show'
-import UserShow from './user_show'
+import BrowseNav from './browse_nav';
+import AlbumIndex from './album_index';
+import ArtistIndex from './artist_index';
+import SongIndex from './song_index';
+import AlbumShow from './album_show';
+import ArtistShow from './artist_show';
+import PlaylistShow from './playlist_show';
+import UserShow from './user_show';
+import Modal from './new_playlist_modal';
 
 class Main extends React.Component {
 
@@ -21,6 +22,8 @@ class Main extends React.Component {
 
     return(
       <div className="main">
+
+        <Modal></Modal>
 
         <SideNav/>
 
