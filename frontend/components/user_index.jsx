@@ -45,7 +45,7 @@ class UserIndex extends React.Component {
     }
 
     let result;
-    if (users && currentUser) {
+    if (users && currentUserId) {
       result = (
         Object.values(users).map(
           user => (
@@ -68,7 +68,7 @@ class UserIndex extends React.Component {
 
     return (
       <div className="user-list">
-        <h1>{title}</h1>
+        {users.length > 0 ? <h1>title</h1> : null }
         <ul className="user-list-items">
           {result}
         </ul>

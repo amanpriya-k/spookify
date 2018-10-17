@@ -55,7 +55,10 @@ class Api::UsersController < ApplicationController
 
   def search
     search_term = params[:search_term]
+    # sql = "SELECT * FROM users WHERE lower(username) LIKE '#{search_term}' ORDER BY LOCATE(username , '#{search_term}')"
     @users = User.where('lower(username) like ?', "%#{search_term.downcase}%").limit(5)
+    # @users = User.find_by_sql(sql)
+    # @users = User.where('lower(username) like ?', "%#{search_term.downcase}%").order(username.index_of(search_term)).limit(5)
     render :index
   end
 

@@ -23,7 +23,9 @@ luciast = User.create(username: 'luciast', email: 'luciast@gmail.com', password:
 jones3 = User.create(username: 'jones3', email: 'jones3@gmail.com', password: '123456')
 musig = User.create(username: 'musig', email: 'musig@gmail.com', password: '123456')
 
-
+ghost.following << user2
+ghost.following << grace18
+ghost.followers << alexandrax
 
 # Artists
 
