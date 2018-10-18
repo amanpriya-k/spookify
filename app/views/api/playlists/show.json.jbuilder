@@ -7,7 +7,15 @@ json.playlist do
 end
 
 json.songs do
-  @playlist.songs.each do |song|
-    json.partial! 'api/songs/song', song: song
+  if @playlist.songs.length > 0
+
+    @playlist.songs.each do |song|
+      json.partial! 'api/songs/song', song: song
+    end
+
+  elsif
+    {}
   end
 end
+
+# debugger

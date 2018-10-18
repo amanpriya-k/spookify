@@ -9,12 +9,17 @@ const songsReducer = (state={}, action) => {
     case RECEIVE_ONE_SONG:
       return merge({}, state, action.song)
     case RECEIVE_ONE_ALBUM:
+      // debugger
       return action.payload.songs
     case RECEIVE_ONE_ARTIST:
       return action.payload.songs
     case RECEIVE_ONE_PLAYLIST:
       debugger
-      return action.payload.songs
+      if (action.payload.songs) {
+        return action.payload.songs
+      } else {
+        return {};
+      }
     default:
       return state;
   }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Route, Link, withRouter } from 'react-router-dom';
 import { fetchAllSongs, fetchSavedSongs, fetchSearchedSongs } from './../actions/music_actions';
 import SongIndexItem from './song_index_item';
+import { setCurrentSong, setQueue } from './../actions/music_player_actions';
 
 class SongIndex extends React.Component {
 
@@ -37,6 +38,12 @@ class SongIndex extends React.Component {
     this.setState( { songs: this.props.songs} );
   }
 
+  getQueue(currSongIdx) {
+    let { songs } = this.props;
+    let queue = songs.slice(currSongIdx+1).concat(songs.slice(0, currSongIdx))
+    return queue;
+  }
+
   render() {
     let { songs, searchTerm } = this.props;
 
@@ -54,7 +61,9 @@ class SongIndex extends React.Component {
                   key={song.id * Math.random()}
                   song={song}
                   searchTerm={searchTerm}
-                  inPlaylist={this.state.inPlaylist}>
+                  inPlaylist={this.state.inPlaylist}
+                  queue={this.getQueue(idx)}
+                  >
               </SongIndexItem> )
           )}
         </ul>
@@ -70,7 +79,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchAllSongs: () => (dispatch(fetchAllSongs())),
   fetchSavedSongs: () => (dispatch(fetchSavedSongs())),
-  fetchSearchedSongs: (searchTerm) => (dispatch(fetchSearchedSongs(searchTerm)))
+  fetchSearchedSongs: (searchTerm) => (dispatch(fetchSearchedSongs(searchTerm))),
+  setCurrentSong: (song) => (dispatch(setCurrentSong(song))),
+  setQueue: (queue) => (dispatch(setQueue(queue)))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)

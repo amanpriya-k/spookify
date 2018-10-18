@@ -9,7 +9,8 @@ json.artist do
     end
   end
 
-  json.image_url @artist.photo.service_url
+  json.image_url url_for(@artist.photo)
+  # json.image_url @artist.photo.service_url
 
   json.followed current_user.followed_artist_ids.include?(@artist.id)
 end

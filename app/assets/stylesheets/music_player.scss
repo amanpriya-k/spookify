@@ -35,13 +35,17 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: absolute;
+    left: 200px;
   }
 
   .player-options {
     display: flex;
     color: white;
     margin-left: 350px;
+    margin-top: 20px;
     align-items: center;
+    position: relative;
 
     button {
       margin-left: 10px;
@@ -49,7 +53,7 @@
     }
 
     button:hover {
-      color: #329507;
+      color: gray;
     }
 
     p {
@@ -62,10 +66,13 @@
 
   }
 
-  .vol {
-    position: absolute;
-    left: 1220px;
-    bottom: 40px;
+  .player-buttons {
+    position: relative;
+    .volume {
+      position: absolute;
+      left: 500px;
+      bottom: 2px;
+    }
   }
 
   .player-progress-container {

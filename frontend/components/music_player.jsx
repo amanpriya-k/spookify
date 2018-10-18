@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import shuffle from 'shuffle-array';
@@ -8,14 +9,17 @@ class ReactMusicPlayer extends React.Component {
 
   constructor(props) {
     super(props);
+    // debugger
     this.state = {
-        active: props.songs[0],
+        active: this.props.song,
         current: 0,
         progress: 0,
         random: false,
-        repeat: false,
+        repeat: true,
         mute: false,
-        play: props.autoplay || false,
+        playing: props.playing || false,
+        // playinf: props.playing || true,
+        // play: props.playing || false,
         songs: props.songs
       }
     this.setProgress = this.setProgress.bind(this);
@@ -32,6 +36,7 @@ class ReactMusicPlayer extends React.Component {
   }
 
   componentDidMount() {
+    // debugger
     let playerElement = this.refs.player; // grabs html element playing music, ref='player' element
     playerElement.addEventListener('timeupdate', this.updateProgress); // where do these methods come from? - timeupdate/ended/etc
     playerElement.addEventListener('ended', this.end); // where do these methods come from? - timeupdate/ended/etc
@@ -43,6 +48,13 @@ class ReactMusicPlayer extends React.Component {
     playerElement.removeEventListener('timeupdate', this.updateProgress);
     playerElement.removeEventListener('ended', this.end);
     playerElement.removeEventListener('error', this.next);
+  }
+
+  componentWillReceiveProps(newProps) {
+    if ( this.props.song != newProps.song ) {
+      // debugger/
+      this.setState({ active: newProps.song, songs: newProps.songs, playing: true, progress: 0 })
+    }
   }
 
   setProgress(e) {
@@ -68,17 +80,17 @@ class ReactMusicPlayer extends React.Component {
   }
 
   play() {
-    this.setState({ play: true });
+    this.setState({ playing: true });
     this.refs.player.play();
   }
 
   pause() {
-    this.setState({ play: false });
+    this.setState({ playing: false });
     this.refs.player.pause();
   }
 
   toggle() {
-    this.state.play ? this.pause() : this.play();
+    this.state.playing ? this.pause() : this.play();
   }
 
   end() {
@@ -124,19 +136,23 @@ class ReactMusicPlayer extends React.Component {
   }
 
   render() {
-    // debugger
+    debugger
 
-    const { active, play, progress } = this.state;
+    const { active, playing, progress } = this.state;
+
+    // if (!active) {
+    //   return null;
+    // }
 
     let coverClass = classnames('player-cover', {'no-height': !!!active.imageUrl });
-    let playPauseClass = classnames('fa', {'fa-pause': play}, {'fa-play-circle': !play});
+    let playPauseClass = classnames('fa', {'fa-pause': playing}, {'fa-play-circle': !playing});
     let volumeClass = classnames('fa', {'fa-volume-up': !this.state.mute}, {'fa-volume-off': this.state.mute}, 'vol');
     let repeatClass = classnames('player-btn small repeat', {'active': this.state.repeat});
     let randomClass = classnames('player-btn small random', {'active': this.state.random });
 
+
     return (
         <div className="player-container">
-            <audio src={active.audioUrl} autoPlay={this.state.play} preload="auto" ref="player"></audio>
 
             <div className='player-img'>
               <Link to={`/albums/${active.albumId}`}>
@@ -146,7 +162,7 @@ class ReactMusicPlayer extends React.Component {
 
             <div className="artist-info">
                 <Link to={`/albums/${active.albumId}`}>
-                  <h2 className="song-name">{active.songName}</h2>
+                  <h2 className="song-name">{active.name}</h2>
                 </Link>
                 <Link to={`/artists/${active.artistId}`}>
                   <h3 className="artist-name">{active.artistName}</h3>
@@ -198,13 +214,23 @@ class ReactMusicPlayer extends React.Component {
 
             </div>
 
-
-
+            <audio src={active.audioUrl} autoPlay={this.state.playing} preload="none" ref="player"></audio>
 
         </div>
     );
   }
 }
 
-
 export default ReactMusicPlayer;
+
+// const mapStateToProps = (state) => ({
+//   songs: state.ui.musicPlayer.queue,
+//   song: state.ui.musicPlayer.currentSong,
+//   playing: state.ui.musicPlayer.playing
+// });
+//
+// const mapDispatchToProps = (dispatch) => ({
+//
+// });
+//
+// export default connect(mapStateToProps, mapDispatchToProps)(ReactMusicPlayer);
