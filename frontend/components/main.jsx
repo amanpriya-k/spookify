@@ -7,9 +7,6 @@ import Browse from './browse';
 import Library from './library';
 import Search from './search';
 import BrowseNav from './browse_nav';
-import AlbumIndex from './album_index';
-import ArtistIndex from './artist_index';
-import SongIndex from './song_index';
 import AlbumShow from './album_show';
 import ArtistShow from './artist_show';
 import PlaylistShow from './playlist_show';
@@ -53,7 +50,7 @@ class Main extends React.Component {
         </div>
 
         <div className="music-player-container">
-          <ReactMusicPlayer songs={songs}></ReactMusicPlayer>
+          <ReactMusicPlayer songs={songs} autoplay={true}></ReactMusicPlayer>
         </div>
       </div>
     )

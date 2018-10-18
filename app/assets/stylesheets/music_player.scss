@@ -48,24 +48,32 @@
       margin-right: 10px;
     }
 
+    button:hover {
+      color: #329507;
+    }
+
     p {
       font-size: 30px;
+    }
+
+    .active {
+      color: #1DB954;
     }
 
   }
 
   .vol {
     position: absolute;
-    right: 40px;
-    bottom: 49px;
+    left: 1220px;
+    bottom: 40px;
   }
 
   .player-progress-container {
       position: relative;
-      width: 365px;
+      width: 465px;
       height: 5px;
       margin-top: 10px;
-      margin-left: 260px;
+      margin-left: 205px;
       margin-bottom: 20px;
       background-color: #414141;
   }
@@ -78,6 +86,8 @@
 
       background-color: #1DB954;
   }
+
+
 
 }
 

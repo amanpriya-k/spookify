@@ -13,11 +13,9 @@ class ReactMusicPlayer extends React.Component {
         current: 0,
         progress: 0,
         random: false,
-        repeat: true,
-        // repeat: false,
+        repeat: false,
         mute: false,
-        play: props.autoplay || true,
-        // play: props.autoplay || false,
+        play: props.autoplay || false,
         songs: props.songs
       }
     this.setProgress = this.setProgress.bind(this);
@@ -136,10 +134,9 @@ class ReactMusicPlayer extends React.Component {
     let repeatClass = classnames('player-btn small repeat', {'active': this.state.repeat});
     let randomClass = classnames('player-btn small random', {'active': this.state.random });
 
-    // <audio src={active.audioUrl} autoPlay={this.state.play} preload="auto" ref="player"></audio>
     return (
         <div className="player-container">
-            <audio src={active.audioUrl} autoPlay={this.state.play} ref="player"></audio>
+            <audio src={active.audioUrl} autoPlay={this.state.play} preload="auto" ref="player"></audio>
 
             <div className='player-img'>
               <Link to={`/albums/${active.albumId}`}>
@@ -162,7 +159,7 @@ class ReactMusicPlayer extends React.Component {
               <div className="player-options">
 
                 <div className="player-buttons">
-                  <button className={repeatClass} onClick={this.repeat} title="Repeat">
+                  <button className={randomClass} onClick={this.randomize} title="Shuffle">
                     <i className="fa fa-random" />
                   </button>
                 </div>
@@ -182,7 +179,8 @@ class ReactMusicPlayer extends React.Component {
                 </div>
 
                 <div className="player-buttons">
-                  <button className={randomClass} onClick={this.randomize} title="Shuffle">
+
+                  <button className={repeatClass} onClick={this.repeat} title="Repeat">
                     <p>∞</p>
                   </button>
 
