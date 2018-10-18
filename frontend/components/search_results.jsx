@@ -58,6 +58,7 @@ class SearchResults extends React.Component {
         </div>
         {artists}
         {albums}
+        {playlists}
       </div>
     )
   }

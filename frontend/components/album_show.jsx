@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchOneAlbum, saveAlbum, unsaveAlbum } from './../actions/music_actions';
 import SongIndexItem from './song_index_item';
+import SongIndex from './song_index';
 
 class AlbumShow extends React.Component {
 
@@ -73,13 +74,14 @@ class AlbumShow extends React.Component {
 
         <div className="album-songs">
           <ul className="song-index">
-            {songs ? songs : <li></li>}
+            <SongIndex></SongIndex>
           </ul>
         </div>
       </div>
     )
   }
 }
+// {songs ? songs : <li></li>}
 
 const mapStateToProps = (state, ownProps) => ({
   album: state.entities.albums[ownProps.match.params.albumId]

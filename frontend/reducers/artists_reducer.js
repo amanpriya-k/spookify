@@ -7,7 +7,7 @@ const artistsReducer = (state={}, action) => {
     case RECEIVE_ALL_ARTISTS:
       return action.artists
     case RECEIVE_ONE_ARTIST:
-      return merge({}, state, { [action.artist.id]: action.artist})
+      return merge({}, state, { [action.payload.artist.id]: action.payload.artist})
     default:
       return state;
   }

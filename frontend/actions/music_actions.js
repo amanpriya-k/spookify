@@ -27,9 +27,9 @@ export const receiveAllArtists = (artists) => ({
   artists
 });
 
-export const receiveOneArtist = (artist) => ({
+export const receiveOneArtist = (payload) => ({
   type: RECEIVE_ONE_ARTIST,
-  artist
+  payload
 });
 
 export const receiveAllAlbums = (albums) => ({
@@ -37,14 +37,14 @@ export const receiveAllAlbums = (albums) => ({
   albums
 });
 
-export const receiveOneAlbum = (album) => ({
+export const receiveOneAlbum = (payload) => ({
   type: RECEIVE_ONE_ALBUM,
-  album
+  payload
 });
 
-export const receiveOnePlaylist = (playlist) => ({
+export const receiveOnePlaylist = (payload) => ({
   type: RECEIVE_ONE_PLAYLIST,
-  playlist
+  payload
 });
 
 export const removeOnePlaylist = (playlist) => ({

@@ -8,7 +8,7 @@ class SongIndex extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { songs: null };
+    this.state = { songs: null, inPlaylist: this.props.inPlaylist };
     this.setInitialState = this.setInitialState.bind(this);
   }
 
@@ -50,7 +50,12 @@ class SongIndex extends React.Component {
         <ul className="song-index">
           {songs.map(
             (song, idx) =>
-            ( <SongIndexItem key={song.id * Math.random()} song={song} searchTerm={searchTerm} ></SongIndexItem> )
+            ( <SongIndexItem
+                  key={song.id * Math.random()}
+                  song={song}
+                  searchTerm={searchTerm}
+                  inPlaylist={this.state.inPlaylist}>
+              </SongIndexItem> )
           )}
         </ul>
       </div>

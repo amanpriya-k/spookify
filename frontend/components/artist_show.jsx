@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Route, Link } from 'react-router-dom';
 import { fetchOneArtist, followArtist, unfollowArtist } from './../actions/music_actions';
 import SongIndexItem from './song_index_item';
+import SongIndex from './song_index';
 
 class ArtistShow extends React.Component {
 
@@ -76,10 +77,7 @@ class ArtistShow extends React.Component {
         <div>
           <h3>Top Songs</h3>
           <ul className="song-index">
-            {Object.values(artist.songs).map(
-              (song, idx) =>
-              ( <SongIndexItem key={idx} song={song}></SongIndexItem> )
-            )}
+            <SongIndex></SongIndex>
           </ul>
         </div>
       )
@@ -87,6 +85,10 @@ class ArtistShow extends React.Component {
       null;
     }
 
+    // {Object.values(artist.songs).map(
+    //   (song, idx) =>
+    //   ( <SongIndexItem key={idx} song={song}></SongIndexItem> )
+    // )}
 
     return(
       <div className="artist-show-container">
@@ -115,7 +117,12 @@ class ArtistShow extends React.Component {
 
           <div className="content-container">
             {albums}
-            {songs}
+            <div>
+              <h3>Top Songs</h3>
+              <ul className="song-index">
+                <SongIndex></SongIndex>
+              </ul>
+            </div>
           </div>
 
       </div>

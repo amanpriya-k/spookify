@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchOnePlaylist, followPlaylist, unfollowPlaylist, deletePlaylist } from './../actions/music_actions';
 import SongIndexItem from './song_index_item';
+import SongIndex from './song_index';
 
 class PlaylistShow extends React.Component {
 
@@ -68,10 +69,11 @@ class PlaylistShow extends React.Component {
 
     let songs;
     if (playlist.songs && Object.values(playlist.songs).length > 0) {
-      songs = Object.values(playlist.songs).map(
-        (song, idx) =>
-        ( <SongIndexItem key={song.id} song={song} inPlaylist={true}></SongIndexItem> )
-      )
+      // songs = Object.values(playlist.songs).map(
+      //   (song, idx) =>
+      //   ( <SongIndexItem key={song.id} song={song} inPlaylist={true}></SongIndexItem> )
+      // )
+      songs = <SongIndex inPlaylist={true}></SongIndex>
     } else {
       songs = null
     }
@@ -105,13 +107,14 @@ class PlaylistShow extends React.Component {
 
         <div className="playlist-songs">
           <ul className="song-index">
-            {songs ? songs : <li></li>}
+            <SongIndex inPlaylist={true}></SongIndex>
           </ul>
         </div>
       </div>
     )
   }
 }
+// {songs ? songs : <li></li>}
 // <img src={playlist.coverUrl}></img>
 
 const mapStateToProps = (state, ownProps) => ({
