@@ -508,7 +508,7 @@ input[type="submit"] {
 /* line 11, /Users/amykulkarni/Desktop/spookify/app/assets/stylesheets/side_bar.scss */
 .side-bar-logo {
   font-family: "Circular Bold";
-  height: 620px;
+  height: 600px;
   position: relative;
 }
 /* line 16, /Users/amykulkarni/Desktop/spookify/app/assets/stylesheets/side_bar.scss */
@@ -623,7 +623,7 @@ input[type="submit"] {
   flex-direction: column;
   top: 0;
   overflow-y: scroll;
-  height: 620px;
+  height: 600px;
 }
 
 /* line 1, /Users/amykulkarni/Desktop/spookify/app/assets/stylesheets/browse_nav.scss */

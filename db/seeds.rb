@@ -185,6 +185,7 @@ ghost.saved_songs << Song.create(name: 'Talk!', album_id: deluxe.id)
 a.songs << Song.create(name: 'Heart Out', album_id: deluxe.id)
 a.songs << Song.create(name: 'Girls', album_id: deluxe.id)
 b.songs << Song.create(name: 'breathin', album_id: sweetener.id)
+
 godisawoman = Song.create(name: 'God is a woman', album_id: sweetener.id)
 godisawoman_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/godisawoman.mp3')
 godisawoman.audio.attach(io: godisawoman_audio, filename: 'godisawoman-audio.mp3')
