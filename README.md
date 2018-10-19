@@ -1,4 +1,4 @@
-![alt text](https://github.com/amanpriya-k/spookify/blob/master/spookify-logo.png)
+![alt text](https://github.com/amanpriya-k/spookify/blob/master/landing-page.png)
 
 ---
 
