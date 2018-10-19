@@ -86,7 +86,7 @@ class AlbumShow extends React.Component {
           <Link to={`/artists/${album.artistId}`}><h2>{album.artistName}</h2></Link>
           <button onClick={this.handlePlay}>PLAY</button>
           {saveButton}
-          <h3>{songs ? Object.values(album.songs).length : 0} SONGS</h3>
+
         </div>
 
         <div className="album-songs">
