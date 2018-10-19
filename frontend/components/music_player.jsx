@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import shuffle from 'shuffle-array';
+import { setCurrentSong, toggleSong } from '../actions/music_player_actions';
 
 class ReactMusicPlayer extends React.Component {
 
@@ -15,11 +16,9 @@ class ReactMusicPlayer extends React.Component {
         current: 0,
         progress: 0,
         random: false,
-        repeat: true,
+        repeat: false,
         mute: false,
         playing: props.playing || false,
-        // playinf: props.playing || true,
-        // play: props.playing || false,
         songs: props.songs
       }
     this.setProgress = this.setProgress.bind(this);
@@ -80,6 +79,7 @@ class ReactMusicPlayer extends React.Component {
   }
 
   play() {
+    this.props.setCurrentSong(this.state.active);
     this.setState({ playing: true });
     this.refs.player.play();
   }
@@ -94,7 +94,12 @@ class ReactMusicPlayer extends React.Component {
   }
 
   end() {
-      (this.state.repeat) ? this.play() : this.setState({ play: false });
+    if (this.state.repeat) {
+      this.play()
+    } else {
+      this.setState({ playing: false, progress: 0 });
+      // this.next();
+    }
   }
 
   next() {
@@ -136,7 +141,7 @@ class ReactMusicPlayer extends React.Component {
   }
 
   render() {
-    debugger
+    // debugger
 
     const { active, playing, progress } = this.state;
 
@@ -148,17 +153,29 @@ class ReactMusicPlayer extends React.Component {
     let playPauseClass = classnames('fa', {'fa-pause': playing}, {'fa-play-circle': !playing});
     let volumeClass = classnames('fa', {'fa-volume-up': !this.state.mute}, {'fa-volume-off': this.state.mute}, 'vol');
     let repeatClass = classnames('player-btn small repeat', {'active': this.state.repeat});
-    let randomClass = classnames('player-btn small random', {'active': this.state.random });
+    let randomClass = classnames('player-btn small random up', {'active': this.state.random });
 
+    let img;
+    if (!active.name) {
+      img = (
+        <div className='player-img-empty'>
+          <img></img>
+        </div>
+      )
+    } else {
+      img = (
+        <div className='player-img'>
+          <Link to={`/albums/${active.albumId}`}>
+            <img src={active.imageUrl}></img>
+          </Link>
+        </div>
+      )
+    }
 
     return (
         <div className="player-container">
 
-            <div className='player-img'>
-              <Link to={`/albums/${active.albumId}`}>
-                <img src={active.imageUrl}></img>
-              </Link>
-            </div>
+            {img}
 
             <div className="artist-info">
                 <Link to={`/albums/${active.albumId}`}>
@@ -178,10 +195,8 @@ class ReactMusicPlayer extends React.Component {
                   <button className={randomClass} onClick={this.randomize} title="Shuffle">
                     <i className="fa fa-random" />
                   </button>
-                </div>
 
-                <div className="player-buttons player-controls">
-                  <button onClick={this.previous} className="player-btn medium" title="Previous Song">
+                  <button onClick={this.previous} className="player-btn medium up" title="Previous Song">
                     <i className="fa fa-backward" />
                   </button>
 
@@ -189,12 +204,9 @@ class ReactMusicPlayer extends React.Component {
                     <i className={playPauseClass} />
                   </button>
 
-                  <button onClick={this.next} className="player-btn medium" title="Next Song">
+                  <button onClick={this.next} className="player-btn medium up" title="Next Song">
                     <i className="fa fa-forward" />
                   </button>
-                </div>
-
-                <div className="player-buttons">
 
                   <button className={repeatClass} onClick={this.repeat} title="Repeat">
                     <p>∞</p>
@@ -221,7 +233,7 @@ class ReactMusicPlayer extends React.Component {
   }
 }
 
-export default ReactMusicPlayer;
+// export default ReactMusicPlayer;
 
 // const mapStateToProps = (state) => ({
 //   songs: state.ui.musicPlayer.queue,
@@ -229,8 +241,10 @@ export default ReactMusicPlayer;
 //   playing: state.ui.musicPlayer.playing
 // });
 //
-// const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentSong: (song) => (dispatch(setCurrentSong(song))),
+  toggleSong: () => (dispatch(toggleSong())),
+  setQueue: (queue) => (dispatch(setQueue(queue)))
+});
 //
-// });
-//
-// export default connect(mapStateToProps, mapDispatchToProps)(ReactMusicPlayer);
+export default connect(null, mapDispatchToProps)(ReactMusicPlayer);

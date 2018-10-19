@@ -14,7 +14,7 @@ const songsReducer = (state={}, action) => {
     case RECEIVE_ONE_ARTIST:
       return action.payload.songs
     case RECEIVE_ONE_PLAYLIST:
-      debugger
+      // debugger
       if (action.payload.songs) {
         return action.payload.songs
       } else {

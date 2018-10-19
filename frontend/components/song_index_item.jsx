@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { fetchOneSong, fetchAllSongs, fetchSavedSongs, saveSong, unsaveSong, removeSongFromPlaylist, fetchOnePlaylist, fetchSearchedSongs } from '../actions/music_actions';
 import { openModal } from '../actions/modal_actions';
+import classnames from 'classnames';
 import { setCurrentSong, setQueue, toggleSong } from './../actions/music_player_actions';
 
 class SongIndexItem extends React.Component {
@@ -96,13 +97,55 @@ class SongIndexItem extends React.Component {
     } else {
       saveButton = (<button className="unsave-btn" onClick={this.handleUnsave}><i className="fa fa-check"></i></button>)
     }
+    //
+    // let playButton = (<i className="fa fa-play"></i>)
+    // let musicNoteButton = (<i className="fa fa-music"></i>)
+    // <button onClick={this.handlePlay}>{playButton}</button>
+    // {musicNoteButton}
 
+    // debugger
+
+    let playButtonContainer = (
+      <div className="play-btn-container">
+        <button onClick={this.handlePlay}><i className="fa fa-play"></i></button>
+        <i className="fa fa-music"></i>
+      </div>
+    )
+
+    if (this.props.currSong.id === song.id) {
+    // if (JSON.stringify(this.props.currSong) === JSON.stringify(song)) {
+      playButtonContainer = (
+        <div className="play-btn-container">
+          <i className="fa fa-volume-up"></i>
+        </div>
+      )
+    }
+
+    let finalClass = classnames('song-index-item', {'active-song': this.props.currSong.id === song.id });
+
+    // debugger
+
+    // <button onClick={this.handlePlay}><h2>{playButton}{musicNoteButton}<span><p>{song.name}</p></span></h2></button>
     return (
-      <li className="song-index-item">
-        <div>
-          <button onClick={this.handlePlay}><h2>♪<span><p>{song.name}</p></span></h2></button>
-          <h4><Link className="ugh" to={`/artists/${song.artistId}`}>{song.artistName}</Link> •
-            <Link className="ugh" to={`/albums/${song.albumId}`}>{song.albumTitle}</Link></h4>
+      <li className={finalClass}>
+
+        <div className="song-index-main-info">
+
+          {playButtonContainer}
+
+          <div className="song-index-text">
+
+            <div>
+              <button onClick={this.handlePlay}><h2>{song.name}</h2></button>
+            </div>
+
+            <div className="song-links">
+              <h4><Link className="song-link-item" to={`/artists/${song.artistId}`}>{song.artistName}</Link> •
+                <Link className="song-link-item" to={`/albums/${song.albumId}`}>{song.albumTitle}</Link></h4>
+            </div>
+
+          </div>
+
         </div>
 
         <div className="song-btns">
@@ -110,13 +153,16 @@ class SongIndexItem extends React.Component {
           <button onClick={() => openModal(song.id)} className="pl-btn"> <i className="fa fa-ellipsis-h"></i> </button>
           {saveButton}
         </div>
+
       </li>
     )
   }
 
 }
 
-
+const mapStateToProps = (state) => ({
+  currSong: state.ui.musicPlayer.currentSong
+})
 
 const mapDispatchToProps = (dispatch) => ({
   saveSong: (id) => dispatch(saveSong(id)),
@@ -133,5 +179,18 @@ const mapDispatchToProps = (dispatch) => ({
   setQueue: (queue) => (dispatch(setQueue(queue)))
 });
 
-export default withRouter(connect(null, mapDispatchToProps)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)
                       (SongIndexItem));
+
+
+
+
+
+                      // <button onClick={this.handlePlay}>
+                      //   <div>
+                      //     <div className="toggle-btns">{playButton}{musicNoteButton}</div>
+                      //     <div><p>{song.name}</p></div>
+                      //   </div>
+                      // </button>
+                      // <h4><Link className="ugh" to={`/artists/${song.artistId}`}>{song.artistName}</Link> •
+                      //   <Link className="ugh" to={`/albums/${song.albumId}`}>{song.albumTitle}</Link></h4>

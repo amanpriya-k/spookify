@@ -40,7 +40,7 @@ class SongIndex extends React.Component {
 
   getQueue(currSongIdx) {
     let { songs } = this.props;
-    let queue = songs.slice(currSongIdx+1).concat(songs.slice(0, currSongIdx))
+    let queue = songs.slice(currSongIdx).concat(songs.slice(0, currSongIdx))
     return queue;
   }
 

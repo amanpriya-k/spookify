@@ -8,12 +8,23 @@
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0,0,0,.2);
 
+  .play-pause-btn {
+    width: 10px;
+  }
+
   .player-img {
     img {
       width: 55px;
       height: 55px;
       padding: 18px;
     }
+  }
+
+  .player-img-empty {
+    width: 55px;
+    height: 55px;
+    padding: 18px;
+    background-color: #161313;
   }
 
   h2 {
@@ -64,15 +75,23 @@
       color: #1DB954;
     }
 
+    .fa-pause, .fa-play-circle {
+      font-size: 30px;
+    }
+
   }
 
   .player-buttons {
     position: relative;
+    align-items: center;
     .volume {
       position: absolute;
       left: 500px;
       bottom: 2px;
     }
+
+    
+
   }
 
   .player-progress-container {

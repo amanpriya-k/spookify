@@ -19,7 +19,7 @@ PlaylistSong.destroy_all
 
 # Users
 
-ghost = User.create(username: 'ghostuser', email: 'ghost@gmail.com', password: '123456')
+ghost = User.create(username: 'ghostuser', email: 'ghostuser@gmail.com', password: '123456')
 user2 = User.create(username: 'user2woohoo', email: 'user2@gmail.com', password: '123456')
 grace18 = User.create(username: 'grace18', email: 'grace18@gmail.com', password: '123456')
 alexandrax = User.create(username: 'alexandrax', email: 'alexandrax@gmail.com', password: '123456')
@@ -99,9 +99,9 @@ robber = Song.create(name: 'Robber', album_id: deluxe.id)
 robber_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/the1975/10+Robbers.mp3')
 robber.audio.attach(io: robber_audio, filename: 'robber-audio.mp3')
 
-a.songs << the1975
-a.songs << thecity
-a.songs << heartout
+a << the1975
+a << thecity
+a << heartout
 
 # Ariana Grande
 
@@ -129,8 +129,8 @@ petedavidson = Song.create(name: 'pete davidson', album_id: sweetener.id)
 petedavidson_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sweetener+-+ariana/14.+pete+davidson.mp3')
 petedavidson.audio.attach(io: petedavidson_audio, filename: 'petedavidson-audio.mp3')
 
-a.songs << betteroff
-b.songs << raindrops
+a << betteroff
+b << raindrops
 
 # Jon Bellion
 
@@ -174,9 +174,9 @@ morninginamerica = Song.create(name: 'Morning In America', album_id: humancondit
 morninginamerica_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/jon-bellion/11-jon_bellion-morning_in_america.mp3')
 morninginamerica.audio.attach(io: morninginamerica_audio, filename: 'morninginamerica-audio.mp3')
 
-a.songs << fashion
-b.songs << guillotine
-c.songs << alltimelow
+a << fashion
+b << guillotine
+c << alltimelow
 
 # Hozier
 
@@ -222,7 +222,7 @@ winter = Song.create(name: 'Winter Of Youth', album_id: wildworld.id)
 winter_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/bastille/14.+Winter+Of+Our+Youth.mp3')
 winter.audio.attach(io: winter_audio, filename: 'winter-audio.mp3')
 
-c.songs << winter
+c << winter
 
 # HAIM
 
@@ -289,18 +289,149 @@ dontjudgeme_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify
 dontjudgeme.audio.attach(io: dontjudgeme_audio, filename: 'dontjudgeme-audio.mp3')
 
 
-ghost.albums << dirtycomputer
-ghost.albums << landmark
-ghost.albums << sweetener
+ghostuser.albums << dirtycomputer
+ghostuser.albums << landmark
+ghostuser.albums << sweetener
 
-ghost.artists << ariana
-ghost.artists << ariana
-ghost.artists << hippocampus
-ghost.artists << the1975
+ghostuser.artists << ariana
+ghostuser.artists << ariana
+ghostuser.artists << hippocampus
+ghostuser.artists << the1975
 
-ghost.songs << godisawoman
-ghost.songs << money
-ghost.songs << tobealone
-ghost.songs << sunveins
-ghost.songs << chocolate
-ghost.songs << blame
+ghostuser.songs << godisawoman
+ghostuser.songs << money
+ghostuser.songs << tobealone
+ghostuser.songs << sunveins
+ghostuser.songs << chocolate
+ghostuser.songs << blame
+
+# birdy = Artist.create(name: 'Birdy')
+# x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/birdy-artist.jpg')
+# birdy.photo.attach(io: x, filename: 'birdy-artist.jpg')
+#
+# borns = Artist.create(name: 'BORNS')
+# x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/borns-artist.jpg')
+# borns.photo.attach(io: x, filename: 'borns-artist.jpg')
+#
+# bishop = Artist.create(name: 'Bishop Briggs')
+# x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/bishop-briggs-artist.jpg')
+# bishop.photo.attach(io: x, filename: 'bishop-briggs-artist.jpg')
+#
+# coin = Artist.create(name: 'COIN')
+# x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/coin-artist.jpg')
+# coin.photo.attach(io: x, filename: 'coin-artist.jpg')
+#
+# finefrenzy = Artist.create(name: 'A Fine Frenzy')
+# x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/fine-frenzy-artist.jpg')
+# finefrenzy.photo.attach(io: x, filename: 'fine-frenzy-artist.jpg')
+#
+# hansomeghost = Artist.create(name: 'Handsome Ghost')
+# x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/handsome-ghost-artist.jpg')
+# hansomeghost.photo.attach(io: x, filename: 'handsome-ghost-artist.jpg')
+#
+# headandtheheart = Artist.create(name: 'The Head and the Heart')
+# x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/head-and-the-heart-artist.jpg')
+# headandtheheart.photo.attach(io: x, filename: 'head-and-the-heart-artist.jpg')
+#
+# jukeboxtheghost = Artist.create(name: 'Jukebox the Ghost')
+# x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/jukebox-the-ghost-artist.jpg')
+# jukeboxtheghost.photo.attach(io: x, filename: 'jukebox-the-ghost-artist.jpg')
+#
+# londongrammar = Artist.create(name: 'London Grammar')
+# x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/london-grammar-artist.jpg')
+# londongrammar.photo.attach(io: x, filename: 'london-grammar-artist.jpg')
+#
+# smallpools = Artist.create(name: 'Smallpools')
+# x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/smallpools-artist.jpg')
+# smallpools.photo.attach(io: x, filename: 'smallpools-artist.jpg')
+#
+# ghost.followed_artists << smallpools
+# ghost.followed_artists << hansomeghost
+# ghost.followed_artists << coin
+# ghost.followed_artists << ariana
+#
+# # Albums
+#
+#
+#
+#
+#
+# facedown = Album.create(title: 'Facedown', artist_id: the1975.id)
+# howwillyouknow = Album.create(title: 'How Will You Know If You Never Try', artist_id: coin.id)
+# fadedheart = Album.create(title: 'Faded Heart', artist_id: borns.id)
+# brilliantglow = Album.create(title: 'The Brilliant Glow', artist_id: hansomeghost.id)
+# dangerous = Album.create(title: 'Dangerous Woman', artist_id: ariana.id)
+# badblood = Album.create(title: 'Bad Blood', artist_id: bastille.id)
+# deluxe = Album.create(title: 'The 1975 (Deluxe)', artist_id: the1975.id)
+# sincerity = Album.create(title: 'Sincerity is Scary', artist_id: the1975.id)
+# musicforcars = Album.create(title: 'Music For Cars', artist_id: the1975.id)
+#
+# ghost.saved_albums << facedown
+# ghost.saved_albums << sweetener
+# ghost.saved_albums << badblood
+#
+# facedown_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/facedown-album.jpg')
+# facedown.cover.attach(io: facedown_cover, filename: 'facedown-album.jpg')
+#
+# musicforcars_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/musicforcars-album.png')
+# musicforcars.cover.attach(io: musicforcars_cover, filename: 'musicforcars-album.jpg')
+#
+#
+# dangerous_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/dangerouswoman-album.jpg')
+# dangerous.cover.attach(io: dangerous_cover, filename: 'dangerouswoman-album.jpg')
+#
+# sincerity_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sincerityisscary-album.jpg')
+# sincerity.cover.attach(io: sincerity_cover, filename: 'sincerityisscary-album.jpg')
+#
+# badblood_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/badblood-cover.png')
+# badblood.cover.attach(io: badblood_cover, filename: 'badblood-album.png')
+#
+# fadedheart_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/fadedheart-album.jpg')
+# fadedheart.cover.attach(io: fadedheart_cover, filename: 'fadedheart-album.jpg')
+#
+# howwillyouknow_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/howwillyouknow.jpg')
+# howwillyouknow.cover.attach(io: howwillyouknow_cover, filename: 'howwillyouknow.jpg')
+#
+# brilliantglow_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/brilliant-glow-album.png')
+# brilliantglow.cover.attach(io: brilliantglow_cover, filename: 'brilliantglow-album.jpg')
+#
+#
+#
+# # Playlists
+#
+#
+#
+#
+# # Songs
+#
+# ghost.saved_songs << Song.create(name: 'Facedown', album_id: facedown.id)
+# ghost.saved_songs << Song.create(name: 'Antichrist', album_id: facedown.id)
+# ghost.saved_songs << Song.create(name: 'The City', album_id: facedown.id)
+# ghost.saved_songs << Song.create(name: 'Woman', album_id: facedown.id)
+# a.songs << Song.create(name: 'Anobrain', album_id: musicforcars.id)
+# a.songs << Song.create(name: 'Chocolate', album_id: musicforcars.id)
+# ghost.saved_songs << Song.create(name: 'HNSCC', album_id: musicforcars.id)
+# b.songs << Song.create(name: 'Me', album_id: musicforcars.id)
+# a.songs << Song.create(name: 'M.O.N.E.Y', album_id: deluxe.id)
+# ghost.saved_songs << Song.create(name: 'Talk!', album_id: deluxe.id)
+# a.songs << Song.create(name: 'Heart Out', album_id: deluxe.id)
+# a.songs << Song.create(name: 'Girls', album_id: deluxe.id)
+# b.songs << Song.create(name: 'breathin', album_id: sweetener.id)
+#
+# godisawoman = Song.create(name: 'God is a woman', album_id: sweetener.id)
+# godisawoman_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/godisawoman.mp3')
+# godisawoman.audio.attach(io: godisawoman_audio, filename: 'godisawoman-audio.mp3')
+# a.songs << godisawoman
+#
+# notears = Song.create(name: 'no tears left to cry', album_id: sweetener.id)
+# notears_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/notearslefttocry.mp3')
+# notears.audio.attach(io: notears_audio, filename: 'notearslefttocry-audio.mp3')
+# a.songs << notears
+#
+# b.songs << Song.create(name: 'sweetener', album_id: sweetener.id)
+# a.songs << Song.create(name: 'Moonlight', album_id: dangerous.id)
+# a.songs << Song.create(name: 'Be Alright', album_id: dangerous.id)
+# a.songs << Song.create(name: 'Into You', album_id: dangerous.id)
+# a.songs << Song.create(name: 'Everyday', album_id: dangerous.id)
+# Song.create(name: 'I Don\'t Care', album_id: dangerous.id)
+# Song.create(name: 'Thinkin Bout You', album_id: dangerous.id)
