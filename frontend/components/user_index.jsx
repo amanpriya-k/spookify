@@ -3,22 +3,29 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { refetchUserInfo } from '../actions/session_actions';
 import { openModal } from '../actions/modal_actions';
+import { css } from 'react-emotion';
+import { PulseLoader } from 'react-spinners';
 
 class UserIndex extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { users: this.props.users, type: this.props.type };
+    this.state = { users: this.props.users, type: this.props.type, loading: true };
   }
 
   componentDidMount() {
     this.setState({ users: this.props.users, type: this.props.type });
+    window.setTimeout(
+      this.setState({loading: false}),
+       900);
   }
 
   componentWillReceiveProps(newProps) {
     if (JSON.stringify(this.props.users) != JSON.stringify(newProps.users)) {
-      // debugger
       this.setState({ users: newProps.users });
+      window.setTimeout(
+        this.setState({loading: false}),
+         900);
     }
   }
 
@@ -26,6 +33,28 @@ class UserIndex extends React.Component {
     let { users, type } = this.state;
     let { currentUserId } = this.props;
     // console.log(users, type);
+
+    const override = css`
+        display: block;
+        margin: 0 auto;
+        border-color: red;
+    `;
+
+    // debugger
+
+    if (this.state.loading) {
+      return (
+        <div className='sweet-loading'>
+          <PulseLoader
+            sizeUnit={"px"}
+            height={30}
+            width={30}
+            color={'#1DB954'}
+            loading={this.state.loading}
+          />
+        </div>
+      )
+    }
 
     let title;
     let empty;

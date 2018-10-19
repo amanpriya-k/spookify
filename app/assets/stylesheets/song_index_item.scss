@@ -90,6 +90,10 @@
       font-family: "Montserrat";
       color: lightgray;
 
+      .song-link-item {
+        font-size: 12px;
+      }
+
       .song-link-item:hover {
         text-decoration: underline;
       }

@@ -70,11 +70,6 @@
       text-align: center;
     }
 
-    button:hover {
-      background-color: #55DA5D;
-      border: #55DA5D;
-    }
-
 
 
   }
@@ -95,6 +90,23 @@
       justify-content: space-around;
       margin-top: 30px;
       padding-top: 0;
+    }
+
+    button:hover {
+      background-color: #55DA5D;
+      border: #55DA5D;
+    }
+
+    .img-link:hover {
+      text-decoration: none;
+    }
+
+    i:hover {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: none;
     }
 
   }

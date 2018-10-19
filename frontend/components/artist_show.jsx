@@ -4,6 +4,7 @@ import { Route, Link } from 'react-router-dom';
 import { fetchOneArtist, followArtist, unfollowArtist } from './../actions/music_actions';
 import SongIndexItem from './song_index_item';
 import SongIndex from './song_index';
+import { setCurrentSong, setQueue, toggleSong } from './../actions/music_player_actions';
 
 class ArtistShow extends React.Component {
 
@@ -13,6 +14,8 @@ class ArtistShow extends React.Component {
     this.handleFollow = this.handleFollow.bind(this);
     this.handleUnfollow = this.handleUnfollow.bind(this);
     this.setInitialState = this.setInitialState.bind(this);
+    this.handlePlay = this.handlePlay.bind(this);
+    this.getQueue = this.getQueue.bind(this);
   }
 
   componentDidMount() {
@@ -32,6 +35,18 @@ class ArtistShow extends React.Component {
   handleUnfollow() {
     this.setState({ followed: false })
     this.props.unfollowArtist(this.props.artist.id)
+  }
+
+  handlePlay() {
+    this.props.setCurrentSong(this.props.songs[0]);
+    this.props.setQueue(this.props.queue);
+    this.props.toggleSong();
+  }
+
+  getQueue(currSongIdx) {
+    let { songs } = this.props;
+    let queue = songs.slice(1);
+    return queue;
   }
 
   render() {
@@ -57,10 +72,12 @@ class ArtistShow extends React.Component {
             {Object.values(artist.albums).map(
               (album, idx) =>
               (<li key={idx}>
-                <div className="img-container">
-                  <img src={album.coverUrl}></img>
-                  <i className="far fa-play-circle"></i>
-                </div>
+                <Link className="img-link" to={`/albums/${album.id}`}>
+                  <div className="img-container">
+                    <img src={album.coverUrl}></img>
+                    <i className="far fa-play-circle"></i>
+                  </div>
+                </Link>
                 <Link to={`/albums/${album.id}`}><h2>{album.title}</h2></Link>
               </li>)
             )}
@@ -101,7 +118,7 @@ class ArtistShow extends React.Component {
               <h1>{artist.name}</h1>
               <h3>325,462 monthly listeners</h3>
               <div className="buttons">
-                <button>PLAY</button>
+                <button onClick={this.handlePlay}>PLAY</button>
                 {followButton}
               </div>
             </div>
@@ -131,13 +148,17 @@ class ArtistShow extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  artist: state.entities.artists[ownProps.match.params.artistId]
+  artist: state.entities.artists[ownProps.match.params.artistId],
+  songs: Object.values(state.entities.songs)
 });
 
 const mapDispatchToProps = (dispatch) => ({
   fetchOneArtist: (artistId) => dispatch(fetchOneArtist(artistId)),
   followArtist: (artistId) => dispatch(followArtist(artistId)),
   unfollowArtist: (artistId) => dispatch(unfollowArtist(artistId)),
+  setCurrentSong: (song) => (dispatch(setCurrentSong(song))),
+  toggleSong: () => (dispatch(toggleSong())),
+  setQueue: (queue) => (dispatch(setQueue(queue)))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)

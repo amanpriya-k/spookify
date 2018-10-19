@@ -4,12 +4,14 @@ import { Route, Link, withRouter } from 'react-router-dom';
 import { fetchAllSongs, fetchSavedSongs, fetchSearchedSongs } from './../actions/music_actions';
 import SongIndexItem from './song_index_item';
 import { setCurrentSong, setQueue } from './../actions/music_player_actions';
+import { css } from 'react-emotion';
+import { PulseLoader } from 'react-spinners';
 
 class SongIndex extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { songs: null, inPlaylist: this.props.inPlaylist };
+    this.state = { songs: null, inPlaylist: this.props.inPlaylist, loading: true };
     this.setInitialState = this.setInitialState.bind(this);
   }
 
@@ -17,20 +19,27 @@ class SongIndex extends React.Component {
     if (this.props.location.pathname == "/browse/songs") {
       this.props.fetchAllSongs()
         .then(() => this.setInitialState())
+        .then( () => setTimeout(() => this.setState({loading: false}), 900));
     } else if (this.props.location.pathname == "/library/songs") {
       this.props.fetchSavedSongs()
         .then(() => this.setInitialState())
+        .then( () => setTimeout(() => this.setState({loading: false}), 900));
     } else if ( this.props.searchTerm != undefined) {
       this.props.fetchSearchedSongs(this.props.searchTerm)
         .then(() => this.setInitialState())
+        .then( () => setTimeout(() => this.setState({loading: false}), 900));
     }
   }
 
   componentWillReceiveProps(newProps) {
     if ( !(this.props.songs.length === 0 && newProps.songs.length === 0) && (this.props.songs != newProps.songs) ) {
-      this.setState( { songs: newProps.songs } )
+      this.setState( { songs: newProps.songs } );
+      window.setTimeout(
+        this.setState({loading: false}),
+         900);
     } else if (this.props.searchTerm != newProps.searchTerm ) {
       this.props.fetchSearchedSongs(newProps.searchTerm)
+      .then( () => setTimeout(() => this.setState({loading: false}), 900));
     }
   }
 
@@ -46,6 +55,32 @@ class SongIndex extends React.Component {
 
   render() {
     let { songs, searchTerm } = this.props;
+
+    // if (songs.length < 1) {
+    //   return null;
+    // }
+
+    const override = css`
+        display: block;
+        margin: 0 auto;
+        border-color: red;
+    `;
+
+    // debugger
+
+    if (this.state.loading) {
+      return (
+        <div className='sweet-loading'>
+          <PulseLoader
+            sizeUnit={"px"}
+            height={30}
+            width={30}
+            color={'#1DB954'}
+            loading={this.state.loading}
+          />
+        </div>
+      )
+    }
 
     if (songs.length < 1) {
       return null;

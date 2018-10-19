@@ -150,7 +150,7 @@ class ReactMusicPlayer extends React.Component {
     // }
 
     let coverClass = classnames('player-cover', {'no-height': !!!active.imageUrl });
-    let playPauseClass = classnames('fa', {'fa-pause': playing}, {'fa-play-circle': !playing});
+    let playPauseClass = classnames('fa', {'fa-pause-circle': playing}, {'fa-play-circle': !playing});
     let volumeClass = classnames('fa', {'fa-volume-up': !this.state.mute}, {'fa-volume-off': this.state.mute}, 'vol');
     let repeatClass = classnames('player-btn small repeat', {'active': this.state.repeat});
     let randomClass = classnames('player-btn small random up', {'active': this.state.random });
@@ -209,7 +209,7 @@ class ReactMusicPlayer extends React.Component {
                   </button>
 
                   <button className={repeatClass} onClick={this.repeat} title="Repeat">
-                    <p>∞</p>
+                    <i className="fa fa-infinity"></i>
                   </button>
 
                   <button className="player-btn small volume" onClick={this.toggleMute} title="Mute/Unmute">
@@ -232,6 +232,7 @@ class ReactMusicPlayer extends React.Component {
     );
   }
 }
+// <i className="glyphicon glyphicon-repeat"></i>
 
 // export default ReactMusicPlayer;
 

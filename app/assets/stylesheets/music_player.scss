@@ -54,7 +54,7 @@
     display: flex;
     color: white;
     margin-left: 350px;
-    margin-top: 20px;
+    margin-top: 30px;
     align-items: center;
     position: relative;
 
@@ -67,15 +67,12 @@
       color: gray;
     }
 
-    p {
-      font-size: 30px;
-    }
 
     .active {
       color: #1DB954;
     }
 
-    .fa-pause, .fa-play-circle {
+    .fa-pause-circle, .fa-play-circle {
       font-size: 30px;
     }
 
@@ -89,9 +86,33 @@
       left: 500px;
       bottom: 2px;
     }
-
-    
-
+    .fa-play-circle, .fa-pause-circle{
+      position: absolute;
+      bottom: 2px;
+      left: 75px
+    }
+    .fa-random {
+      position: absolute;
+      bottom: 11px;
+      left: 10px
+    }
+    .fa-backward {
+      position: absolute;
+      bottom: 10px;
+      left: 40px
+    }
+    .fa-forward {
+      position: absolute;
+      bottom: 10px;
+      left: 120px
+    }
+    .fa-infinity {
+      position: absolute;
+      font-size: 13px;
+      bottom: 10px;
+      top: auto;
+      left: 155px
+    }
   }
 
   .player-progress-container {

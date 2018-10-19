@@ -48,6 +48,7 @@
 
     i {
       display: block;
+      text-decoration: none;
     }
   }
 
@@ -85,4 +86,16 @@
     cursor: pointer;
   }
 
+}
+
+// .override {
+//   display: block;
+//   margin: 0 auto;
+//   border-color: red;
+// }
+
+.sweet-loading {
+ width: 60px;
+ margin: auto;
+ margin-top: 160px;
 }

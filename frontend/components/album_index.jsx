@@ -4,38 +4,80 @@ import { Route, Link, withRouter } from 'react-router-dom';
 import { ProtectedRoute } from '../util/auth_route_util.js'
 import { fetchAllAlbums, fetchSavedAlbums, fetchSearchedAlbums } from './../actions/music_actions';
 import AlbumShow from './album_show';
-import BrowseNav from './browse_nav'
+import BrowseNav from './browse_nav';
+import { css } from 'react-emotion';
+import { PulseLoader } from 'react-spinners';
 
 class AlbumIndex extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = { loading: true };
+    // this.setLoadingFalse = this.setLoadingFalse.bind(this);
   }
 
-  componentDidMount() {
+  // setLoadingFalse() {
+  //   // debugger
+  //   window.setTimeout(
+  //     this.setState({ loading: false }), 900)
+  // }
 
+  componentDidMount() {
+    // window.setTimeout(
+    //   this.setState({ loading: true }), 500
+    // )
     if (this.props.location.pathname == "/browse/albums") {
-      this.props.fetchAllAlbums();
+      this.props.fetchAllAlbums()
+         .then( () => setTimeout(() => this.setState({loading: false}), 900));
     } else  if (this.props.location.pathname == "/library/albums") {
-      this.props.fetchSavedAlbums();
+      this.props.fetchSavedAlbums()
+         .then( () => setTimeout(() => this.setState({loading: false}), 900));
     } else if ( this.props.searchTerm != undefined ) {
       this.props.fetchSearchedAlbums(this.props.searchTerm)
+         .then( () => setTimeout(() => this.setState({loading: false}), 900));
     }
   }
 
   componentWillReceiveProps(newProps) {
+    // window.setTimeout(
+    //   this.setState({ loading: true }), 500
+    // )
     if (this.props.searchTerm != newProps.searchTerm ) {
       this.props.fetchSearchedAlbums(newProps.searchTerm)
+         .then( () => setTimeout(() => this.setState({loading: false}), 900));
     }
   }
 
   render() {
 
     let { albums } = this.props;
+
+    const override = css`
+        display: block;
+        margin: 0 auto;
+        border-color: red;
+    `;
+
+    // debugger
+
+    if (this.state.loading) {
+      return (
+        <div className='sweet-loading'>
+          <PulseLoader
+            sizeUnit={"px"}
+            height={30}
+            width={30}
+            color={'#1DB954'}
+            loading={this.state.loading}
+          />
+        </div>
+      )
+    }
+
     if (albums.length < 1) {
       return null;
     }
-
+    
     return(
       <div className="albumIndexContainer">
         <div>

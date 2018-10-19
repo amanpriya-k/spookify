@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchOnePlaylist, followPlaylist, unfollowPlaylist, deletePlaylist } from './../actions/music_actions';
 import SongIndexItem from './song_index_item';
 import SongIndex from './song_index';
+import { setCurrentSong, setQueue, toggleSong } from './../actions/music_player_actions';
 
 class PlaylistShow extends React.Component {
 
@@ -14,6 +15,8 @@ class PlaylistShow extends React.Component {
     this.handleUnfollow = this.handleUnfollow.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.setInitialState = this.setInitialState.bind(this);
+    this.handlePlay = this.handlePlay.bind(this);
+    this.getQueue = this.getQueue.bind(this);
   }
 
   componentDidMount() {
@@ -41,23 +44,17 @@ class PlaylistShow extends React.Component {
       .then( () =>  this.props.history.push(`/library/playlists/`) )
   }
 
-  // componentWillReceiveProps(newProps) {
-  //   if (this.props.playlist && (this.props.playlist.songs != newProps.playlist.songs)) {
-  //     // debugger
-  //     newProps.fetchOnePlaylist(this.props.playlist.id)
-  //     //   .then( () => this.setInitialState() )
-  //     //  // console.log('new songs', this.state.playlist.songs);
-  //   }
-  // }
+  handlePlay() {
+    this.props.setCurrentSong(this.props.songs[0]);
+    this.props.setQueue(this.props.queue);
+    this.props.toggleSong();
+  }
 
-  // componentWillReceiveProps(newProps) {
-  //    // console.log("newProps ",newProps);
-  //   if (this.props.playlist && newProps.playlist && (this.props.playlist.songs.length != newProps.playlist.songs.length)) {
-  //      // console.log(newProps.playlist.songs);
-  //     this.setState({ playlist: newProps.playlist });
-  //   }
-  // }
-
+  getQueue(currSongIdx) {
+    let { songs } = this.props;
+    let queue = songs.slice(1);
+    return queue;
+  }
 
   render() {
      // console.log('rendering ps show');
@@ -97,9 +94,10 @@ class PlaylistShow extends React.Component {
         <div className="playlist-info">
           <div className="img-container">
             <img src={window.images.playlist}></img>
+              <i className="far fa-play-circle"></i>
           </div>
           <h1>{playlist.name}</h1>
-          <button>PLAY</button>
+          <button onClick={this.handlePlay}>PLAY</button>
           {followButton}
           {deleteButton}
           <h3>{songs ? Object.values(playlist.songs).length : 0} SONGS</h3>
@@ -118,14 +116,18 @@ class PlaylistShow extends React.Component {
 // <img src={playlist.coverUrl}></img>
 
 const mapStateToProps = (state, ownProps) => ({
-  playlist: state.entities.playlists[ownProps.match.params.playlistId]
+  playlist: state.entities.playlists[ownProps.match.params.playlistId],
+  songs: Object.values(state.entities.songs)
 });
 
 const mapDispatchToProps = (dispatch) => ({
   fetchOnePlaylist: (playlistId) => dispatch(fetchOnePlaylist(playlistId)),
   followPlaylist: (playlistId) => dispatch(followPlaylist(playlistId)),
   unfollowPlaylist: (playlistId) => dispatch(unfollowPlaylist(playlistId)),
-  deletePlaylist: (playlistId) => dispatch(deletePlaylist(playlistId))
+  deletePlaylist: (playlistId) => dispatch(deletePlaylist(playlistId)),
+  setCurrentSong: (song) => (dispatch(setCurrentSong(song))),
+  toggleSong: () => (dispatch(toggleSong())),
+  setQueue: (queue) => (dispatch(setQueue(queue)))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)
