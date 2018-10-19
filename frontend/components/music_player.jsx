@@ -98,7 +98,7 @@ class ReactMusicPlayer extends React.Component {
       this.play()
     } else {
       this.setState({ playing: false, progress: 0 });
-      // this.next();
+      this.next();
     }
   }
 
