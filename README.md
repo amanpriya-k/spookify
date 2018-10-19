@@ -58,13 +58,13 @@ updateInput(e) {
 
 Songs continuously play in the bottom of the page. When a song is played, the other songs in the list are queued. If the queue is empty, the song will repeat if repeat is selected, or it will stop playing. This was achieved by having a slice of state for the music player, storing the current song and queue, which was updated by the individual song items and also the music player itself, so the currently playing song can be accessed in other components, allowing the currently playing song to be highlighted when displayed elsewhere.
 
-![alt text](![alt text](https://github.com/amanpriya-k/spookify/blob/master/play.png))
+![alt text](https://github.com/amanpriya-k/spookify/blob/master/play.png)
 
 ### User's Saves & Follows
 
 Using polymorphic tables for Saves and Follows, the user's saved and followed songs, albums, artists, and playlists are displayed in their library. From any show page for those items, they can save or unsave them.
 
-![alt text](https://github.com/amanpriya-k/spookify/blob/master/library-page.png)
+![alt text](https://github.com/amanpriya-k/spookify/blob/master/library-songs.png)
 
 
 ### Playlist CRUD
