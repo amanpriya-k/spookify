@@ -214,7 +214,7 @@ c.songs << alltimelow
 # Hozier
 
 hozier = Artist.create(name: 'Hozier')
-x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/hozier-artist.jpg')
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/hozier/Hozier.jpg')
 hozier.photo.attach(io: x, filename: 'hozier-artist.jpg')
 
 hozieralbum = Album.create(title: 'Hozier', artist_id: hozier.id)
@@ -336,13 +336,13 @@ goslow.audio.attach(io: goslow_audio, filename: 'goslow-audio.mp3')
 # Hippo Campus
 
 hippocampus = Artist.create(name: 'Hippo Campus')
-x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/hippo-campus/hippocampus.jpg')
+x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/hippocampus/Hippo+Campus.jpg')
 hippocampus.photo.attach(io: x, filename: 'hippocampus-artist.jpg')
 
 ghost.followed_artists << hippocampus
 
 landmark = Album.create(title: 'Landmark', artist_id: hippocampus.id)
-landmark_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/hippo-campus/268x0w.jpg')
+landmark_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/hippocampus/Layer+9.jpg')
 landmark.cover.attach(io: landmark_cover, filename: 'landmark-album.jpg')
 
 sunveins = Song.create(name: 'Sun Veins', album_id: landmark.id)
@@ -405,7 +405,7 @@ screwed_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev
 screwed.audio.attach(io: screwed_audio, filename: 'screwed-audio.mp3')
 
 electriclady = Album.create(title: 'The Electric Lady', artist_id: janelle.id)
-electriclady_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/janellemonae/Layer+11.jpg')
+electriclady_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/janellemonae/Layer+12.jpg')
 electriclady.cover.attach(io: electriclady_cover, filename: 'electriclady-album.jpg')
 
 suite5 = Song.create(name: 'Suite IV', album_id: electriclady.id)
@@ -461,7 +461,7 @@ clouds_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/
 clouds.audio.attach(io: clouds_audio, filename: 'clouds-audio.mp3')
 
 fadedheart = Album.create(title: 'Faded Heart', artist_id: borns.id)
-fadedheart_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/borns/Layer+5.jpg')
+fadedheart_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/borns/Layer+4.jpg')
 fadedheart.cover.attach(io: fadedheart_cover, filename: 'fadedheart-album.jpg')
 
 godsave = Song.create(name: 'God Save Our Young Blood', album_id: fadedheart.id)
@@ -495,40 +495,6 @@ x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/dualipa/Dua
 dualipa.photo.attach(io: x, filename: 'dualipa-artist.jpg')
 
 duaalbum = Album.create(title: 'Dua Lipa (Deluxe)', artist_id: dualipa.id)
-duaalbum_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/dualipa/Layer+6.jpg')
-duaalbum.cover.attach(io: duaalbum_cover, filename: 'duaalbum-album.jpg')
-
-genesis = Song.create(name: 'Genesis', album_id: duaalbum.id)
-genesis_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/dualipa/01+-+Genesis.mp3')
-genesis.audio.attach(io: genesis_audio, filename: 'genesis-audio.mp3')
-hotterthan = Song.create(name: 'Hotter Than Hell', album_id: duaalbum.id)
-hotterthan_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/dualipa/03+-+Hotter+Than+Hell.mp3')
-hotterthan.audio.attach(io: hotterthan_audio, filename: 'hotterthan-audio.mp3')
-ghost.saved_songs << hotterthan
-betheone = Song.create(name: 'Be The One', album_id: duaalbum.id)
-betheone_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/dualipa/04+-+Be+The+One.mp3')
-betheone.audio.attach(io: betheone_audio, filename: 'betheone-audio.mp3')
-idgaf = Song.create(name: 'IDGAF', album_id: duaalbum.id)
-idgaf_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/dualipa/05+-+IDGAF.mp3')
-idgaf.audio.attach(io: idgaf_audio, filename: 'idgaf-audio.mp3')
-blowyourmind = Song.create(name: 'Blow Your Mind', album_id: duaalbum.id)
-blowyourmind_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/dualipa/06+-+Blow+Your+Mind+(Mwah).mp3')
-blowyourmind.audio.attach(io: blowyourmind_audio, filename: 'blowyourmind-audio.mp3')
-badtogether = Song.create(name: 'Bad Together', album_id: duaalbum.id)
-badtogether_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/dualipa/16+-+Bad+Together.mp3')
-badtogether.audio.attach(io: badtogether_audio, filename: 'badtogether-audio.mp3')
-
-
-
-
-
-# Khalid
-
-khalid = Artist.create(name: 'Khalid')
-x = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/khalid/Dua+Lipa.jpg')
-khalid.photo.attach(io: x, filename: 'khalid-artist.jpg')
-
-duaalbum = Album.create(title: 'Dua Lipa (Deluxe)', artist_id: khalid.id)
 duaalbum_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/dualipa/Layer+6.jpg')
 duaalbum.cover.attach(io: duaalbum_cover, filename: 'duaalbum-album.jpg')
 
