@@ -1,24 +1,9 @@
-# README
+![alt text](https://github.com/amanpriya-k/spookify/blob/master/spookify-logo.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+---
 
-Things you may want to cover:
+[Live Demo](https://spookify.herokuapp.com)
 
-* Ruby version
+Spookify is a music streaming service in which you can save your favorite songs and albums, follow your favorite artists or your friends, and follow and create your own playlists.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The project was built in 10 days, and more features will be added over time.
