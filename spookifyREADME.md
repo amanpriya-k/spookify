@@ -1,4 +1,4 @@
-![alt text](https://github.com/amanpriya-k/spookify/blob/master/spookify-logo.png)
+![alt text](https://github.com/amanpriya-k/spookify/blob/master/landing-page.png)
 # Spookify
 ---
 
@@ -18,3 +18,7 @@ The project was built in 10 days, and more features will be added over time.
 - Users can search the entire collection for other users, songs, albums, artists, and playlists
 - Users can follow and be followed by other users
 - Users can play music continuously
+
+---
+
+### 
