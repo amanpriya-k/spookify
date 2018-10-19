@@ -28,6 +28,11 @@ class SongIndex extends React.Component {
       this.props.fetchSearchedSongs(this.props.searchTerm)
         .then(() => this.setInitialState())
         .then( () => setTimeout(() => this.setState({loading: false}), 900));
+    } else {
+      this.setState( { songs: this.props.songs } );
+      window.setTimeout(
+        this.setState({loading: false}),
+         900);
     }
   }
 
