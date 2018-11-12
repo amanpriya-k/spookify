@@ -80,6 +80,8 @@ deluxe.cover.attach(io: deluxe_cover, filename: '1975deluxe-album.jpg')
 the1975song = Song.create(name: 'The 1975', album_id: deluxe.id)
 the1975_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/the1975/01+The+1975.mp3')
 the1975song.audio.attach(io: the1975_audio, filename: 'the1975-audio.mp3')
+
+
 thecity = Song.create(name: 'The City', album_id: deluxe.id)
 thecity_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/the1975/02+The+City.mp3')
 thecity.audio.attach(io: thecity_audio, filename: 'thecity-audio.mp3')
