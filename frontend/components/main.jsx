@@ -34,7 +34,6 @@ class Main extends React.Component {
 
     return(
       <div className="main">
-
         <div className="top-half">
           <Modal></Modal>
 
