@@ -18,7 +18,7 @@ class Main extends React.Component {
 
   render() {
 
-    let { currentUser, song, songs, playing } = this.props;
+    let { song, songs, playing } = this.props;
 
     // let songs = [
     //   {
@@ -60,7 +60,7 @@ class Main extends React.Component {
 
 }
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   currentUser: state.session.id,
 
   songs: state.ui.musicPlayer.queue,

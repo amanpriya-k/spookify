@@ -43,7 +43,7 @@ class AlbumShow extends React.Component {
     this.props.toggleSong();
   }
 
-  getQueue(currSongIdx) {
+  getQueue() {
     let { songs } = this.props;
     let queue = songs.slice(1);
     return queue;
@@ -51,12 +51,10 @@ class AlbumShow extends React.Component {
 
   render() {
 
-    let { album, saveAlbum, unsaveAlbum } = this.props;
+    let { album } = this.props;
     if(!album) {
       return null;
     }
-
-    // debugger
 
     let songs;
     if (album.songs && Object.values(album.songs).length > 0) {
@@ -98,7 +96,6 @@ class AlbumShow extends React.Component {
     )
   }
 }
-// {songs ? songs : <li></li>}
 
 const mapStateToProps = (state, ownProps) => ({
   album: state.entities.albums[ownProps.match.params.albumId],

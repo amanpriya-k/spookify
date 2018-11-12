@@ -10,7 +10,6 @@ class PlaylistShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = { followed: null }
-    // this.state = { followed: null, playlist: null }
     this.handleFollow = this.handleFollow.bind(this);
     this.handleUnfollow = this.handleUnfollow.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -26,7 +25,6 @@ class PlaylistShow extends React.Component {
 
   setInitialState() {
     this.setState( { followed: this.props.playlist.followed });
-    // this.setState( { playlist: this.props.playlist, followed: this.props.playlist.followed });
   }
 
   handleFollow() {
@@ -57,22 +55,9 @@ class PlaylistShow extends React.Component {
   }
 
   render() {
-     // console.log('rendering ps show');
     let { playlist } = this.props;
-    // let { playlist } = this.state;
     if(!playlist ) {
       return null;
-    }
-
-    let songs;
-    if (playlist.songs && Object.values(playlist.songs).length > 0) {
-      // songs = Object.values(playlist.songs).map(
-      //   (song, idx) =>
-      //   ( <SongIndexItem key={song.id} song={song} inPlaylist={true}></SongIndexItem> )
-      // )
-      songs = <SongIndex inPlaylist={true}></SongIndex>
-    } else {
-      songs = null
     }
 
     let followButton;
@@ -100,7 +85,7 @@ class PlaylistShow extends React.Component {
           <button onClick={this.handlePlay}>PLAY</button>
           {followButton}
           {deleteButton}
-          <h3>{songs ? Object.values(playlist.songs).length : 0} SONGS</h3>
+          <h3>{ this.props.songs ? Object.values(this.props.songs).length : 0} SONGS</h3>
         </div>
 
         <div className="playlist-songs">
@@ -112,8 +97,6 @@ class PlaylistShow extends React.Component {
     )
   }
 }
-// {songs ? songs : <li></li>}
-// <img src={playlist.coverUrl}></img>
 
 const mapStateToProps = (state, ownProps) => ({
   playlist: state.entities.playlists[ownProps.match.params.playlistId],

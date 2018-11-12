@@ -1,5 +1,5 @@
 
-.browse-container, .library-container {
+.browse-container {
   background: image-url('browsegradient');
   width: 83%;
   background-color: black;
@@ -10,14 +10,14 @@
   height: 100%;
 }
 
-// .library-container {
-//   background: image-url('netflix');
-//   background-size: cover;
-//   width: 83%;
-//   background-color: black;
-//   display: flex;
-//   flex-direction: column;
-//   top: 0;
-//   overflow-y: scroll;
-//   height: 100%;
-// }
+.library-container {
+  background: image-url('netflix');
+  background-size: cover;
+  width: 83%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  overflow-y: scroll;
+  height: 100%;
+}

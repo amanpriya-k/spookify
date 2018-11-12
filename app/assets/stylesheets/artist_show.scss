@@ -1,9 +1,9 @@
 .artist-show-container {
   overflow-y: scroll;
-  height: 600px;
   display: flex;
   flex-direction: column;
-  width: 82%;
+  height: 100%;
+  width: 83%;
   background-color: black;
   position: relative;
 
@@ -28,7 +28,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(transparent -60%, black);
+      background: linear-gradient(transparent -30%, black);
     }
 
     .header-text {
