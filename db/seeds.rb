@@ -130,33 +130,43 @@ godisawoman = Song.create(name: 'God is a woman', album_id: sweetener.id)
 godisawoman_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sweetener+-+ariana/05.+God+is+a+woman.mp3')
 godisawoman.audio.attach(io: godisawoman_audio, filename: 'godisawoman-audio.mp3')
 ghost.saved_songs << godisawoman
+
 raindrops = Song.create(name: 'raindrops', album_id: sweetener.id)
 raindrops_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sweetener+-+ariana/01.+raindrops+(an+angel+cried).mp3')
 raindrops.audio.attach(io: raindrops_audio, filename: 'raindrops-audio.mp3')
+
 lightiscoming = Song.create(name: 'The Light Is Coming', album_id: sweetener.id)
 lightiscoming_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/ariana/03.+the+light+is+coming+(feat.+Nicki+Minaj).mp3')
 lightiscoming.audio.attach(io: lightiscoming_audio, filename: 'lightiscoming-audio.mp3')
+
 borderline = Song.create(name: 'borderline', album_id: sweetener.id)
 borderline_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sweetener+-+ariana/11.+borderline+(feat.+Missy+Elliott).mp3')
 borderline.audio.attach(io: borderline_audio, filename: 'borderline-audio.mp3')
+
 betteroff = Song.create(name: 'better off', album_id: sweetener.id)
 betteroff_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sweetener+-+ariana/12.+better+off.mp3')
 betteroff.audio.attach(io: betteroff_audio, filename: 'betteroff-audio.mp3')
+
 petedavidson = Song.create(name: 'pete davidson', album_id: sweetener.id)
 petedavidson_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sweetener+-+ariana/14.+pete+davidson.mp3')
 petedavidson.audio.attach(io: petedavidson_audio, filename: 'petedavidson-audio.mp3')
-sweetener = Song.create(name: 'sweetener', album_id: sweetener.id)
+
+sweetener_song = Song.create(name: 'sweetener', album_id: sweetener.id)
 sweetener_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/ariana/06.+sweetener.mp3')
-sweetener.audio.attach(io: sweetener_audio, filename: 'sweetener-audio.mp3')
+sweetener_song.audio.attach(io: sweetener_audio, filename: 'sweetener-audio.mp3')
+
 successful = Song.create(name: 'successful', album_id: sweetener.id)
 successful_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/ariana/07.+successful.mp3')
 successful.audio.attach(io: successful_audio, filename: 'successful-audio.mp3')
+
 everytime = Song.create(name: 'everytime', album_id: sweetener.id)
 everytime_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/ariana/08.+everytime.mp3')
 everytime.audio.attach(io: everytime_audio, filename: 'everytime-audio.mp3')
+
 breathin = Song.create(name: 'breathin', album_id: sweetener.id)
 breathin_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/ariana/09.+breathin.mp3')
 breathin.audio.attach(io: breathin_audio, filename: 'breathin-audio.mp3')
+
 notearsleft = Song.create(name: 'no tears left to cry', album_id: sweetener.id)
 notearsleft_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/ariana/10.+no+tears+left+to+cry.mp3')
 notearsleft.audio.attach(io: notearsleft_audio, filename: 'notearsleft-audio.mp3')
