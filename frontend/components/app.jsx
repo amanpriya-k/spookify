@@ -22,8 +22,6 @@ class App extends React.Component {
             <AuthRoute path="/login" component={LoginFormContainer} ></AuthRoute>
             <ProtectedRoute path="/:section" component={Main}></ProtectedRoute>
             <AuthRoute path="/" component={Splash} />
-
-
           </Switch>
 
       </div>

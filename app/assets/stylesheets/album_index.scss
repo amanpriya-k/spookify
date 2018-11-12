@@ -1,14 +1,11 @@
 
-.albumIndexContainer {
-
-}
-
 .album-index {
   padding-top: 20px;
   font-family: "Circular";
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  width: 100%;
 
   .img-container {
     position: relative;

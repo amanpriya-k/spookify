@@ -1,13 +1,11 @@
 
 
 .side-bar {
-  // display: inline-block;
   display: flex;
   flex-direction: column;
-  // justify-content:
   width: 18%;
   background-color: black;
-  height: 600px;
+  height: 100%;
   overflow-x: scroll;
 }
 

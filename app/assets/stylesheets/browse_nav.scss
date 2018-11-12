@@ -1,4 +1,4 @@
-.browse-nav {
+.browse-nav, .library-nav {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -40,13 +40,13 @@
 
 }
 
-.browse-nav a {
+.browse-nav a, .library-nav a {
   margin-left: 29px;
   text-align: center;
   line-height:  0px;
 }
 
-.browse-nav a:hover {
+.browse-nav a:hover, .library-nav a:hover {
   color: white;
 }
 

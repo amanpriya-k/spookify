@@ -32,8 +32,6 @@ class Main extends React.Component {
     //   }
     // ]
 
-    // debugger
-
     return(
       <div className="main">
 
@@ -54,7 +52,7 @@ class Main extends React.Component {
         </div>
 
         <div className="music-player-container">
-          <ReactMusicPlayer songs={songs} song={song} playing={this.props.playing}></ReactMusicPlayer>
+          <ReactMusicPlayer songs={songs} song={song} playing={playing}></ReactMusicPlayer>
         </div>
       </div>
     )
