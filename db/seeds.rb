@@ -135,6 +135,8 @@ raindrops = Song.create(name: 'raindrops', album_id: sweetener.id)
 raindrops_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sweetener+-+ariana/01.+raindrops+(an+angel+cried).mp3')
 raindrops.audio.attach(io: raindrops_audio, filename: 'raindrops-audio.mp3')
 
+# delete some songs to see where error is coming from
+
 lightiscoming = Song.create(name: 'The Light Is Coming', album_id: sweetener.id)
 lightiscoming_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/ariana/03.+the+light+is+coming+(feat.+Nicki+Minaj).mp3')
 lightiscoming.audio.attach(io: lightiscoming_audio, filename: 'lightiscoming-audio.mp3')
