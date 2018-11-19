@@ -85,7 +85,6 @@ export const fetchOneSong = (songId) => (dispatch) => (
 )
 
 export const fetchSearchedSongs = (searchTerm) => (dispatch) => {
-  // debugger
   return (
   MusicApiUtil.searchSongs(searchTerm)
     .then(songs => dispatch(receiveAllSongs(songs)))

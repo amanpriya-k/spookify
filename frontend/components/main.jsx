@@ -30,7 +30,7 @@ class Main extends React.Component {
     //     artistName: 'Ariana Grande',
     //     artistId: 645
     //   }
-    // ]
+    // ] # song format
 
     return(
       <div className="main">

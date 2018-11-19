@@ -25,7 +25,7 @@ class AddSongForm extends React.Component {
   }
 
   handleSubmit(playlist_id) {
-    // debugger
+
     return (e) => {
       e.preventDefault();
       let playlist_song = { song_id: this.state.song_id, playlist_id: playlist_id }

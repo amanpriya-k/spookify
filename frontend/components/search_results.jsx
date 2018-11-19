@@ -45,8 +45,6 @@ class SearchResults extends React.Component {
 
     let empty = (<div><h4>Sorry, there's nothing here!</h4></div>)
 
-    // debugger
-
     let searchedUsers = merge({}, users);
     delete searchedUsers[currentUserId];
 

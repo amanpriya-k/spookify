@@ -10,7 +10,6 @@ class ReactMusicPlayer extends React.Component {
 
   constructor(props) {
     super(props);
-    // debugger
     this.state = {
         active: this.props.song,
         current: 0,
@@ -35,14 +34,13 @@ class ReactMusicPlayer extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
-    let playerElement = this.refs.player; // grabs html element playing music, ref='player' element
-    playerElement.addEventListener('timeupdate', this.updateProgress); // where do these methods come from? - timeupdate/ended/etc
-    playerElement.addEventListener('ended', this.end); // where do these methods come from? - timeupdate/ended/etc
-    playerElement.addEventListener('error', this.next); // where do these methods come from? - timeupdate/ended/etc
+    let playerElement = this.refs.player; 
+    playerElement.addEventListener('timeupdate', this.updateProgress); 
+    playerElement.addEventListener('ended', this.end); 
+    playerElement.addEventListener('error', this.next); 
   }
 
-  componentWillUnmount() { // when will this component ever unmount? when logged out?
+  componentWillUnmount() { 
     let playerElement = this.refs.player;
     playerElement.removeEventListener('timeupdate', this.updateProgress);
     playerElement.removeEventListener('ended', this.end);
@@ -51,21 +49,20 @@ class ReactMusicPlayer extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if ( this.props.song != newProps.song ) {
-      // debugger/
       this.setState({ active: newProps.song, songs: newProps.songs, playing: true, progress: 0 })
     }
   }
 
   setProgress(e) {
-      let target = e.target.nodeName === 'SPAN' ? e.target.parentNode : e.target; // WAT
+      let target = e.target.nodeName === 'SPAN' ? e.target.parentNode : e.target;
       let width = target.clientWidth;
       let rect = target.getBoundingClientRect();
-      let offsetX = e.clientX - rect.left; // whats this!!
-      let duration = this.refs.player.duration; // the html element playing music can say the duration of the audio?
+      let offsetX = e.clientX - rect.left;
+      let duration = this.refs.player.duration;
       let currentTime = (duration * offsetX) / width;
       let progress = (currentTime * 100) / duration;
 
-      this.refs.player.currentTime = currentTime; // are we setting the time on the html el?
+      this.refs.player.currentTime = currentTime;
       this.setState({ progress: progress });
       this.play();
   }
@@ -114,7 +111,7 @@ class ReactMusicPlayer extends React.Component {
     this.play();
   }
 
-  previous() { // actually start over??
+  previous() { 
     var total = this.state.songs.length;
     var current = (this.state.current > 0) ? this.state.current - 1 : total - 1;
     var active = this.state.songs[current];
@@ -142,14 +139,11 @@ class ReactMusicPlayer extends React.Component {
   }
 
   render() {
-    // debugger
+    
 
     const { active, playing, progress } = this.state;
 
-    // if (!active) {
-    //   return null;
-    // }
-
+   
     let coverClass = classnames('player-cover', {'no-height': !!!active.imageUrl });
     let playPauseClass = classnames('fa', {'fa-pause-circle': playing}, {'fa-play-circle': !playing});
     let volumeClass = classnames('fa', {'fa-volume-up': !this.state.mute}, {'fa-volume-off': this.state.mute}, 'vol');
@@ -233,20 +227,11 @@ class ReactMusicPlayer extends React.Component {
     );
   }
 }
-// <i className="glyphicon glyphicon-repeat"></i>
 
-// export default ReactMusicPlayer;
-
-// const mapStateToProps = (state) => ({
-//   songs: state.ui.musicPlayer.queue,
-//   song: state.ui.musicPlayer.currentSong,
-//   playing: state.ui.musicPlayer.playing
-// });
-//
 const mapDispatchToProps = (dispatch) => ({
   setCurrentSong: (song) => (dispatch(setCurrentSong(song))),
   toggleSong: () => (dispatch(toggleSong())),
   setQueue: (queue) => (dispatch(setQueue(queue)))
 });
-//
+
 export default connect(null, mapDispatchToProps)(ReactMusicPlayer);

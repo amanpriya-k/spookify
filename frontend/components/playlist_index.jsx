@@ -42,8 +42,6 @@ class PlaylistIndex extends React.Component {
         border-color: red;
     `;
 
-    // debugger
-
     if (this.state.loading) {
       return (
         <div className='sweet-loading'>

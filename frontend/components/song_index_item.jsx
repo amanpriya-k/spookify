@@ -16,7 +16,6 @@ class SongIndexItem extends React.Component {
     this.handleSave = this.handleSave.bind(this);
     this.handleUnsave = this.handleUnsave.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
-    // this.setInitialState = this.setInitialState.bind(this);
     this.setStateTrue = this.setStateTrue.bind(this);
     this.setStateFalse = this.setStateFalse.bind(this);
     this.handleRemoveFromPlaylist = this.handleRemoveFromPlaylist.bind(this);
@@ -25,7 +24,6 @@ class SongIndexItem extends React.Component {
   }
 
   handlePlay() {
-    // debugger
     this.props.setCurrentSong(this.props.song);
     this.props.setQueue(this.props.queue);
     this.props.toggleSong();
@@ -33,13 +31,10 @@ class SongIndexItem extends React.Component {
 
   handleSave() {
     this.props.saveSong(this.props.song.id)
-      // .then( () => this.setStateTrue() )
-      // .then( () => this.refetch() )
   }
 
   handleUnsave() {
     this.props.unsaveSong(this.props.song.id)
-      // .then( () => this.setStateFalse() )
       .then( () => this.refetch() )
   }
 
@@ -50,9 +45,6 @@ class SongIndexItem extends React.Component {
     }
   }
 
-  // setInitialState() {
-  //   this.setState( { saved: this.props.song.saved } );
-  // }
 
   setStateTrue() {
     this.setState({ saved: true });
@@ -68,7 +60,6 @@ class SongIndexItem extends React.Component {
     } else if (this.props.location.pathname == "/library/songs") {
       this.props.fetchSavedSongs();
     } else if (this.props.location.pathname == "/search") {
-      // this.props.fetchSearchedSongs(this.props.searchTerm);
     }
   }
 
@@ -84,7 +75,6 @@ class SongIndexItem extends React.Component {
       return null;
     }
 
-    // debugger
 
     let removeButton = null;
     if (inPlaylist === true) {
@@ -97,13 +87,7 @@ class SongIndexItem extends React.Component {
     } else {
       saveButton = (<button className="unsave-btn" onClick={this.handleUnsave}><i className="fa fa-check"></i></button>)
     }
-    //
-    // let playButton = (<i className="fa fa-play"></i>)
-    // let musicNoteButton = (<i className="fa fa-music"></i>)
-    // <button onClick={this.handlePlay}>{playButton}</button>
-    // {musicNoteButton}
-
-    // debugger
+ 
 
     let playButtonContainer = (
       <div className="play-btn-container">
@@ -113,7 +97,6 @@ class SongIndexItem extends React.Component {
     )
 
     if (this.props.currSong.id === song.id) {
-    // if (JSON.stringify(this.props.currSong) === JSON.stringify(song)) {
       playButtonContainer = (
         <div className="play-btn-container">
           <i className="fa fa-volume-up"></i>
@@ -123,9 +106,7 @@ class SongIndexItem extends React.Component {
 
     let finalClass = classnames('song-index-item', {'active-song': this.props.currSong.id === song.id });
 
-    // debugger
 
-    // <button onClick={this.handlePlay}><h2>{playButton}{musicNoteButton}<span><p>{song.name}</p></span></h2></button>
     return (
       <li className={finalClass}>
 
@@ -183,14 +164,3 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)
                       (SongIndexItem));
 
 
-
-
-
-                      // <button onClick={this.handlePlay}>
-                      //   <div>
-                      //     <div className="toggle-btns">{playButton}{musicNoteButton}</div>
-                      //     <div><p>{song.name}</p></div>
-                      //   </div>
-                      // </button>
-                      // <h4><Link className="ugh" to={`/artists/${song.artistId}`}>{song.artistName}</Link> •
-                      //   <Link className="ugh" to={`/albums/${song.albumId}`}>{song.albumTitle}</Link></h4>

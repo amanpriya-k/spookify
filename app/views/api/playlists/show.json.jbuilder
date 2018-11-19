@@ -18,4 +18,3 @@ json.songs do
   end
 end
 
-# debugger

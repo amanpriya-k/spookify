@@ -32,7 +32,6 @@ class UserIndex extends React.Component {
   render() {
     let { users, type } = this.state;
     let { currentUserId } = this.props;
-    // console.log(users, type);
 
     const override = css`
         display: block;
@@ -40,7 +39,6 @@ class UserIndex extends React.Component {
         border-color: red;
     `;
 
-    // debugger
 
     if (this.state.loading) {
       return (
@@ -107,7 +105,6 @@ class UserIndex extends React.Component {
 
 }
 
-// export default UserIndex;
 
 const mapStateToProps = (state) => ({
   currentUserId: state.session.id

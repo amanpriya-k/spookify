@@ -13,19 +13,9 @@ class AlbumIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = { loading: true };
-    // this.setLoadingFalse = this.setLoadingFalse.bind(this);
   }
 
-  // setLoadingFalse() {
-  //   // debugger
-  //   window.setTimeout(
-  //     this.setState({ loading: false }), 900)
-  // }
-
   componentDidMount() {
-    // window.setTimeout(
-    //   this.setState({ loading: true }), 500
-    // )
     if (this.props.location.pathname == "/browse/albums") {
       this.props.fetchAllAlbums()
          .then( () => setTimeout(() => this.setState({loading: false}), 900));
@@ -57,8 +47,6 @@ class AlbumIndex extends React.Component {
         margin: 0 auto;
         border-color: red;
     `;
-
-    // debugger
 
     if (this.state.loading) {
       return (

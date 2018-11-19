@@ -61,17 +61,12 @@ class SongIndex extends React.Component {
   render() {
     let { songs, searchTerm } = this.props;
 
-    // if (songs.length < 1) {
-    //   return null;
-    // }
-
     const override = css`
         display: block;
         margin: 0 auto;
         border-color: red;
     `;
 
-    // debugger
 
     if (this.state.loading) {
       return (

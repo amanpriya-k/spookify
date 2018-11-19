@@ -29,7 +29,6 @@ class Modal extends React.Component {
         component = <AddSongForm songId={modal.song_id}/>;
         break;
       case 'user_modal':
-        // debugger
         component = <UserModal currentUserId={modal.currentUserId} subjectUser={modal.subjectUser}/>;
         break;
       default:
