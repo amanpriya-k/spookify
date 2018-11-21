@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, Route, Switch, Redirect } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../util/auth_route_util.js'
+import { Switch } from 'react-router-dom';
+import { ProtectedRoute } from '../util/auth_route_util.js'
 import SideNav from './side_nav';
 import Browse from './browse';
 import Library from './library';

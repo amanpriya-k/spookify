@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Link, withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { fetchAllArtists, fetchFollowedArtists, fetchSearchedArtists } from './../actions/music_actions';
-import BrowseNav from './browse_nav';
 import { css } from 'react-emotion';
 import { PulseLoader } from 'react-spinners';
 

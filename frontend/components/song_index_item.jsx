@@ -69,7 +69,7 @@ class SongIndexItem extends React.Component {
   }
 
   render () {
-    let { song, openModal, inPlaylist, searchTerm } = this.props;
+    let { song, openModal, inPlaylist } = this.props;
 
     if (!song) {
       return null;

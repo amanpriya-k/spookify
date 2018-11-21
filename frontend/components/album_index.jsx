@@ -1,10 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Link, withRouter } from 'react-router-dom';
-import { ProtectedRoute } from '../util/auth_route_util.js'
+import { Link, withRouter } from 'react-router-dom';
 import { fetchAllAlbums, fetchSavedAlbums, fetchSearchedAlbums } from './../actions/music_actions';
-import AlbumShow from './album_show';
-import BrowseNav from './browse_nav';
 import { css } from 'react-emotion';
 import { PulseLoader } from 'react-spinners';
 

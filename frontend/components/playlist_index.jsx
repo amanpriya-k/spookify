@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Link, withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { fetchAllPlaylists, fetchFollowedPlaylists, fetchSearchedPlaylists } from './../actions/music_actions';
 import { css } from 'react-emotion';
 import { PulseLoader } from 'react-spinners';

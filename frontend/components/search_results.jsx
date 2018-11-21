@@ -6,7 +6,6 @@ import ArtistIndex from './artist_index';
 import SongIndex from './song_index';
 import PlaylistIndex from './playlist_index';
 import UserIndex from './user_index';
-import * as Util from '../util/user_util';
 import { merge } from 'lodash';
 import { searchUsers } from '../actions/session_actions';
 
@@ -30,7 +29,6 @@ class SearchResults extends React.Component {
     if ( JSON.stringify(this.props.users) != JSON.stringify(newProps.users) ) {
       this.props.searchUsers(this.props.searchTerm)
       .then( () => this.setState({ users: newProps.users }) )
-      // this.setState({ users: newProps.users });
     }
   }
 

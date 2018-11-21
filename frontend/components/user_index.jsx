@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { refetchUserInfo } from '../actions/session_actions';
 import { openModal } from '../actions/modal_actions';
 import { css } from 'react-emotion';
 import { PulseLoader } from 'react-spinners';
