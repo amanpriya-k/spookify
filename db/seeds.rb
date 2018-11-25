@@ -391,9 +391,9 @@ dirtycomputer.cover.attach(io: dirtycomputer_cover, filename: 'dirtycomputer-alb
 
 ghost.saved_albums << dirtycomputer
 
-janesdream = Song.create(name: 'Janes Dream', album_id: dirtycomputer.id)
-janesdream_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/janelle-monae/04+Jane\'s+Dream.mp3')
-janesdream.audio.attach(io: janesdream_audio, filename: 'janesdream-audio.mp3')
+# janesdream = Song.create(name: 'Janes Dream', album_id: dirtycomputer.id)
+# janesdream_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/janelle-monae/04+Jane\'s+Dream.mp3')
+# janesdream.audio.attach(io: janesdream_audio, filename: 'janesdream-audio.mp3')
 dirtycomputersong = Song.create(name: 'Dirty Computer', album_id: dirtycomputer.id)
 dirtycomputersong_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/janellemonae/01+Dirty+Computer+(feat.+Brian+Wilson).mp3')
 dirtycomputersong.audio.attach(io: dirtycomputersong_audio, filename: 'dirtycomputersong-audio.mp3')
