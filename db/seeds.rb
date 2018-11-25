@@ -126,14 +126,14 @@ sweetener = Album.create(title: 'sweetener', artist_id: ariana.id)
 sweetener_cover = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/ariana/Layer+2.jpg')
 sweetener.cover.attach(io: sweetener_cover, filename: 'sweetener-album.jpg')
 
-godisawoman = Song.create(name: 'God is a woman', album_id: sweetener.id)
-godisawoman_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sweetener+-+ariana/05.+God+is+a+woman.mp3')
-godisawoman.audio.attach(io: godisawoman_audio, filename: 'godisawoman-audio.mp3')
-ghost.saved_songs << godisawoman
+# godisawoman = Song.create(name: 'God is a woman', album_id: sweetener.id)
+# godisawoman_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sweetener+-+ariana/05.+God+is+a+woman.mp3')
+# godisawoman.audio.attach(io: godisawoman_audio, filename: 'godisawoman-audio.mp3')
+# ghost.saved_songs << godisawoman
 
-raindrops = Song.create(name: 'raindrops', album_id: sweetener.id)
-raindrops_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sweetener+-+ariana/01.+raindrops+(an+angel+cried).mp3')
-raindrops.audio.attach(io: raindrops_audio, filename: 'raindrops-audio.mp3')
+# raindrops = Song.create(name: 'raindrops', album_id: sweetener.id)
+# raindrops_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sweetener+-+ariana/01.+raindrops+(an+angel+cried).mp3')
+# raindrops.audio.attach(io: raindrops_audio, filename: 'raindrops-audio.mp3')
 
 # delete some songs to see where error is coming from
 
@@ -141,17 +141,17 @@ lightiscoming = Song.create(name: 'The Light Is Coming', album_id: sweetener.id)
 lightiscoming_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/ariana/03.+the+light+is+coming+(feat.+Nicki+Minaj).mp3')
 lightiscoming.audio.attach(io: lightiscoming_audio, filename: 'lightiscoming-audio.mp3')
 
-borderline = Song.create(name: 'borderline', album_id: sweetener.id)
-borderline_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sweetener+-+ariana/11.+borderline+(feat.+Missy+Elliott).mp3')
-borderline.audio.attach(io: borderline_audio, filename: 'borderline-audio.mp3')
+# borderline = Song.create(name: 'borderline', album_id: sweetener.id)
+# borderline_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sweetener+-+ariana/11.+borderline+(feat.+Missy+Elliott).mp3')
+# borderline.audio.attach(io: borderline_audio, filename: 'borderline-audio.mp3')
 
-betteroff = Song.create(name: 'better off', album_id: sweetener.id)
-betteroff_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sweetener+-+ariana/12.+better+off.mp3')
-betteroff.audio.attach(io: betteroff_audio, filename: 'betteroff-audio.mp3')
+# betteroff = Song.create(name: 'better off', album_id: sweetener.id)
+# betteroff_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sweetener+-+ariana/12.+better+off.mp3')
+# betteroff.audio.attach(io: betteroff_audio, filename: 'betteroff-audio.mp3')
 
-petedavidson = Song.create(name: 'pete davidson', album_id: sweetener.id)
-petedavidson_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sweetener+-+ariana/14.+pete+davidson.mp3')
-petedavidson.audio.attach(io: petedavidson_audio, filename: 'petedavidson-audio.mp3')
+# petedavidson = Song.create(name: 'pete davidson', album_id: sweetener.id)
+# petedavidson_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/sweetener+-+ariana/14.+pete+davidson.mp3')
+# petedavidson.audio.attach(io: petedavidson_audio, filename: 'petedavidson-audio.mp3')
 
 sweetener_song = Song.create(name: 'sweetener', album_id: sweetener.id)
 sweetener_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/ariana/06.+sweetener.mp3')
@@ -189,15 +189,15 @@ humancondition.cover.attach(io: humancondition_cover, filename: 'humancondition-
 
 ghost.saved_albums << humancondition
 
-heisthesame = Song.create(name: 'He Is The Same', album_id: humancondition.id)
-heisthesame_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/jon-bellion/01-jon_bellion-he_is_the_same.mp3')
-heisthesame.audio.attach(io: heisthesame_audio, filename: 'heisthesame-audio.mp3')
-eightiesfilms = Song.create(name: '80\'s films', album_id: humancondition.id)
-eightiesfilms_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/jon-bellion/02-jon_bellion-80s_films.mp3')
-eightiesfilms.audio.attach(io: eightiesfilms_audio, filename: 'eightiesfilms-audio.mp3')
-alltimelow = Song.create(name: 'All Time Low', album_id: humancondition.id)
-alltimelow_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/jon-bellion/03-jon_bellion-all_time_low.mp3')
-alltimelow.audio.attach(io: alltimelow_audio, filename: 'alltimelow-audio.mp3')
+# heisthesame = Song.create(name: 'He Is The Same', album_id: humancondition.id)
+# heisthesame_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/jon-bellion/01-jon_bellion-he_is_the_same.mp3')
+# heisthesame.audio.attach(io: heisthesame_audio, filename: 'heisthesame-audio.mp3')
+# eightiesfilms = Song.create(name: '80\'s films', album_id: humancondition.id)
+# eightiesfilms_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/jon-bellion/02-jon_bellion-80s_films.mp3')
+# eightiesfilms.audio.attach(io: eightiesfilms_audio, filename: 'eightiesfilms-audio.mp3')
+# alltimelow = Song.create(name: 'All Time Low', album_id: humancondition.id)
+# alltimelow_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/jon-bellion/03-jon_bellion-all_time_low.mp3')
+# alltimelow.audio.attach(io: alltimelow_audio, filename: 'alltimelow-audio.mp3')
 newyorksoul = Song.create(name: 'New York Soul (pt. II)', album_id: humancondition.id)
 newyorksoul_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/jon-bellion/04-jon_bellion-new_york_soul_(pt_ii).mp3')
 newyorksoul.audio.attach(io: newyorksoul_audio, filename: 'newyorksoul-audio.mp3')
