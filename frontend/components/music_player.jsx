@@ -76,7 +76,7 @@ class ReactMusicPlayer extends React.Component {
   }
 
   play() {
-    this.props.setCurrentSong(this.state.active);
+    // this.props.setCurrentSong(this.state.active);
     this.setState({ playing: true });
     this.refs.player.play();
   }
