@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import shuffle from 'shuffle-array';
-import { setCurrentSong, toggleSong } from '../actions/music_player_actions';
+import { setCurrentSong, toggleSong, setQueue } from '../actions/music_player_actions';
 
 class ReactMusicPlayer extends React.Component {
 
@@ -125,6 +125,7 @@ class ReactMusicPlayer extends React.Component {
   randomize() {
     var s = shuffle(this.state.songs.slice());
     this.setState({ songs: (!this.state.random) ? s : this.state.songs, random: !this.state.random });
+    this.props.setQueue((!this.state.random) ? s : this.state.songs);
   }
 
   repeat() {
@@ -139,10 +140,7 @@ class ReactMusicPlayer extends React.Component {
   }
 
   render() {
-    
-
     const { active, playing, progress } = this.state;
-
    
     let coverClass = classnames('player-cover', {'no-height': !!!active.imageUrl });
     let playPauseClass = classnames('fa', {'fa-pause-circle': playing}, {'fa-play-circle': !playing});
