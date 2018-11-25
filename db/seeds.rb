@@ -173,8 +173,8 @@ notearsleft = Song.create(name: 'no tears left to cry', album_id: sweetener.id)
 notearsleft_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/ariana/10.+no+tears+left+to+cry.mp3')
 notearsleft.audio.attach(io: notearsleft_audio, filename: 'notearsleft-audio.mp3')
 
-a.songs << betteroff
-b.songs << raindrops
+a.songs << notearsleft
+b.songs << breathin
 
 # Jon Bellion
 
