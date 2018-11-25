@@ -18,7 +18,7 @@ class ReactMusicPlayer extends React.Component {
         repeat: false,
         mute: false,
         playing: props.playing || false,
-        songs: props.songs
+        songs: props.currQueue 
       }
     this.setProgress = this.setProgress.bind(this);
     this.updateProgress = this.updateProgress.bind(this);
@@ -226,10 +226,14 @@ class ReactMusicPlayer extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  currQueue: state.ui.musicPlayer.queue
+})
+
 const mapDispatchToProps = (dispatch) => ({
   setCurrentSong: (song) => (dispatch(setCurrentSong(song))),
   toggleSong: () => (dispatch(toggleSong())),
   setQueue: (queue) => (dispatch(setQueue(queue)))
 });
 
-export default connect(null, mapDispatchToProps)(ReactMusicPlayer);
+export default connect(mapStateToProps, mapDispatchToProps)(ReactMusicPlayer);
