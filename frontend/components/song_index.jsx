@@ -108,7 +108,8 @@ class SongIndex extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  songs: Object.values(state.entities.songs)
+  songs: Object.values(state.entities.songs),
+  currentSong: state.ui.musicPlayer.currentSong
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -28,11 +28,9 @@ const musicPlayerReducer = (state = nullState, action) => {
 
   switch(action.type) {
     case SET_CURRENT_SONG:
-      // debugger
       newState.currentSong = action.song;
       return newState;
     case TOGGLE_SONG:
-      // let newState = merge({}, state);
       if (newState.playing === true) {
         newState.playing = false;
       } else {
@@ -40,16 +38,12 @@ const musicPlayerReducer = (state = nullState, action) => {
       }
       return newState;
     case SET_QUEUE:
-      // debugger
-      // let newState = merge({}, state);
       newState.queue = action.queue;
       return newState;
     case ADD_TO_QUEUE:
-      // let newState = merge({}, state);
       newState.queue.push(action.song);
       return newState;
     default:
-      // debugger
       return state;
   }
 }
