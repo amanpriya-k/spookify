@@ -206,7 +206,7 @@ guillotine = Song.create(name: 'Guillotine (ft. Travis Scott)', album_id: humanc
 guillotine_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/jonbellion/13-jon_bellion-guillotine_(feat_travis_mendes).mp3')
 guillotine.audio.attach(io: guillotine_audio, filename: 'guillotine-audio.mp3')
 ghost.saved_songs << guillotine
-handofgod = Song.create(name: 'Hand of God)', album_id: humancondition.id)
+handofgod = Song.create(name: 'Hand of God', album_id: humancondition.id)
 handofgod_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/jonbellion/14-jon_bellion-hand_of_god_(outro).mp3')
 handofgod.audio.attach(io: handofgod_audio, filename: 'handofgod-audio.mp3')
 irobot = Song.create(name: 'iRobot', album_id: humancondition.id)
