@@ -222,9 +222,9 @@ morninginamerica = Song.create(name: 'Morning In America', album_id: humancondit
 morninginamerica_audio = EzDownload.open('https://s3-us-west-1.amazonaws.com/spookify-dev/jon-bellion/11-jon_bellion-morning_in_america.mp3')
 morninginamerica.audio.attach(io: morninginamerica_audio, filename: 'morninginamerica-audio.mp3')
 
-a.songs << maybeidk
-b.songs << guillotine
-c.songs << alltimelow
+a.songs << newyorksoul
+b.songs << handofgod
+c.songs << morninginamerica
 
 # Hozier
 
