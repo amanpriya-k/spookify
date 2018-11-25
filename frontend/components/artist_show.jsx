@@ -39,7 +39,7 @@ class ArtistShow extends React.Component {
 
   handlePlay() {
     this.props.setCurrentSong(this.props.songs[0]);
-    this.props.setQueue(this.props.queue);
+    this.props.setQueue(this.props.songs);
     this.props.toggleSong();
   }
 
@@ -101,11 +101,6 @@ class ArtistShow extends React.Component {
     } else {
       null;
     }
-
-    // {Object.values(artist.songs).map(
-    //   (song, idx) =>
-    //   ( <SongIndexItem key={idx} song={song}></SongIndexItem> )
-    // )}
 
     return(
       <div className="artist-show-container">
