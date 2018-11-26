@@ -8,6 +8,13 @@ Spookify is a music streaming service in which you can save your favorite songs 
 
 The project was built in 10 days, and more features will be added over time.
 
+
+----
+
+## Technologies
+
+This project was built with a Ruby on Rails backend which stores all the data with PostgreSQL database and utilizes Rails ActiveStorage by uploading image and music files to Amazon S3. React and Redux were used on the frontend to make it a single-page application with seamless navigation and dynamic updating (for example, saving songs and following user actions are immediately displayed).
+
 ---
 
 ## Features
@@ -74,12 +81,6 @@ Users can create, add to/remove songs from, and delete playlists. Most of these 
 ![alt text](https://github.com/amanpriya-k/spookify/blob/master/create-playlist.png)
 ![alt text](http://g.recordit.co/SzcvyMMzG8.gif)
 
-
-----
-
-## Technologies
-
-This project was built with a Ruby on Rails backend which stores all the data with Postgresql database and utilized Rails ActiveStorage by uploading image and music files to Amazon S3. React and Redux were used on the frontend to make it a single-page application with seamless navigation and dynamic updating (for example, saving songs and following user actions are immediately displayed).
 
 ---
 
