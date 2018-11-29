@@ -117,6 +117,7 @@ class ReactMusicPlayer extends React.Component {
     var active = this.state.songs[current];
 
     this.setState({ current: current, active: active, progress: 0 });
+    this.props.setCurrentSong(active);
 
     this.refs.player.src = active.audioUrl;
     this.play();
